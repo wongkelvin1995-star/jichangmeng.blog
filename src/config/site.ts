@@ -52,8 +52,8 @@ export const site = {
 
   /** 站长提供的 Telegram 链接：页脚“本站说明”旁和顶部导航“搜索”旁的纸飞机图标使用。 */
   telegram: 'https://t.me/+362P1c5l2QU3OTU1',
-  /** GitHub 链接：站长还没提供（2026-11-06）。填上后，顶部导航“搜索”旁会显示 GitHub 图标。 */
-  github: null as string | null,
+  /** GitHub 链接（站长 2026-11-06 要求放在 TG 图标旁）：网站的公开仓库。填 null 则顶部导航不显示 GitHub 图标。 */
+  github: 'https://github.com/wongkelvin1995-star/jichangmeng.blog' as string | null,
   /** 首页“需求入口”上方的站长主推模块（站长 2026-11-06 指定灵动云），内容全部从数据层读取。 */
   spotlight: {
     brandId: 'lingdongyun',
