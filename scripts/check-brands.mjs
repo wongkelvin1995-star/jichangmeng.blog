@@ -3,6 +3,7 @@
 // 只检查、不修正：发现资料冲突时保留状态，不为了通过而删除记录或填默认值。
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { homedir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { parseBrandMd, textValue } from './lib/parse-brand-md.mjs';
 
@@ -153,7 +154,9 @@ check(byId.get('flyv')?.pricingPriority === 'owner-version', '飞V 应按站长�
 for (const brand of brands) for (const test of brand.thirdPartyTests ?? []) check(test.firstParty === false && test.evidence, `${brand.id}：第三方测试不能标为本站实测`);
 
 // 8. 未知值原样保留：品牌 MD 里写的文字，在数据层中逐字存在（不被换成 0、false、无限制）。
-const sourceDir = [rules.batch.defaultSourceDir, join(root, rules.batch.snapshotDir)].find((dir) => existsSync(dir));
+// defaultSourceDir 用 ~ 表示用户主目录；Cloudflare 上两处都找不到时跳过逐字核对（只提醒）。
+const homeDir = (path) => (path?.startsWith('~') ? join(homedir(), path.slice(1)) : path);
+const sourceDir = [homeDir(rules.batch.defaultSourceDir), join(root, rules.batch.snapshotDir)].find((dir) => dir && existsSync(dir));
 if (sourceDir) {
   const FIELDS = [
     ['设备与客户端', '订阅链接', (b) => b.client.subscription.text],

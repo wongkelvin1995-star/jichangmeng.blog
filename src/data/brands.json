@@ -9,7 +9,7 @@
   "siteClientRecommendation": "本站优先建议从服务商正式渠道获取客户端；具体客户端和订阅支持情况以各品牌当前说明为准。",
   "inputs": {
     "baseSha256": "9a97c81d634757df27c3241eb1e1bf2ff0fb4867b40f7fa7b93007476056cb64",
-    "rulesSha256": "a20952fca7968aa89b79fea980d45db7d83ac1498f1702bbf9bf21576482af6f",
+    "rulesSha256": "5891cd11c881073a83870ba60151b892e90f5922dac949ce945310a1ed1607d3",
     "files": [
       {
         "file": "00_官网客户端说明.md",

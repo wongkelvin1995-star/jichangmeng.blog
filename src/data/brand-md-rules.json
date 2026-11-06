@@ -5,7 +5,7 @@
     "id": "md-2026-11-06",
     "label": "机场MD 资料批次",
     "collectedOn": "2026-11-06",
-    "defaultSourceDir": "C:\\Users\\USERR\\Desktop\\MD AND SEO\\机场MD",
+    "defaultSourceDir": "~/Desktop/MD AND SEO/机场MD",
     "snapshotDir": "materials/md-batch-2026-11-06",
     "sourceStatement": "资料方根据多个第三方博客整理；总目录注明来源 jichangjiedian.blog（2026-11-06 核对）。差异报告列出的冲突尚待站长确认。",
     "readerSourceLabel": "第三方博客整理的资料批次",

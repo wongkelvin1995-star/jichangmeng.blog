@@ -15,6 +15,7 @@
  */
 import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseBrandMd, textValue } from './lib/parse-brand-md.mjs';
@@ -33,10 +34,12 @@ const args = process.argv.slice(2);
 const takeSnapshot = args.includes('--snapshot');
 const explicitDir = args.find((arg) => !arg.startsWith('--'));
 const snapshotDir = join(ROOT, batch.snapshotDir);
+// defaultSourceDir 用 ~ 表示用户主目录（2026-11-06：仓库公开，不写本机用户名）。
+const defaultSourceDir = batch.defaultSourceDir?.startsWith('~') ? join(homedir(), batch.defaultSourceDir.slice(1)) : batch.defaultSourceDir;
 const sourceDir = explicitDir
   ? resolve(explicitDir)
-  : existsSync(batch.defaultSourceDir)
-    ? batch.defaultSourceDir
+  : defaultSourceDir && existsSync(defaultSourceDir)
+    ? defaultSourceDir
     : snapshotDir;
 
 const failures = [];

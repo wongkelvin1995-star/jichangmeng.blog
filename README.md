@@ -79,7 +79,7 @@ updatedAt: 2026-11-05
 
 **发布文章**：把 `src/content/guides/_template.md` 复制为 `<英文短名>.md`，填写内容和真实日期，设置 `draft: false`。对比和样本文章用同样的字段，放进对应目录。`relatedPaths` 控制文末的相关内容，内容改动后要更新 `updatedAt`，sitemap 的 `lastmod` 读取这个日期。
 
-**SEO 关键词计划**（`C:\Users\USERR\Desktop\MD AND SEO\SEO_KEYWORD_PLAN.md`）：站点角度写在 `src/config/site.ts` 的 `angle`：品牌型 + 新手陪伴型，以“我们”的语气写作，重点做图文新手教程和本站使用说明，推荐类大词改写为品牌介绍，不做第三方机场排行榜。2026-11-06 完成第 1 批：新增 5 篇（新手教程、订阅链接、Clash 下载、第三方客户端导入、机场梦使用说明），改写 3 篇旧文（连不上、测速、IEPL 和 IPLC 区别），网址不变。同日完成第 2 批：新增科学上网入门（支柱页）和便宜、稳定、ChatGPT、节点 4 篇推荐类长尾；“机场套餐推荐”改写自原来的月付年付对比文章，网址不变。推荐类文章不排名、不放推广链接，文中也写明这一点。同日完成第 3 批：机场推荐（`/guides/jichang-tuijian-zenme-kan/`）和梯子推荐（`/guides/tizi-shi-shenme/`）两篇品牌介绍支柱页；首页标题改为以品牌为主，“机场推荐”这个词只由前一篇承接。Clash Verge Rev 教程和 Clash 导入订阅两篇需要最新版客户端的真实截图，站长决定先不写（2026-11-06）。之后按计划第 6 节持续维护：推荐类页面在资料变化时更新，长尾文章陆续新增。`verify-dist` 会检查这些页面的主关键词位置、相关文章、最后更新日期、结构化数据和一词一页。正文里的“## 常见问题”会生成 FAQPage；frontmatter 写 `howTo: true` 的教程，会按“### 第 N 步：…”生成 HowTo。
+**SEO 关键词计划**（站长本机的 `SEO_KEYWORD_PLAN.md`，不在仓库里）：站点角度写在 `src/config/site.ts` 的 `angle`：品牌型 + 新手陪伴型，以“我们”的语气写作，重点做图文新手教程和本站使用说明，推荐类大词改写为品牌介绍，不做第三方机场排行榜。2026-11-06 完成第 1 批：新增 5 篇（新手教程、订阅链接、Clash 下载、第三方客户端导入、机场梦使用说明），改写 3 篇旧文（连不上、测速、IEPL 和 IPLC 区别），网址不变。同日完成第 2 批：新增科学上网入门（支柱页）和便宜、稳定、ChatGPT、节点 4 篇推荐类长尾；“机场套餐推荐”改写自原来的月付年付对比文章，网址不变。推荐类文章不排名、不放推广链接，文中也写明这一点。同日完成第 3 批：机场推荐（`/guides/jichang-tuijian-zenme-kan/`）和梯子推荐（`/guides/tizi-shi-shenme/`）两篇品牌介绍支柱页；首页标题改为以品牌为主，“机场推荐”这个词只由前一篇承接。Clash Verge Rev 教程和 Clash 导入订阅两篇需要最新版客户端的真实截图，站长决定先不写（2026-11-06）。之后按计划第 6 节持续维护：推荐类页面在资料变化时更新，长尾文章陆续新增。`verify-dist` 会检查这些页面的主关键词位置、相关文章、最后更新日期、结构化数据和一词一页。正文里的“## 常见问题”会生成 FAQPage；frontmatter 写 `howTo: true` 的教程，会按“### 第 N 步：…”生成 HowTo。
 
 **教程截图**：只截本站自己的页面。先 `npm run build` 并 `npm run preview`，再运行 `node scripts/capture-guide-shots.mjs`（用本机 Edge 或 Chrome 的无界面模式，宽 390px、2 倍清晰度）。原图存 `materials/guide-screenshots/<日期>/`，公开版本在 `public/assets/guides/`。界面改动后重新运行，图片尺寸变了要同步改文章里 `<img>` 的 width 和 height。只截其中几张时，把名称写在命令后面。文章里的 `<img>` 直接用脚本打印的写法：`srcset` 写像素宽度（例如 `780w`）并配 `sizes`。不要只写 `2x`，否则 1 倍屏会按原图像素放大显示；`verify-dist` 会拦下这种写法。截图的显示宽度由 `global.css` 里的 `.prose .shot img[width="390"]`、`[width="784"]` 决定，图片加载前就按这个宽度占位；新截图用了别的宽度时要补一条同样的规则，否则桌面上图片加载时下面的内容会跳动，`verify-dist` 也会报错。
 
@@ -110,6 +110,9 @@ Cloudflare Pages 配置：
 - 构建命令：`npm run build:production`。用后台默认的 `npm run build` 也可以：在 Cloudflare 的正式分支上构建时（环境变量 `CF_PAGES=1`，且分支等于 `site.config.json` 的 `productionBranch`，默认 `main`），会自动按正式版构建，开放索引并输出 canonical 和 sitemap。其他分支的预览部署仍然 noindex。判断逻辑在 `scripts/site-mode.mjs`，构建日志最后一行会写明用了哪种模式。正式分支不叫 `main` 时，要先改 `productionBranch`。
 - 如果是在本机构建后再用 Direct Upload 上传，Cloudflare 不会参与判断，必须先运行 `npm run build:production`。
 - 输出目录：`dist`
+- 根目录：留空（仓库根目录）。
+- Node 版本：Astro 7 需要 Node 22.23.4 以上。仓库根目录的 `.node-version`（26，和本机测试用的版本一致）会被 Cloudflare 自动读取；也可以在环境变量里设 `NODE_VERSION=26`。
+- 依赖锁文件里的下载地址是 npmmirror（本机 npm 用的镜像），Cloudflare 一般也能正常下载。如果安装依赖时报超时，可以在环境变量里加 `NPM_CONFIG_REGISTRY=https://registry.npmjs.org/` 和 `NPM_CONFIG_REPLACE_REGISTRY_HOST=registry.npmmirror.com`。
 - 响应头写在 `public/_headers`（只用 ASCII 字符）：`/_astro/` 下的文件名带内容哈希，长期缓存；`/assets/` 下的图片换图时常沿用原文件名（教程截图重新截取、资料包里的 Logo），只缓存一天，避免老访客看到旧图；全站加 `X-Content-Type-Options`、`Referrer-Policy` 和禁止被其他网站嵌入的 `X-Frame-Options: DENY`。HTTPS 跳转、www 与非 www 的统一和 HSTS 在 Cloudflare 后台设置。
 
 上线后：
