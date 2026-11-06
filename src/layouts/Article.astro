@@ -1,0 +1,96 @@
+---
+// 正文页统一布局：标题、导语、目录、正文和相关内容。品牌页额外显示标识和推广入口。
+import Base from './Base.astro';
+import AffiliateLink from '../components/AffiliateLink.astro';
+import BrandLogo from '../components/BrandLogo.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { day, getContentIndex } from '../lib/content';
+import { statusLabel, type Airport } from '../lib/airports';
+import { breadcrumbJsonLd } from '../lib/seo';
+
+interface Props {
+  title: string;
+  heading: string;
+  description: string;
+  kindLabel: string;
+  crumbs: { label: string; href?: string }[];
+  toc: { id: string; text: string }[];
+  relatedPaths: string[];
+  publishedAt?: Date;
+  updatedAt?: Date;
+  jsonLd?: object | object[];
+  draft?: boolean;
+  airport?: Airport;
+}
+
+const { title, heading, description, kindLabel, crumbs, toc, relatedPaths, publishedAt, updatedAt, jsonLd, draft, airport } = Astro.props;
+
+const index = await getContentIndex();
+const related = relatedPaths
+  .filter((path) => path !== Astro.url.pathname)
+  .map((path) => index.find((page) => page.path === path))
+  .filter((page) => page !== undefined);
+---
+
+<Base title={title} description={description} ogType="article" jsonLd={[breadcrumbJsonLd(crumbs), ...(jsonLd ? [jsonLd].flat() : [])]}>
+  <div class="wrap" data-pagefind-body>
+    <header class="page-head">
+      <Breadcrumbs items={crumbs} />
+      <div class:list={{ 'detail-head': Boolean(airport) }}>
+        {airport && <BrandLogo airport={airport} instance="detail" />}
+        <div>
+          <p class="article-kind" data-pagefind-ignore>{kindLabel}</p>
+          <h1>{heading}</h1>
+          <p>{description}</p>
+          <p class="article-dates" data-pagefind-ignore>
+            {updatedAt && `最后更新：${day(updatedAt)}`}
+            {publishedAt && `${updatedAt ? ' · ' : ''}首次发布：${day(publishedAt)}`}
+          </p>
+          {
+            airport && (
+              <div class="detail-head__actions" data-pagefind-ignore>
+                {airport.affiliateUrl ? (
+                  <>
+                    <AffiliateLink href={airport.affiliateUrl} name={airport.name} />
+                    <small>推广链接 · {statusLabel(airport)}</small>
+                  </>
+                ) : (
+                  <small>推广链接待确认 · {statusLabel(airport)}</small>
+                )}
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </header>
+
+    <div class="article-layout">
+      {
+        toc.length > 1 && (
+          <nav class="toc" aria-label="本页目录" data-pagefind-ignore>
+            <p class="toc__title">本页目录</p>
+            <ol>
+              {toc.map((item) => <li><a href={`#${item.id}`}>{item.text}</a></li>)}
+            </ol>
+          </nav>
+        )
+      }
+      <article class="prose">
+        {draft && <p class="notice notice--draft">这是未发布的草稿，待审核后发布。</p>}
+        <slot />
+        {
+          related.length > 0 && (
+            <section class="related" aria-labelledby="related-title" data-pagefind-ignore>
+              <h2 id="related-title">相关文章</h2>
+              <ul class="link-list">
+                {related.map((page) => (
+                  <li><a href={page.path}>{page.title}</a><span>{page.description}</span></li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+      </article>
+    </div>
+  </div>
+</Base>

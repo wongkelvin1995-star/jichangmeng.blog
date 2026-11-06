@@ -1,0 +1,430 @@
+---
+// 品牌详情页：评析正文 + 按结构化数据渲染的套餐、优惠、线路、客户端与资料来源。
+// 只为编辑稿 draft:false 的品牌生成；其余品牌留在目录，本地审稿用 npm run build:drafts。
+import { render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import {
+  batch,
+  billingLabel,
+  brandById,
+  clientStatusLabel,
+  couponExceptionNames,
+  couponTerms,
+  formatYuan,
+  getPublishedEditorials,
+  isCandidateQuote,
+  isRecordedOnlyCoupon,
+  monthlyEquivalent,
+  nodeCount,
+  planTypeLabel,
+  pricingImagesOf,
+  pricingScreenshotsHidden,
+  publicConflicts,
+  quoteCouponNote,
+  quoteNote,
+  quoteStatusLabel,
+  readerText,
+  recordedCouponNote,
+  siteClientRecommendation,
+  sortedQuotes,
+  trafficAmount,
+  trafficCycle,
+  usesPricingScreenshots,
+  withoutRankings,
+} from '../../lib/airports';
+import { KIND_LABEL, brandPageUpdatedAt, day } from '../../lib/content';
+import { articleJsonLd } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const entries = await getPublishedEditorials();
+  return entries.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const airport = brandById(entry.id)!;
+const { Content, headings } = await render(entry);
+const crumbs = [{ label: '首页', href: '/' }, { label: '机场资料', href: '/airports/' }, { label: airport.name }];
+const coupon = airport.coupons[0] ?? null;
+const terms = coupon ? couponTerms(coupon) : null;
+const exceptions = couponExceptionNames(airport);
+const heading = entry.data.title ?? `${airport.name}资料评析`;
+const dataDate = airport.sourceUpdatedOn ?? batch.collectedOn;
+const summary =
+  entry.data.summary ??
+  `${airport.name}的套餐、付款周期、地区线路、客户端说明与已知限制，资料日期 ${dataDate}，未核验官网。`;
+const lineNote =
+  airport.lineTypesStatus === 'conflicting-reference' ? '（来源说法不一致，未确认）' : '（资料列示，未实测验证）';
+const fromScreenshots = usesPricingScreenshots(airport);
+const shots = pricingImagesOf(airport.id);
+// 价格按截图整理、但站长决定不展示截图的品牌（微风网络，2026-11-06）：说明一句，读者不必在页面上找图。
+const shotsHidden = fromScreenshots && pricingScreenshotsHidden(airport.id);
+const quotes = sortedQuotes(airport.packages);
+const candidateCount = quotes.filter(isCandidateQuote).length;
+const conflicts = publicConflicts(airport);
+const profile = airport.profile;
+const strengths = withoutRankings(profile?.strengths);
+const positioning = withoutRankings(profile?.positioning);
+const hasProfile = Boolean(positioning || strengths || profile?.audience);
+const network = airport.network;
+const client = airport.client;
+const claims = airport.claims;
+const hasClaims = Boolean(claims && (claims.streaming || claims.ai || claims.crossBorder || claims.ipText));
+const tests = airport.thirdPartyTests ?? [];
+const service = airport.service;
+const hasService = Boolean(service && (service.channels || service.hours || service.refund || service.trial || service.payment || service.antiFraud.length || service.notes.length));
+const mdCoupon = airport.mdCoupon ?? null;
+const operating = airport.operatingStatus?.text ? airport.operatingStatus : null;
+
+// 页面“最后更新”和结构化数据的修改日期：正文日期与资料批次日期取较晚的一个（来源列表里仍分别写正文和批次日期）。
+const pageUpdatedAt = brandPageUpdatedAt(airport, entry.data.updatedAt);
+
+const planIntro = fromScreenshots
+  ? `以下按站长提供的套餐截图整理${shotsHidden ? '（截图不在本站展示）' : ''}，只含图中可见的方案，不一定是全部套餐${candidateCount ? `；另有 ${candidateCount} 条资料批次另列、截图中未见的报价，只作候选列在最后，不参与价格比较` : ''}。`
+  : airport.pricingPriority === 'owner-version'
+    ? '以下按站长提供的资料整理，仍未核验官网结算。'
+    : airport.pricingPriority === 'md-batch'
+      ? '以下整理自第三方博客的资料批次，只有单一或少数来源，未核验官网。'
+      : '以下合并了参考资料的代表报价和资料批次补充的付款周期，不一定是完整套餐表；两者说法不同的档位标为冲突。';
+
+const toc = [
+  ...(operating ? [{ id: 'status', text: '运营状态' }] : []),
+  ...headings.filter((item) => item.depth === 2).map((item) => ({ id: item.slug, text: item.text })),
+  ...(hasProfile ? [{ id: 'profile', text: '品牌定位与适合人群' }] : []),
+  { id: 'plan-details', text: '套餐价格与付款周期' },
+  ...(coupon || mdCoupon ? [{ id: 'coupon', text: '优惠码与邀请码' }] : []),
+  { id: 'network', text: '节点与线路' },
+  { id: 'client', text: '客户端与订阅' },
+  ...(hasClaims || tests.length ? [{ id: 'claims', text: '流媒体、AI 声明与测试记录' }] : []),
+  ...(hasService ? [{ id: 'service', text: '客服、退款与试用' }] : []),
+  ...(conflicts.length ? [{ id: 'conflicts', text: '来源差异与待确认事项' }] : []),
+  ...(shots.length ? [{ id: 'screenshots', text: '套餐截图' }] : []),
+  { id: 'sources', text: '资料来源与更新记录' },
+];
+---
+
+<Article
+  title={entry.data.seoTitle ?? `${airport.name}套餐资料与选购分析｜机场梦`}
+  heading={heading}
+  description={summary}
+  kindLabel={KIND_LABEL.brand}
+  crumbs={crumbs}
+  toc={toc}
+  relatedPaths={entry.data.relatedPaths}
+  publishedAt={entry.data.publishedAt}
+  updatedAt={pageUpdatedAt}
+  draft={entry.data.draft}
+  airport={airport}
+  jsonLd={articleJsonLd({
+    type: 'Article',
+    headline: heading,
+    description: summary,
+    path: Astro.url.pathname,
+    publishedAt: entry.data.publishedAt,
+    updatedAt: pageUpdatedAt,
+  })}
+>
+  {
+    operating && (
+      <>
+        <h2 id="status">运营状态</h2>
+        <p class="notice notice--warn">{operating.text}</p>
+      </>
+    )
+  }
+
+  <Content />
+
+  {
+    hasProfile && (
+      <>
+        <h2 id="profile">品牌定位与适合人群</h2>
+        <p>以下是资料批次的描述，属于服务商或资料方的说法，本站未核验。</p>
+        <div class="table-wrap">
+          <table class="kv">
+            <tbody>
+              {positioning && <tr><th>定位</th><td>{positioning}</td></tr>}
+              {strengths && <tr><th>资料所写优势</th><td>{strengths}</td></tr>}
+              {profile?.audience && <tr><th>适合人群</th><td>{profile.audience}</td></tr>}
+            </tbody>
+          </table>
+        </div>
+      </>
+    )
+  }
+
+  <h2 id="plan-details">套餐价格与付款周期</h2>
+  <p>
+    {planIntro}
+    金额是一次付款的标价，未代入优惠码，也未核验结算；季付、半年付和年付的每月额度不是整段时间的总量，一次性流量包是总量；资料缺少的付款周期保持空缺，不按折扣推算。
+  </p>
+  <div class="table-wrap">
+    <table class="plan-table">
+      <thead>
+        <tr><th>套餐</th><th>付款周期</th><th>一次付款标价</th><th>流量额度</th><th>流量周期</th><th>状态</th></tr>
+      </thead>
+      <tbody>
+        {
+          quotes.map((quote) => {
+            const equivalent = monthlyEquivalent(quote);
+            const note = quoteNote(quote);
+            const couponNote = quoteCouponNote(coupon, quote);
+            return (
+              <tr class:list={{ 'is-candidate': isCandidateQuote(quote) }}>
+                <td>
+                  {quote.name}
+                  <br /><small>{planTypeLabel(quote)}</small>
+                  {note && <><br /><small>{note}</small></>}
+                  {quote.nameNotes && <><br /><small>{readerText(quote.nameNotes)}</small></>}
+                  {quote.md?.mdName && <><br /><small>资料批次名称：{quote.md.mdName}</small></>}
+                  {couponNote && <><br /><small>{couponNote}</small></>}
+                  {quote.resetOption && <><br /><small>重置：{quote.resetOption.text}</small></>}
+                </td>
+                <td>{billingLabel(quote)}</td>
+                <td>{formatYuan(quote.amount)}{equivalent && <><br /><small>算术折合约 {formatYuan(Number(equivalent.toFixed(2)))}/月，不可按此月付</small></>}</td>
+                <td>{trafficAmount(quote)}</td>
+                <td>{trafficCycle(quote)}</td>
+                <td>
+                  {quoteStatusLabel(quote)}
+                  {(quote.flags ?? []).map((flag) => <><br /><small>{flag}</small></>)}
+                </td>
+              </tr>
+            );
+          })
+        }
+      </tbody>
+    </table>
+  </div>
+  {
+    (airport.trafficRules?.length ?? 0) > 0 && (
+      <>
+        <h3>流量与重置规则（资料记录）</h3>
+        <ul>{airport.trafficRules!.map((rule) => <li>{rule}</li>)}</ul>
+      </>
+    )
+  }
+
+  {
+    (coupon || mdCoupon) && (
+      <>
+        <h2 id="coupon">优惠码与邀请码</h2>
+        {coupon && (
+          <div class="coupon">
+            <span>优惠码 <code>{coupon.code}</code></span>
+            <button class="coupon__copy" type="button" data-copy={coupon.code} hidden>复制</button>
+            <span class="coupon__note">{isRecordedOnlyCoupon(coupon) ? recordedCouponNote(coupon) : terms ?? '实际折扣、有效期、新购或续费条件均未核验'}</span>
+          </div>
+        )}
+        {terms && !isRecordedOnlyCoupon(coupon) && <p>这是站长确认的活动规则，未经官网结算核验。有效期、新购或续费资格、能否叠加及其他套餐例外仍需核对；上表金额是未代入优惠码的标价，实际支付以结算页为准。</p>}
+        {coupon && isRecordedOnlyCoupon(coupon) && <p>站长尚未确认这家的优惠规则。资料没有写有效期，不代表长期有效，也不代表已经失效；请在结算页确认折扣是否生效。</p>}
+        {exceptions.length > 0 && <p>单独标注不可用优惠码的套餐：{exceptions.join('、')}。</p>}
+        {airport.referenceCouponCode && coupon && <p>套餐截图里还出现了 <code>{airport.referenceCouponCode}</code>，这是图中自带的代码；本站收录的优惠码仍是 <code>{coupon.code}</code>，两者不混用。</p>}
+        {(coupon?.referenceRestrictionNotes?.length ?? 0) > 0 && (
+          <p>参考资料列出的活动限制：{coupon!.referenceRestrictionNotes!.join('、')}。限制可能只针对特定活动，请以结算页为准。</p>
+        )}
+        {mdCoupon && (
+          <>
+            <h3>资料批次的记录（{batch.collectedOn}）</h3>
+            <div class="table-wrap">
+              <table class="kv">
+                <tbody>
+                  <tr><th>优惠码</th><td><code>{mdCoupon.code}</code>{coupon && mdCoupon.code !== coupon.code && '（与本站收录的不同，见下方待确认事项）'}</td></tr>
+                  <tr><th>折扣</th><td>{mdCoupon.discountText ?? '资料未写'}</td></tr>
+                  {mdCoupon.applicable && <tr><th>适用套餐</th><td>{mdCoupon.applicable}</td></tr>}
+                  {mdCoupon.excluded && <tr><th>不适用</th><td>{mdCoupon.excluded}</td></tr>}
+                  {mdCoupon.limits && <tr><th>使用限制</th><td>{mdCoupon.limits}</td></tr>}
+                  <tr><th>能否叠加</th><td>{mdCoupon.stacking ?? '资料未写'}</td></tr>
+                  <tr><th>有效期</th><td>资料未写（不代表长期有效，也不代表已失效）</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>以上是资料记录的优惠码，结算时确认。</p>
+          </>
+        )}
+        {airport.inviteCode && (
+          <p>邀请码：推广链接里带有邀请参数 <code>{airport.inviteCode}</code>，用于注册归属，和结算时填写的优惠码不是一回事。</p>
+        )}
+      </>
+    )
+  }
+
+  <h2 id="network">节点与线路</h2>
+  <div class="table-wrap">
+    <table class="kv">
+      <tbody>
+        {nodeCount(airport) && <tr><th>节点数量</th><td>{nodeCount(airport)}（资料口径，不是当前在线数）</td></tr>}
+        {airport.regions && airport.regions.length > 0 && <tr><th>地区</th><td>{airport.regions.join('、')}</td></tr>}
+        {network?.regionsText && <tr><th>资料批次记载</th><td>{network.regionsText}</td></tr>}
+        {(network?.regionCounts.length ?? 0) > 0 && (
+          <tr><th>分区节点数</th><td>{network!.regionCounts.map((item) => `${item.region} ${item.count}${item.line ? `（${item.line}）` : ''}`).join('、')}</td></tr>
+        )}
+        {airport.lineTypes && airport.lineTypes.length > 0 && <tr><th>线路</th><td>{airport.lineTypes.join('、')}{lineNote}</td></tr>}
+        {network?.lineText && <tr><th>线路说明</th><td>{network.lineText}</td></tr>}
+        {network?.multiplierText && <tr><th>倍率</th><td>{network.multiplierText}</td></tr>}
+        {airport.protocols && airport.protocols.length > 0 && <tr><th>协议</th><td>{airport.protocols.join('、')}</td></tr>}
+        {airport.deviceLimitText && <tr><th>设备</th><td>{readerText(airport.deviceLimitText)}</td></tr>}
+      </tbody>
+    </table>
+  </div>
+  {(network?.doubts.length ?? 0) > 0 && <ul>{network!.doubts.map((text) => <li>{text}</li>)}</ul>}
+
+  {
+    (airport.providerClaims?.length ?? 0) > 0 && (
+      <>
+        <h3>参考资料中的其他说明</h3>
+        <ul>{airport.providerClaims!.map((claim) => <li>{readerText(claim)}</li>)}</ul>
+      </>
+    )
+  }
+
+  <h2 id="client">客户端与订阅</h2>
+  <p class="notice"><strong>本站建议：</strong>{siteClientRecommendation}</p>
+  {
+    client ? (
+      <>
+        <p>下面是资料批次对这家服务商的记录，资料方是第三方博客，没有附服务商的原始公告或日期，本站不把它当作服务商的正式政策。</p>
+        <div class="table-wrap">
+          <table class="kv">
+            <tbody>
+              <tr><th>使用方式</th><td>{client.usage ?? '资料未写'}</td></tr>
+              <tr><th>订阅链接</th><td><strong>{clientStatusLabel(client.subscription.status)}</strong>{client.subscription.text && `：${client.subscription.text}`}</td></tr>
+              <tr><th>第三方客户端</th><td><strong>{clientStatusLabel(client.thirdParty.status)}</strong>{client.thirdParty.text && `：${client.thirdParty.text}`}</td></tr>
+              {client.restoreTime === 'unknown' && (
+                <>
+                  <tr><th>公告出处</th><td>未确认：资料没有附出处和日期，这份暂停说明是否由该品牌发布待确认</td></tr>
+                  <tr><th>恢复时间</th><td>未知</td></tr>
+                </>
+              )}
+              <tr><th>支持系统</th><td>{client.systems ?? '资料未写'}</td></tr>
+              {client.otherDevices && <tr><th>其他设备</th><td>{client.otherDevices}</td></tr>}
+              <tr><th>设备数</th><td>{client.devices ?? '资料未写'}</td></tr>
+              <tr><th>下载渠道</th><td>{client.download ?? '资料未写'}</td></tr>
+              {client.note && <tr><th>说明</th><td>{client.note}</td></tr>}
+            </tbody>
+          </table>
+        </div>
+        <p>本站没有这家的客户端下载地址；需要下载时，请从上方推广入口进入服务商页面查看，不要使用网盘或他人转发的安装包。</p>
+      </>
+    ) : (
+      <p>资料没有这家服务商的客户端说明，暂未确认。</p>
+    )
+  }
+
+  {
+    (hasClaims || tests.length > 0) && (
+      <>
+        <h2 id="claims">流媒体、AI 声明与测试记录</h2>
+        {hasClaims && (
+          <>
+            <p>以下是服务商或资料方的声明，不是本站测试结果；能否使用会随节点和时间变化。</p>
+            <div class="table-wrap">
+              <table class="kv">
+                <tbody>
+                  {claims!.ipText && <tr><th>IP 说明</th><td>{claims!.ipText}</td></tr>}
+                  {claims!.streaming && <tr><th>流媒体</th><td>{claims!.streaming}</td></tr>}
+                  {claims!.ai && <tr><th>AI 工具</th><td>{claims!.ai}</td></tr>}
+                  {claims!.crossBorder && <tr><th>跨境 / 社交</th><td>{claims!.crossBorder}</td></tr>}
+                  {claims!.note && <tr><th>资料附注</th><td>{claims!.note}</td></tr>}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+        {tests.map((test) => (
+          <>
+            <h3>第三方测试记录（{test.testedAt ?? '时间未注明'}）</h3>
+            <p>这是资料批次转述的一次第三方测试，不是机场梦实测，资料没有附原始截图或日志。一次测试只说明当时、当地网络和当时节点的情况，不能推广成全部节点长期的表现。</p>
+            <div class="table-wrap">
+              <table class="kv">
+                <tbody>
+                  <tr><th>测试时间</th><td>{test.testedAt ?? '未注明'}</td></tr>
+                  <tr><th>测试网络</th><td>{test.network ?? '未注明'}</td></tr>
+                  <tr><th>测试工具</th><td>{test.tool ?? '未注明'}</td></tr>
+                  {test.regions.map((item) => <tr><th>{item.region}</th><td>{item.result ?? '未注明'}</td></tr>)}
+                  {test.services && <tr><th>流媒体与 AI</th><td>{test.services}</td></tr>}
+                  {test.conclusion && <tr><th>资料结论</th><td>{test.conclusion}</td></tr>}
+                  <tr><th>证据</th><td>缺少原始截图或日志</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </>
+        ))}
+      </>
+    )
+  }
+
+  {
+    hasService && (
+      <>
+        <h2 id="service">客服、退款与试用</h2>
+        <p>资料批次的记录，未核验；“资料未写”表示资料里没有这一项，不等于没有。</p>
+        <div class="table-wrap">
+          <table class="kv">
+            <tbody>
+              <tr><th>客服渠道</th><td>{service!.channels ?? '资料未写'}</td></tr>
+              {service!.hours && <tr><th>客服时间</th><td>{service!.hours}</td></tr>}
+              <tr><th>退款</th><td>{service!.refund ?? '资料未写'}</td></tr>
+              <tr><th>试用</th><td>{service!.trial ?? '资料未写'}</td></tr>
+              {service!.payment && <tr><th>付款方式</th><td>{service!.payment}</td></tr>}
+            </tbody>
+          </table>
+        </div>
+        {(service!.antiFraud.length > 0 || service!.notes.length > 0) && (
+          <>
+            <h3>防骗提醒（资料记录）</h3>
+            <ul>{[...service!.antiFraud, ...service!.notes].map((text) => <li>{text}</li>)}</ul>
+          </>
+        )}
+      </>
+    )
+  }
+
+  {
+    conflicts.length > 0 && (
+      <>
+        <h2 id="conflicts">来源差异与待确认事项</h2>
+        <p>不同资料说法不一时，本站保留差异，不替你选一个说法。</p>
+        <ul>{conflicts.map((item) => <li>{item}</li>)}</ul>
+      </>
+    )
+  }
+
+  {
+    shots.length > 0 && (
+      <>
+        <h2 id="screenshots">套餐截图</h2>
+        <p>
+          站长提供的 {shots.length} 张套餐截图，{airport.pricingEvidenceReceivedOn} 收到，拍摄时间未知。图中的线路、解锁、速度和优惠文字都是服务商页面的声明，未经本站测试，也不能代替当前结算页。点击图片可查看原尺寸。
+        </p>
+        <div class="shots">
+          {shots.map((shot) => (
+            <a href={shot.src} target="_blank" rel="noopener">
+              <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" decoding="async" />
+            </a>
+          ))}
+        </div>
+      </>
+    )
+  }
+
+  <h2 id="sources">资料来源与更新记录</h2>
+  <ul>
+    {fromScreenshots && <li>套餐价格：站长提供的套餐截图，{airport.pricingEvidenceReceivedOn} 收到，拍摄时间未知{shotsHidden && '；截图不在本站展示'}。</li>}
+    {airport.pricingPriority === 'owner-version' && <li>品牌资料：按站长提供的版本整理，{batch.collectedOn} 收录，未核验官网结算。</li>}
+    {
+      airport.sourceUrl && (
+        <li>
+          {fromScreenshots ? '节点与线路' : '套餐、节点与线路'}：<a href={airport.sourceUrl} rel="nofollow noopener" target="_blank">第三方参考资料</a>，资料日期 {airport.sourceUpdatedOn}，本站读取于 {airport.referenceReviewedOn}。
+        </li>
+      )
+    }
+    <li>资料批次：{batch.readerSourceLabel}，整理于 {batch.collectedOn}；补充了付款周期、客户端、客服和声明等记录。未核验官网，也没有服务商的原始公告。</li>
+    {airport.logoStatus === 'blog-designed-not-official' && <li>页首标识：机场梦设计的展示图，只用来区分品牌，不是服务商的官方标志；图形和颜色不代表线路、速度或稳定性。</li>}
+    <li>本页是资料评析，没有本站实测，不据此判断速度或长期稳定性。</li>
+    {entry.data.publishedAt && <li>发布于 {day(entry.data.publishedAt)}</li>}
+    {entry.data.updatedAt && <li>正文更新于 {day(entry.data.updatedAt)}</li>}
+  </ul>
+
+  <p class="notice">
+    本页含推广链接，注册或购买可能使本站获得佣金；本站不另收推广服务费。机场梦不是这家服务商的运营方，页面标识仅作品牌展示，不代表官方授权或认证。详见<a href="/disclosure/">推广说明</a>。
+  </p>
+</Article>

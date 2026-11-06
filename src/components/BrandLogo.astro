@@ -1,0 +1,86 @@
+---
+// 全站唯一的品牌标识组件：外框固定 3:1（SVG 自带 1200×400 的宽高，CSS 再按容器缩放）。
+// 前景按品牌区域完整显示（meet，相当于 contain），背景用同一区域模糊铺满（slice，相当于 cover），
+// 两层都先裁到该区域，不会露出相邻品牌。可访问名称由 <title> 提供，图片加载失败时改显示品牌文字。
+// 2026-11-06 起使用 scripts/build-logos.mjs 预先裁好的展示图（卡片用 card，主推区和资料页用 large）：
+// 图里只有这一家，裁切区域就是整张图，外框、前景和模糊背景的比例与原来完全相同，只是不再下载整张拼图。
+import { logoDisplayOf, type Airport } from '../lib/airports';
+
+interface Props {
+  airport: Airport;
+  /** 页面内唯一的实例名，用于 SVG 内部 ID，同一品牌在一页出现多次时不会冲突。 */
+  instance: string;
+}
+
+const { airport, instance } = Astro.props;
+const { name, aliases } = airport;
+const display = logoDisplayOf(airport.id, instance === 'spotlight' || instance === 'detail' ? 'large' : 'card');
+const path = display?.src ?? airport.logoPath;
+const crop = display ? { x: 0, y: 0, width: display.width, height: display.height } : airport.logoCrop;
+const size = display ? { width: display.width, height: display.height } : airport.logoSourceImageSize;
+
+const id = `brand-${instance}-${airport.id}`.replace(/[^A-Za-z0-9_-]/g, '-');
+const viewBox = crop ? `${crop.x} ${crop.y} ${crop.width} ${crop.height}` : '';
+
+const textName = (aliases.find((alias) => /[一-鿿]/.test(alias)) ?? name).replace(/\s+/g, '');
+const textAlias = aliases.find((alias) => /^[A-Za-z0-9 ]+$/.test(alias) && alias !== textName);
+---
+
+{
+  path && crop && size ? (
+    <div class="brand-media">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-labelledby={`${id}-title`}>
+        <title id={`${id}-title`}>{`${name} 标识`}</title>
+        <defs>
+          <clipPath id={`${id}-crop`} clipPathUnits="userSpaceOnUse">
+            <rect x={crop.x} y={crop.y} width={crop.width} height={crop.height} />
+          </clipPath>
+          <filter id={`${id}-blur`} x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+            <feGaussianBlur stdDeviation={Math.max(crop.width, crop.height) / 40} />
+          </filter>
+        </defs>
+        <g class="brand-artwork">
+          {/* 背景略大于外框，避开模糊在边缘产生的暗边 */}
+          <svg x="-90" y="-30" width="1380" height="460" viewBox={viewBox} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g filter={`url(#${id}-blur)`}>
+              <g clip-path={`url(#${id}-crop)`}>
+                <image href={path} width={size.width} height={size.height} />
+              </g>
+            </g>
+          </svg>
+          <rect width="1200" height="400" fill="#071020" opacity="0.08" />
+          <svg x="0" y="0" width="1200" height="400" viewBox={viewBox} preserveAspectRatio="xMidYMid meet">
+            <g clip-path={`url(#${id}-crop)`}>
+              <image href={path} width={size.width} height={size.height} />
+            </g>
+          </svg>
+        </g>
+      </svg>
+      <div class="brand-fallback" aria-hidden="true">
+        <span class="brand-fallback__name">{textName}</span>
+        {textAlias && <span class="brand-fallback__alias">{textAlias}</span>}
+      </div>
+    </div>
+  ) : (
+    <div class="brand-media is-placeholder" role="img" aria-label={`${name}（暂无标识图片）`}>
+      <div class="brand-fallback" aria-hidden="true">
+        <span class="brand-fallback__name">{textName}</span>
+        {textAlias && <span class="brand-fallback__alias">{textAlias}</span>}
+      </div>
+    </div>
+  )
+}
+
+<script>
+  // SVG image 的 error 事件可能早于脚本触发，所以按地址重新探测一次，加载失败就显示品牌文字。
+  const byHref = new Map<string, HTMLElement[]>();
+  document.querySelectorAll<HTMLElement>('.brand-media:not(.is-placeholder)').forEach((frame) => {
+    const href = frame.querySelector('image')?.getAttribute('href');
+    if (href) byHref.set(href, [...(byHref.get(href) ?? []), frame]);
+  });
+  byHref.forEach((frames, href) => {
+    const probe = new Image();
+    probe.onerror = () => frames.forEach((frame) => frame.classList.add('is-missing'));
+    probe.src = href;
+  });
+</script>

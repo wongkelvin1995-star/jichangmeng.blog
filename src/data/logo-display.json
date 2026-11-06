@@ -1,0 +1,640 @@
+{
+  "1fly": {
+    "source": "materials/package/assets/logos/generated/1fly-blog-v1.png",
+    "sourceSha256": "b9d39e93f2963bccd2ef9ae2c0b6e1c900ec22b499c6dbdc02591692f4a1a054",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/1fly-0acaa207.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 13372
+    },
+    "large": {
+      "src": "/assets/logo-display/1fly-71166cfd.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 16536
+    }
+  },
+  "2mao": {
+    "source": "materials/package/assets/logos/generated/2mao-blog-v1.png",
+    "sourceSha256": "e14eb6e862dfaa4e2848a49c193ede050c64fb9e71f62f5b1be06616624cb2cd",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/2mao-6ac999ae.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 14826
+    },
+    "large": {
+      "src": "/assets/logo-display/2mao-5e78b22f.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 18056
+    }
+  },
+  "breezenet": {
+    "source": "materials/package/assets/logos/eight-brand-source.png",
+    "sourceSha256": "a7be483629220f6010aa95a42a3ad1a7a47f1fa327478f76a8ad01649a30e6cf",
+    "crop": {
+      "x": 383,
+      "y": 274,
+      "width": 337,
+      "height": 205
+    },
+    "card": {
+      "src": "/assets/logo-display/breezenet-9f97c023.webp",
+      "width": 337,
+      "height": 205,
+      "bytes": 7288
+    },
+    "large": {
+      "src": "/assets/logo-display/breezenet-9f97c023.webp",
+      "width": 337,
+      "height": 205,
+      "bytes": 7288
+    }
+  },
+  "civet": {
+    "source": "materials/package/assets/logos/eight-brand-source.png",
+    "sourceSha256": "a7be483629220f6010aa95a42a3ad1a7a47f1fa327478f76a8ad01649a30e6cf",
+    "crop": {
+      "x": 34,
+      "y": 514,
+      "width": 338,
+      "height": 212
+    },
+    "card": {
+      "src": "/assets/logo-display/civet-454757ac.webp",
+      "width": 338,
+      "height": 212,
+      "bytes": 7244
+    },
+    "large": {
+      "src": "/assets/logo-display/civet-454757ac.webp",
+      "width": 338,
+      "height": 212,
+      "bytes": 7244
+    }
+  },
+  "dalaoyun": {
+    "source": "materials/package/assets/logos/dalao-v2-global-source.png",
+    "sourceSha256": "d91cbe54edce689db9cd8043030dc0eaec598208f6bd9c2e17655bda99fce05a",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 887,
+      "height": 443
+    },
+    "card": {
+      "src": "/assets/logo-display/dalaoyun-9558d55b.webp",
+      "width": 669,
+      "height": 334,
+      "bytes": 19654
+    },
+    "large": {
+      "src": "/assets/logo-display/dalaoyun-84e6a0b5.webp",
+      "width": 801,
+      "height": 400,
+      "bytes": 24070
+    }
+  },
+  "edgenova": {
+    "source": "materials/package/assets/logos/generated/edgenova-blog-v1.png",
+    "sourceSha256": "106cbafc9e7503846b91eb89798ecffd0301b8367fd951c45b8c90cba03b7200",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/edgenova-84f81d5a.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 18214
+    },
+    "large": {
+      "src": "/assets/logo-display/edgenova-5f6ad12c.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 22622
+    }
+  },
+  "firefly": {
+    "source": "materials/package/assets/logos/replacements/firefly-v2.png",
+    "sourceSha256": "91626540403f99eab0bec5b83d8890fcb84b9cb831f0c2e0bba9b01a2f4fb705",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 426
+    },
+    "card": {
+      "src": "/assets/logo-display/firefly-5a67e81f.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 44478
+    },
+    "large": {
+      "src": "/assets/logo-display/firefly-43595b4c.webp",
+      "width": 1200,
+      "height": 399,
+      "bytes": 54726
+    }
+  },
+  "flashleap": {
+    "source": "materials/package/assets/logos/eight-brand-source.png",
+    "sourceSha256": "a7be483629220f6010aa95a42a3ad1a7a47f1fa327478f76a8ad01649a30e6cf",
+    "crop": {
+      "x": 383,
+      "y": 514,
+      "width": 337,
+      "height": 212
+    },
+    "card": {
+      "src": "/assets/logo-display/flashleap-304677da.webp",
+      "width": 337,
+      "height": 212,
+      "bytes": 7710
+    },
+    "large": {
+      "src": "/assets/logo-display/flashleap-304677da.webp",
+      "width": 337,
+      "height": 212,
+      "bytes": 7710
+    }
+  },
+  "flycat": {
+    "source": "materials/package/assets/logos/replacements/flycat-v2.png",
+    "sourceSha256": "cf0faf51cef07f32a17b87eb173d1a903c0dac402cd4475134c8575b23c9ad73",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/flycat-09765bbe.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 17754
+    },
+    "large": {
+      "src": "/assets/logo-display/flycat-e4451389.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 21960
+    }
+  },
+  "flyv": {
+    "source": "materials/package/assets/logos/replacements/flyv-v2.png",
+    "sourceSha256": "9bfbc611fb144e14c976c6c727462ef61f55b7295feabcc768d351903dff8a4a",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 427
+    },
+    "card": {
+      "src": "/assets/logo-display/flyv-04e34370.webp",
+      "width": 1000,
+      "height": 334,
+      "bytes": 31836
+    },
+    "large": {
+      "src": "/assets/logo-display/flyv-8e13ee2d.webp",
+      "width": 1199,
+      "height": 400,
+      "bytes": 39192
+    }
+  },
+  "globalcloud": {
+    "source": "materials/package/assets/logos/dalao-v2-global-source.png",
+    "sourceSha256": "d91cbe54edce689db9cd8043030dc0eaec598208f6bd9c2e17655bda99fce05a",
+    "crop": {
+      "x": 0,
+      "y": 443,
+      "width": 1100,
+      "height": 444
+    },
+    "card": {
+      "src": "/assets/logo-display/globalcloud-32394360.webp",
+      "width": 827,
+      "height": 334,
+      "bytes": 34544
+    },
+    "large": {
+      "src": "/assets/logo-display/globalcloud-043a9221.webp",
+      "width": 991,
+      "height": 400,
+      "bytes": 43194
+    }
+  },
+  "guangnianti": {
+    "source": "materials/package/assets/logos/generated/guangnianti-blog-v1.png",
+    "sourceSha256": "b9118e03cd77dc8dbd6ca35aba8d148a8a34c83870d4610050dffc9887f27826",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/guangnianti-aafdafec.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 14662
+    },
+    "large": {
+      "src": "/assets/logo-display/guangnianti-0fa2ca59.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 18458
+    }
+  },
+  "invisible": {
+    "source": "materials/package/assets/logos/replacements/invisible-v2.png",
+    "sourceSha256": "778cef8e3abb6cae1a3397e83a9caefdd7454665e6bf91b37379512ce7bde9f6",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 512,
+      "height": 512
+    },
+    "card": {
+      "src": "/assets/logo-display/invisible-a29983cc.webp",
+      "width": 334,
+      "height": 334,
+      "bytes": 9252
+    },
+    "large": {
+      "src": "/assets/logo-display/invisible-565ce76f.webp",
+      "width": 400,
+      "height": 400,
+      "bytes": 10942
+    }
+  },
+  "jilianyun": {
+    "source": "materials/package/assets/logos/generated/jilianyun-blog-v1.png",
+    "sourceSha256": "6838309d979dca31dc849d61958205f6acf9cdc1cf86f7e4564a312e8d9bfea8",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/jilianyun-f1da94a1.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 18568
+    },
+    "large": {
+      "src": "/assets/logo-display/jilianyun-e8cec7bd.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 23132
+    }
+  },
+  "kosing": {
+    "source": "materials/package/assets/logos/generated/kosing-blog-v1.png",
+    "sourceSha256": "e095d399924bdb6b33ec7de23e41bd214289612a3fe16310bf401d089dd2bdfa",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/kosing-0fdf5e8e.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 15070
+    },
+    "large": {
+      "src": "/assets/logo-display/kosing-5052f22a.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 18102
+    }
+  },
+  "kuaili": {
+    "source": "materials/package/assets/logos/generated/kuaili-blog-v1.png",
+    "sourceSha256": "515a9aee5ef449dd8f4726327b7535957e4d3b47deca1add96869a490b966a94",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/kuaili-a58f3ae1.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 20202
+    },
+    "large": {
+      "src": "/assets/logo-display/kuaili-10d906b9.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 25118
+    }
+  },
+  "kuajie": {
+    "source": "materials/package/assets/logos/eight-brand-source.png",
+    "sourceSha256": "a7be483629220f6010aa95a42a3ad1a7a47f1fa327478f76a8ad01649a30e6cf",
+    "crop": {
+      "x": 731,
+      "y": 514,
+      "width": 337,
+      "height": 212
+    },
+    "card": {
+      "src": "/assets/logo-display/kuajie-46790177.webp",
+      "width": 337,
+      "height": 212,
+      "bytes": 6604
+    },
+    "large": {
+      "src": "/assets/logo-display/kuajie-46790177.webp",
+      "width": 337,
+      "height": 212,
+      "bytes": 6604
+    }
+  },
+  "laddercloud": {
+    "source": "materials/package/assets/logos/four-brand-source.png",
+    "sourceSha256": "e592c4b1a295ff14de1c928ac5ed9b2cc2298bf3e1b28a1d6a437ef4686e4f2f",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 887,
+      "height": 443
+    },
+    "card": {
+      "src": "/assets/logo-display/laddercloud-929f04a8.webp",
+      "width": 669,
+      "height": 334,
+      "bytes": 23580
+    },
+    "large": {
+      "src": "/assets/logo-display/laddercloud-3f190108.webp",
+      "width": 801,
+      "height": 400,
+      "bytes": 29170
+    }
+  },
+  "lightspeed": {
+    "source": "materials/package/assets/logos/generated/lightspeed-blog-v1.png",
+    "sourceSha256": "a2ca07b6eff5b95a298ce8e6c59635456461a84d9bc8efecae32378b67e6b9c7",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/lightspeed-844096b3.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 13614
+    },
+    "large": {
+      "src": "/assets/logo-display/lightspeed-445d62ee.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 16946
+    }
+  },
+  "lingdongyun": {
+    "source": "materials/package/assets/logos/four-brand-source.png",
+    "sourceSha256": "e592c4b1a295ff14de1c928ac5ed9b2cc2298bf3e1b28a1d6a437ef4686e4f2f",
+    "crop": {
+      "x": 0,
+      "y": 443,
+      "width": 887,
+      "height": 444
+    },
+    "card": {
+      "src": "/assets/logo-display/lingdongyun-8861f4cc.webp",
+      "width": 667,
+      "height": 334,
+      "bytes": 21986
+    },
+    "large": {
+      "src": "/assets/logo-display/lingdongyun-e7d59fb1.webp",
+      "width": 799,
+      "height": 400,
+      "bytes": 27222
+    }
+  },
+  "sogoyun": {
+    "source": "materials/package/assets/logos/generated/sogoyun-blog-v1.png",
+    "sourceSha256": "bef3d6824693d1e21c944cd60fe9ae45cf53693bb5d4ee25d891ada6d1d51c1a",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/sogoyun-6ea8db93.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 13686
+    },
+    "large": {
+      "src": "/assets/logo-display/sogoyun-b69efd0e.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 16902
+    }
+  },
+  "stardream": {
+    "source": "materials/package/assets/logos/generated/stardream-blog-v1.png",
+    "sourceSha256": "14dffdd2876f4dd8c569b3f0e100dbf242e6cc15c02cc4851a873240bde9dcd2",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/stardream-7171b8cb.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 17376
+    },
+    "large": {
+      "src": "/assets/logo-display/stardream-92c711a5.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 21392
+    }
+  },
+  "sujie": {
+    "source": "materials/package/assets/logos/generated/sujie-blog-v1.png",
+    "sourceSha256": "6586187d40369aac4b150d45c27ba6b0b07e3546562100213403f12c5853a153",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/sujie-444567e9.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 15402
+    },
+    "large": {
+      "src": "/assets/logo-display/sujie-e3e85b28.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 19130
+    }
+  },
+  "twilight": {
+    "source": "materials/package/assets/logos/replacements/twilight-v2.png",
+    "sourceSha256": "df1ad4ae6f1b40249f66fa2c9a9a977763f7ec75b42f261586a03f04352fc7d0",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/twilight-3ad0ca92.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 21836
+    },
+    "large": {
+      "src": "/assets/logo-display/twilight-2c8fc390.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 26696
+    }
+  },
+  "u1s1": {
+    "source": "materials/package/assets/logos/generated/u1s1-blog-v1.png",
+    "sourceSha256": "ec780b06376f90065932d3ba34e05ad05d188a8df21c39b4a44176b3b80abab0",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/u1s1-49605111.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 12088
+    },
+    "large": {
+      "src": "/assets/logo-display/u1s1-cbafc203.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 15070
+    }
+  },
+  "v2yun": {
+    "source": "materials/package/assets/logos/dalao-v2-global-source.png",
+    "sourceSha256": "d91cbe54edce689db9cd8043030dc0eaec598208f6bd9c2e17655bda99fce05a",
+    "crop": {
+      "x": 887,
+      "y": 0,
+      "width": 887,
+      "height": 443
+    },
+    "card": {
+      "src": "/assets/logo-display/v2yun-3f85f7b9.webp",
+      "width": 669,
+      "height": 334,
+      "bytes": 17928
+    },
+    "large": {
+      "src": "/assets/logo-display/v2yun-07c76737.webp",
+      "width": 801,
+      "height": 400,
+      "bytes": 22072
+    }
+  },
+  "wavenet": {
+    "source": "materials/logo-overrides/wavenet-v3.webp",
+    "sourceSha256": "4e3fe2294d5eb5b3664ea1881cdc0f9f25aa10ce540b32723f8aa821cb9094c3",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 548
+    },
+    "card": {
+      "src": "/assets/logo-display/wavenet-354dfbc1.webp",
+      "width": 780,
+      "height": 334,
+      "bytes": 54330
+    },
+    "large": {
+      "src": "/assets/logo-display/wavenet-900dbbe7.webp",
+      "width": 934,
+      "height": 400,
+      "bytes": 73246
+    }
+  },
+  "worryfree": {
+    "source": "materials/package/assets/logos/replacements/worryfree-v2.png",
+    "sourceSha256": "92dad3378c82d9151aa126dab55c3852eb3de3fa2f1b76d0cff5b37634b61a68",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 426
+    },
+    "card": {
+      "src": "/assets/logo-display/worryfree-32daddbf.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 36728
+    },
+    "large": {
+      "src": "/assets/logo-display/worryfree-a1bd4590.webp",
+      "width": 1200,
+      "height": 399,
+      "bytes": 45410
+    }
+  },
+  "yuzhou": {
+    "source": "materials/package/assets/logos/generated/yuzhou-blog-v1.png",
+    "sourceSha256": "88071c00952c8b23bf295a90a517a877647e73534cc782cae9c25e897dd3a3fd",
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 2172,
+      "height": 724
+    },
+    "card": {
+      "src": "/assets/logo-display/yuzhou-28f97b2e.webp",
+      "width": 1000,
+      "height": 333,
+      "bytes": 11962
+    },
+    "large": {
+      "src": "/assets/logo-display/yuzhou-6c18c9d4.webp",
+      "width": 1200,
+      "height": 400,
+      "bytes": 14688
+    }
+  }
+}

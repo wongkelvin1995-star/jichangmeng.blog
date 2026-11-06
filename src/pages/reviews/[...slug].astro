@@ -1,0 +1,87 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleEntry from '../../components/ArticleEntry.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { KIND_LABEL, getContentIndex, getPublishedReviews } from '../../lib/content';
+import { airports } from '../../lib/airports';
+import { breadcrumbJsonLd, collectionJsonLd } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const items = await getPublishedReviews();
+  return [
+    { params: { slug: undefined }, props: { entry: null, items } },
+    ...items.map((entry) => ({ params: { slug: entry.id }, props: { entry, items } })),
+  ];
+}
+
+const { entry, items } = Astro.props;
+const crumbs = [{ label: '首页', href: '/' }, { label: '评析与测试解读' }];
+const description = '区分品牌资料分析、历史测试样本解读和实际测试，说明每类内容能回答什么问题，以及结论成立的条件。';
+
+const index = await getContentIndex();
+const brandPages = airports
+  .map((airport) => index.find((page) => page.path === `/airports/${airport.id}/`))
+  .filter((page) => page !== undefined);
+---
+
+{
+  entry ? (
+    <ArticleEntry entry={entry} section={{ label: '评析与测试解读', href: '/reviews/' }} kindLabel={KIND_LABEL.review} />
+  ) : (
+    <Base
+      title="机场评析与测试样本解读｜机场梦"
+      description={description}
+      jsonLd={[
+        breadcrumbJsonLd(crumbs),
+        collectionJsonLd({
+          name: '机场评析与测试解读',
+          description,
+          path: '/reviews/',
+          items: [
+            ...items.map((item) => ({ name: item.data.title, path: `/reviews/${item.id}/` })),
+            ...brandPages.map((page) => ({ name: page.title, path: page.path })),
+          ],
+        }),
+      ]}
+    >
+      <div class="wrap">
+        <header class="page-head">
+          <Breadcrumbs items={crumbs} />
+          <h1>机场评析与测试解读</h1>
+          <p>区分资料分析、历史样本和实际测试，说明结论成立的条件。</p>
+        </header>
+
+        <section class="section section--tight">
+          <div class="choose-grid">
+            <div class="choose">
+              <h2 class="choose__title">资料评析</h2>
+              <p>基于已取得的价格和规则，解释套餐差异与适用条件，不判断速度或稳定性。</p>
+            </div>
+            <div class="choose">
+              <h2 class="choose__title">历史样本解读</h2>
+              <p>只解释特定历史记录能说明什么，不代表当前表现，也不是机场梦的独立复测。</p>
+            </div>
+            <div class="choose">
+              <h2 class="choose__title">实际测试</h2>
+              <p>需要明确的日期、环境、方法和原始结果。机场梦目前还没有发布实际测试。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--tight">
+          <h2 class="group-title">历史样本解读</h2>
+          <ul class="link-list">
+            {items.map((item) => <li><a href={`/reviews/${item.id}/`}>{item.data.title}</a><span>{item.data.description}</span></li>)}
+          </ul>
+        </section>
+
+        <section class="section section--tight">
+          <h2 class="group-title">品牌资料评析（{brandPages.length} 篇）</h2>
+          <ul class="link-list">
+            {brandPages.map((page) => <li><a href={page.path}>{page.title}</a><span>{page.description}</span></li>)}
+          </ul>
+        </section>
+      </div>
+    </Base>
+  )
+}

@@ -1,0 +1,44 @@
+---
+import { getEntry, render } from 'astro:content';
+import Prose from '../layouts/Prose.astro';
+import { pageUpdatedOn } from '../config/site';
+import {
+  allQuotes,
+  batchDate,
+  conflictQuoteCount,
+  customQuoteCount,
+  ownerVersionBrandCount,
+  pricingImageCount,
+  referenceBrandCount,
+  screenshotBrandCount,
+  siteClientRecommendation,
+  sourceDate,
+} from '../lib/airports';
+
+const entry = (await getEntry('pages', 'editorial-policy'))!;
+const { Content } = await render(entry);
+---
+
+<Prose title={entry.data.seoTitle} heading={entry.data.title} description={entry.data.description} updatedOn={pageUpdatedOn.editorialPolicy}>
+  <Content />
+
+  <h2>目前资料的范围</h2>
+  <p>
+    目前共 {allQuotes.length} 条价格记录。{screenshotBrandCount} 家的价格以站长提供的 {pricingImageCount} 张套餐截图为准，拍摄时间未知{ownerVersionBrandCount > 0 && `；${ownerVersionBrandCount} 家按站长提供的资料整理`}；其余 {referenceBrandCount} 家摘录自第三方参考资料（资料日期 {sourceDate}）。{batchDate} 又导入了一批第三方博客整理的资料，用来补充付款周期、客户端、客服和服务商声明；它和已有资料说法不同时，保留已有采用值，把新数值作为候选并标出冲突。这些都不是完整套餐表，没有经过逐家官网核验，也不是本站实测。
+  </p>
+
+  <h2>资料状态怎么读</h2>
+  <ul>
+    <li><strong>官网待核验</strong>：参考资料中未记录明显差异，但官网当前信息尚未核对。</li>
+    <li><strong>有来源差异</strong>：同一项信息在不同记录中说法不一，我们保留差异，不替你选一个说法。</li>
+    <li><strong>冲突／待核实、标价存疑</strong>：只作线索展示，不参与价格排序，也不用于计算最低月付。目前有 {conflictQuoteCount} 条冲突或存疑报价和 {customQuoteCount} 条定制报价属于这种情况。资料写的标价看起来算错时，保留原标价并标为存疑，不用公式算出的数字替换。</li>
+    <li><strong>付款周期和流量周期</strong>：分开记录。季付、半年付和年付的金额是一次付清的标价，每月额度不是整段时间的总量；一次性流量包才按总量记录。资料缺少的付款周期保持空缺，不按折扣推算。</li>
+    <li><strong>优惠码</strong>：站长确认原有 29 家统一为 8 折、每位用户限用一次、一次性流量包不参与。特定套餐的例外继续保留，有效期和叠加条件待核，本站不计算折后成交价。新收录的品牌只写“资料记录的优惠码，结算时确认”。邀请码是推广链接里的注册参数，和优惠码分开记录。</li>
+    <li><strong>客户端</strong>：{siteClientRecommendation}服务商的说明按资料记录列出；没有出处、日期和适用品牌的暂停通知，不当作服务商的正式政策。</li>
+    <li><strong>声明与测试</strong>：“支持 Netflix、Claude”等是服务商声明；测试记录单独列出时间、网络和结果。第三方测试不写成本站实测，没有原始截图或日志时会注明。</li>
+    <li><strong>品牌标识</strong>：目录和详情页的标识只用来区分品牌。其中一部分是机场梦设计的展示图，不是服务商的官方标志；标识的图形和颜色不代表授权、认证、线路、速度或稳定性。</li>
+  </ul>
+
+  <h2>详情页的发布条件</h2>
+  <p>只有具备该品牌独有说明和分析时，才会发布单独的资料评析页。其他品牌先保留在目录中，不生成内容空洞的页面。</p>
+</Prose>

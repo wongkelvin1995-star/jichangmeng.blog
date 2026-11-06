@@ -1,0 +1,221 @@
+---
+// 首页“站长主推”模块（站长 2026-11-06 要求，放在“需求入口”上方）。
+// 价格、线路、规则和优惠码全部从数据层读取，和目录卡片、品牌资料页是同一份数据；
+// 资料声明照资料写法并注明未核实，推广披露和资料日期写在模块里，不靠读者另找。
+import AffiliateLink from './AffiliateLink.astro';
+import BrandLogo from './BrandLogo.astro';
+import { site, type SpotlightWhyItem } from '../config/site';
+import {
+  billingLabel,
+  clientCardNote,
+  couponTerms,
+  formatYuan,
+  listedQuotes,
+  lowestMonthly,
+  pricingSourceLabel,
+  statusLabel,
+  trafficLabel,
+  type Airport,
+} from '../lib/airports';
+
+interface Props {
+  airport: Airport;
+  detailPath: string | null;
+  extraLinks?: { href: string; label: string }[];
+}
+
+const { airport, detailPath, extraLinks = [] } = Astro.props;
+
+const monthly = lowestMonthly(airport);
+const eligible = airport.packages.filter((quote) => quote.eligibleForReferenceComparison);
+
+// 长周期相对月付的折算：同一流量档既有月付又有该周期标价时才算；各档一致才写“约 X 折”。
+const MONTHS = { year: 12, three_year: 36 } as const;
+const PERIOD_NAME = { year: '年付', three_year: '三年付' } as const;
+const zheText = (ratio: number) => {
+  const value = Math.round(ratio * 100);
+  return value % 10 === 0 ? `${value / 10} 折` : `${value} 折`;
+};
+const periodRatio = (period: keyof typeof MONTHS) => {
+  const ratios = eligible
+    .filter((quote) => quote.billingPeriod === period && quote.trafficPeriod === 'month')
+    .map((quote) => {
+      const base = eligible.find((m) => m.billingPeriod === 'month' && m.trafficPeriod === 'month' && m.trafficGB === quote.trafficGB);
+      return base ? quote.amount / (base.amount * MONTHS[period]) : null;
+    })
+    .filter((ratio): ratio is number => ratio !== null);
+  if (!ratios.length || Math.max(...ratios) - Math.min(...ratios) > 0.011) return null;
+  return Math.min(...ratios);
+};
+const discounts = (Object.keys(MONTHS) as (keyof typeof MONTHS)[])
+  .map((period) => {
+    const ratio = periodRatio(period);
+    return ratio === null ? null : `${PERIOD_NAME[period]}约为月付的 ${zheText(ratio)}`;
+  })
+  .filter((text): text is string => Boolean(text));
+
+const annualSmall = eligible.find((quote) => quote.planType === 'annual-small');
+const oneTimeCount = eligible.filter((quote) => quote.planType === 'one-time').length;
+const hasCustom = airport.packages.some((quote) => quote.planType === 'custom');
+const quoteCount = listedQuotes(airport).length;
+const coupon = airport.coupons[0] ?? null;
+const terms = coupon ? couponTerms(coupon) : null;
+const resetRules = (airport.trafficRules ?? []).filter((rule) => rule.includes('重置'));
+const clientNote = clientCardNote(airport);
+const regions = airport.regions ?? [];
+
+// “为什么主推”简介（文案在 site.spotlight.why）：占位符在这里换成数据层的值，取不到就构建报错，不显示过期数字。
+const why = site.spotlight.why.brandId === airport.id ? site.spotlight.why : null;
+const monthlyQuotes = eligible.filter((quote) => quote.billingPeriod === 'month' && quote.trafficPeriod === 'month' && quote.trafficGB !== null);
+const monthlyTiers = new Set(monthlyQuotes.map((quote) => quote.trafficGB)).size;
+const maxMonthlyGB = monthlyQuotes.length ? Math.max(...monthlyQuotes.map((quote) => quote.trafficGB as number)) : null;
+const yearRatio = periodRatio('year');
+const threeYearRatio = periodRatio('three_year');
+const tokens: Record<string, string | null> = {
+  name: airport.name,
+  monthly: monthly ? formatYuan(monthly.amount) : null,
+  monthlyGB: monthly?.trafficGB != null ? `${monthly.trafficGB}GB` : null,
+  annualSmall: annualSmall ? formatYuan(annualSmall.amount) : null,
+  annualSmallGB: annualSmall?.trafficGB != null ? `${annualSmall.trafficGB}GB` : null,
+  monthlyTiers: monthlyTiers ? String(monthlyTiers) : null,
+  maxMonthlyGB: maxMonthlyGB !== null ? `${maxMonthlyGB}GB` : null,
+  oneTimeCount: oneTimeCount ? String(oneTimeCount) : null,
+  yearZhe: yearRatio !== null ? zheText(yearRatio) : null,
+  threeYearZhe: threeYearRatio !== null ? zheText(threeYearRatio) : null,
+  coupon: coupon?.code ?? null,
+  couponDiscount: coupon?.discountLabel ? coupon.discountLabel.replace(/(\d)\s*折/, '$1 折') : null,
+  pricingSource: pricingSourceLabel(airport),
+};
+const conditions: Record<NonNullable<SpotlightWhyItem['when']>, boolean> = {
+  subscriptionPaused: airport.client?.subscription.status === 'paused',
+  linesUnverified: airport.lineTypesStatus !== 'verified',
+};
+const whyError = (message: string) => new Error(`首页主推简介：${message}，请按新资料更新 src/config/site.ts 的 spotlight.why`);
+const fill = (item: Pick<SpotlightWhyItem, 'text' | 'test'>) => {
+  let values = tokens;
+  if (item.test) {
+    const test = airport.thirdPartyTests?.find((entry) => entry.id === item.test);
+    if (!test) throw whyError(`引用的第三方测试 ${item.test} 已不在${airport.name}的数据里`);
+    // 日期写成“2026 年 10 月 28 日”：窄屏换行落在字之间，不会把“2026-10-28”从连字符处拆开。
+    const [, y, m, d] = test.testedAt?.match(/^(\d{4})-(\d{2})-(\d{2})/) ?? [];
+    values = { ...tokens, testedOn: y ? `${y} 年 ${Number(m)} 月 ${Number(d)} 日` : null, testNetwork: test.network };
+  }
+  return item.text.replace(/\{(\w+)\}/g, (_, key: string) => {
+    const value = values[key];
+    if (value == null) throw whyError(`占位符 {${key}} 在${airport.name}的数据里取不到值`);
+    return value;
+  });
+};
+const visible = (items: SpotlightWhyItem[]) => items.filter((item) => !item.when || conditions[item.when]);
+---
+
+<section class="section wrap spotlight-section" id="spotlight" aria-labelledby="spotlight-title">
+  {
+    why && (
+      <div class="spotlight-why">
+        <span class="badge badge--ai">{why.eyebrow}</span>
+        <h2 id="spotlight-why-title">{fill({ text: why.title })}</h2>
+        <p class="spotlight-why__lead">{fill({ text: why.lead })}</p>
+        <div class="spotlight-why__grid">
+          <div class="spotlight-why__col">
+            <h3>资料里站得住的理由</h3>
+            <ol class="why-list" role="list">
+              {visible(why.reasons).map((item) => <li><strong>{item.title}：</strong>{fill(item)}</li>)}
+            </ol>
+          </div>
+          <div class="spotlight-why__col spotlight-why__col--check">
+            <h3>需要你自己核对的地方</h3>
+            <ul class="why-list why-list--check" role="list">
+              {visible(why.checks).map((item) => <li><strong>{item.title}：</strong>{fill(item)}</li>)}
+            </ul>
+          </div>
+        </div>
+        <p class="spotlight-why__verdict"><strong>一句话：</strong>{fill(why.verdict)}</p>
+        <p class="spotlight-why__meta">AI 按 {why.reviewedOn} 的本站资料整理，没有实测，也不是排名；资料更新后会重新整理。</p>
+      </div>
+    )
+  }
+  <div class="spotlight">
+    <div class="spotlight__intro">
+      <div class="spotlight__badges">
+        <span class="badge badge--spotlight">{site.spotlight.label}</span>
+        <span class="badge">{statusLabel(airport)}</span>
+      </div>
+      <h2 id="spotlight-title">{airport.name}：价格、线路和优惠码一次看清</h2>
+      <p class="spotlight__lead">这是站长主推的机场。我们把资料里的价格、线路、使用规则和优惠码放在一起，你在进入购买页之前就能先看清楚。</p>
+      <BrandLogo airport={airport} instance="spotlight" />
+      {
+        monthly && (
+          <div class="price spotlight__price">
+            <span class="price__label">摘录报价中的最低月付</span>
+            <span class="price__main"><strong>{formatYuan(monthly.amount)}</strong>/ {trafficLabel(monthly)}</span>
+          </div>
+        )
+      }
+      {
+        airport.cardHighlights.length > 0 && (
+          <ul class="brand-highlights">
+            {airport.cardHighlights.map((text) => <li>{text}</li>)}
+          </ul>
+        )
+      }
+      <div class="spotlight__actions">
+        {airport.affiliateUrl && <AffiliateLink href={airport.affiliateUrl} name={airport.name} />}
+        {detailPath && <a class="btn" href={detailPath}>看{airport.name}完整资料</a>}
+      </div>
+    </div>
+
+    <div class="spotlight__facts">
+      <div class="fact">
+        <h3>价格与套餐</h3>
+        <ul>
+          {monthly && <li>月付 {formatYuan(monthly.amount)} 起，{trafficLabel(monthly)}</li>}
+          {discounts.length > 0 && <li>长周期更省：按资料列示的标价，{discounts.join('，')}</li>}
+          {annualSmall && <li>{billingLabel(annualSmall)}小包 {formatYuan(annualSmall.amount)}，{trafficLabel(annualSmall)}</li>}
+          {(oneTimeCount > 0 || hasCustom) && <li>{[oneTimeCount > 0 && `另有 ${oneTimeCount} 款一次性流量包`, hasCustom && '私人定制需联系客服'].filter(Boolean).join('；')}</li>}
+          {detailPath && <li><a href={`${detailPath}#plan-details`}>查看全部 {quoteCount} 条报价</a></li>}
+        </ul>
+      </div>
+
+      <div class="fact">
+        <h3>线路与节点</h3>
+        <ul>
+          {airport.network?.lineText && <li>资料列示：{airport.network.lineText}（各资料说法不一，未实测）</li>}
+          {airport.network?.multiplierText && <li>{airport.network.multiplierText}</li>}
+          {regions.length > 0 && <li>{regions.join('、')}{airport.nodeCountDisplay && ` · 节点 ${airport.nodeCountDisplay}`}</li>}
+        </ul>
+      </div>
+
+      <div class="fact">
+        <h3>使用规则</h3>
+        <ul>
+          {airport.client?.devices && <li>{airport.client.devices}</li>}
+          {resetRules.map((rule) => <li>{rule}</li>)}
+          {clientNote && <li class="fact__warn">{clientNote}</li>}
+        </ul>
+      </div>
+
+      <div class="fact">
+        <h3>优惠码与售后</h3>
+        {
+          coupon && (
+            <div class="coupon">
+              <span>优惠码 <code>{coupon.code}</code></span>
+              <button class="coupon__copy" type="button" data-copy={coupon.code} hidden>复制</button>
+              <span class="coupon__note">{terms ? `${terms}；具体套餐和有效期以结算页为准` : '折扣与适用范围未核验，以结算页为准'}</span>
+            </div>
+          )
+        }
+        <ul>
+          {airport.service?.channels && <li>客服：{airport.service.channels}{airport.service.hours && `，${airport.service.hours}`}</li>}
+          {airport.service?.refund && <li>退款：{airport.service.refund}</li>}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="spotlight__note">
+    站长主推，含推广链接，不是统一测评或排名；注册或购买可能使本站获得佣金，本站不另收费用。价格来自{pricingSourceLabel(airport)}，未独立核验，最终金额与规则以购买页为准。
+    {extraLinks.map((link) => <><a href={link.href}>{link.label}</a>　</>)}
+  </p>
+</section>

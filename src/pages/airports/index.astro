@@ -1,0 +1,201 @@
+---
+import Base from '../../layouts/Base.astro';
+import AirportCard from '../../components/AirportCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site } from '../../config/site';
+import {
+  airports,
+  allQuotes,
+  allRegions,
+  batchDate,
+  candidateQuoteCount,
+  comparableQuoteCount,
+  getPublishedDetailIds,
+  ownerVersionBrandCount,
+  pendingBrands,
+  referenceBrandCount,
+  screenshotBrandCount,
+  siteClientRecommendation,
+  sourceDate,
+} from '../../lib/airports';
+import { breadcrumbJsonLd, collectionJsonLd } from '../../lib/seo';
+
+const details = await getPublishedDetailIds();
+const crumbs = [{ label: '首页', href: '/' }, { label: '机场资料' }];
+const description = `按编辑顺序查看 ${airports.length} 家机场的代表套餐、推广入口、资料状态和已知限制，重点品牌附有独立资料评析。`;
+const excludedCount = allQuotes.length - comparableQuoteCount;
+---
+
+<Base
+  title={`${airports.length}家机场资料与套餐入口｜机场梦`}
+  description={description}
+  jsonLd={[
+    breadcrumbJsonLd(crumbs),
+    collectionJsonLd({
+      name: '机场资料与套餐入口',
+      description,
+      path: '/airports/',
+      items: airports.map((airport) => ({
+        name: airport.name,
+        path: details.has(airport.id) ? `/airports/${airport.id}/` : `/airports/#${airport.id}`,
+      })),
+    }),
+  ]}
+>
+  <div class="wrap">
+    <header class="page-head">
+      <Breadcrumbs items={crumbs} />
+      <h1>机场资料与套餐入口</h1>
+      <p>
+        共 {airports.length} 家品牌、{allQuotes.length} 条价格记录，其中 {comparableQuoteCount} 条可作参考比较；其余 {excludedCount} 条（来源冲突、标价存疑、定制，或额度、周期没写明）不参与价格排序{candidateQuoteCount > 0 && `；另有 ${candidateQuoteCount} 条资料候选只在详情页列出`}。
+      </p>
+    </header>
+
+    <section class="section" style="padding-top:26px">
+      <p class="notice" style="margin-bottom:12px">
+        {site.orderingDisclosure}{screenshotBrandCount} 家的价格以站长提供的套餐截图为准（拍摄时间未知）{ownerVersionBrandCount > 0 && `，${ownerVersionBrandCount} 家按站长提供的资料`}，其余 {referenceBrandCount} 家来自第三方参考资料（资料日期 {sourceDate}）并由 {batchDate} 的资料批次补充付款周期。这些都不是完整套餐表，也未核验官网当前价格；本站暂无自有实测。购买前请以结算页为准。
+      </p>
+      <p class="notice" style="margin-bottom:22px">{siteClientRecommendation}</p>
+
+      <form class="filters" data-filters hidden aria-label="筛选机场">
+        <div>
+          <label for="filter-name">品牌名称或别名</label>
+          <input class="input" id="filter-name" type="search" autocomplete="off" placeholder="例如 FLY V、V2云、Breezenet" />
+        </div>
+        <div>
+          <label for="filter-region">参考资料列示地区</label>
+          <select class="select" id="filter-region">
+            <option value="">全部地区</option>
+            {allRegions.map((region) => <option value={region}>{region}</option>)}
+          </select>
+        </div>
+        <div>
+          <label for="filter-billing">付款方式</label>
+          <select class="select" id="filter-billing">
+            <option value="">全部</option>
+            <option value="month">有月付</option>
+            <option value="quarter">有季付</option>
+            <option value="half_year">有半年付</option>
+            <option value="year">有年付</option>
+            <option value="one_time">有一次性流量包</option>
+          </select>
+        </div>
+        <div>
+          <label for="filter-sort">排序</label>
+          <select class="select" id="filter-sort">
+            <option value="order">编辑推荐顺序</option>
+            <option value="month">最低月付从低到高</option>
+            <option value="year">年付一次付款从低到高</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="filter-status" data-status-bar hidden>
+        <span data-count aria-live="polite"></span>
+        <button class="btn btn--small" type="button" data-reset hidden>清空筛选</button>
+      </div>
+
+      {/* 卡片里的品牌名是 H3；这里补一个只给读屏软件的 H2，标题层级不从 H1 直接跳到 H3。 */}
+      <h2 class="visually-hidden">品牌列表</h2>
+      <div class="card-grid" data-grid>
+        {airports.map((airport) => <AirportCard airport={airport} hasDetail={details.has(airport.id)} filterable />)}
+      </div>
+
+      <div class="empty-state" data-empty hidden>
+        <p>没有符合条件的品牌。这不代表服务商不支持，只是目前的摘录资料中没有相应记录。</p>
+      </div>
+    </section>
+
+    {
+      pendingBrands.length > 0 && (
+        <section class="section" aria-labelledby="pending-title" data-pagefind-ignore>
+          <h2 id="pending-title">新收录、待核验的品牌</h2>
+          <p class="notice notice--draft" style="margin-bottom:22px">
+            只在本地审稿版本显示：这 {pendingBrands.length} 家来自 {batchDate} 的资料批次，尚未核验，不参与编辑顺序、首页推荐和价格排序，也不进 sitemap。按资料文件顺序列出，不代表推荐顺序。
+          </p>
+          <div class="card-grid">
+            {pendingBrands.map((airport) => <AirportCard airport={airport} hasDetail={details.has(airport.id)} />)}
+          </div>
+        </section>
+      )
+    }
+  </div>
+</Base>
+
+<script>
+  import { termsMatch } from '../../scripts/brand-match';
+
+  const form = document.querySelector<HTMLFormElement>('[data-filters]')!;
+  const statusBar = document.querySelector<HTMLElement>('[data-status-bar]')!;
+  const count = document.querySelector<HTMLElement>('[data-count]')!;
+  const reset = document.querySelector<HTMLButtonElement>('[data-reset]')!;
+  const grid = document.querySelector<HTMLElement>('[data-grid]')!;
+  const empty = document.querySelector<HTMLElement>('[data-empty]')!;
+  const nameInput = form.querySelector<HTMLInputElement>('#filter-name')!;
+  const region = form.querySelector<HTMLSelectElement>('#filter-region')!;
+  const billing = form.querySelector<HTMLSelectElement>('#filter-billing')!;
+  const sort = form.querySelector<HTMLSelectElement>('#filter-sort')!;
+  const cards = [...grid.querySelectorAll<HTMLElement>('[data-card]')];
+
+  // 只有脚本可用时才显示筛选控件；没有 JavaScript 仍能阅读完整目录。
+  form.hidden = false;
+  statusBar.hidden = false;
+
+  const has = (value: string | undefined, item: string) => (value ?? '').split('|').includes(item);
+  const priceOf = (card: HTMLElement, key: 'month' | 'year') => {
+    const value = card.dataset[key];
+    return value ? Number(value) : Infinity;
+  };
+
+  function apply() {
+    const query = nameInput.value.trim();
+    let visible = 0;
+    for (const card of cards) {
+      const show =
+        (!query || termsMatch((card.dataset.terms ?? '').split('|'), query)) &&
+        (!region.value || has(card.dataset.regions, region.value)) &&
+        (!billing.value || has(card.dataset.billing, billing.value));
+      card.hidden = !show;
+      if (show) visible += 1;
+    }
+
+    const sortKey = sort.value;
+    const order = (card: HTMLElement) => Number(card.dataset.order);
+    const sorted = [...cards].sort((a, b) => {
+      if (sortKey === 'order') return order(a) - order(b);
+      const key = sortKey as 'month' | 'year';
+      return priceOf(a, key) - priceOf(b, key) || order(a) - order(b);
+    });
+    grid.append(...sorted);
+
+    const unpriced = sortKey === 'order' ? 0 : cards.filter((c) => !c.hidden && priceOf(c, sortKey as 'month' | 'year') === Infinity).length;
+    count.textContent =
+      `显示 ${visible} / ${cards.length} 家` + (unpriced ? `；${unpriced} 家没有可比较的报价，排在末尾` : '');
+
+    const filtered = Boolean(query || region.value || billing.value || sortKey !== 'order');
+    reset.hidden = !filtered;
+    empty.hidden = visible > 0;
+    grid.hidden = visible === 0;
+  }
+
+  form.addEventListener('input', apply);
+  form.addEventListener('submit', (event) => event.preventDefault());
+  reset.addEventListener('click', () => {
+    form.reset();
+    apply();
+    nameInput.focus();
+  });
+  apply();
+
+  // 目录锚点进入时确保目标卡片可见。
+  function revealHash() {
+    const id = location.hash.slice(1);
+    const target = id ? cards.find((card) => card.id === decodeURIComponent(id)) : null;
+    if (target?.hidden) {
+      form.reset();
+      apply();
+      target.scrollIntoView();
+    }
+  }
+  window.addEventListener('hashchange', revealHash);
+</script>

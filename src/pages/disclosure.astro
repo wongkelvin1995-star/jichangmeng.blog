@@ -1,0 +1,15 @@
+---
+import { getEntry, render } from 'astro:content';
+import Prose from '../layouts/Prose.astro';
+import { pageUpdatedOn } from '../config/site';
+
+const entry = (await getEntry('pages', 'disclosure'))!;
+const { Content } = await render(entry);
+---
+
+<Prose title={entry.data.seoTitle} heading={entry.data.title} description={entry.data.description} updatedOn={pageUpdatedOn.disclosure}>
+  <Content />
+
+  <h2>如何识别推广链接</h2>
+  <p>目录和推荐区中标有“推广链接”的按钮，如“查看服务与套餐”“前往注册”，以及文章里的“推广入口”，都会跳转到服务商的注册入口。这些入口不一定是服务商的官方主页，本站也未逐一核验其身份。页面标识仅作品牌展示，不代表官方授权或认证。</p>
+</Prose>

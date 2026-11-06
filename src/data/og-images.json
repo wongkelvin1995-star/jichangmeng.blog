@@ -1,0 +1,338 @@
+{
+  "/": {
+    "src": "/assets/og/home-001df1df.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场梦：\n按预算和使用场景选机场",
+    "kind": null
+  },
+  "/about/": {
+    "src": "/assets/og/about-2065a88e.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "关于机场梦",
+    "kind": "本站说明"
+  },
+  "/airports/": {
+    "src": "/assets/og/airports-e4f4e406.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场资料与套餐入口",
+    "kind": "机场资料"
+  },
+  "/airports/breezenet/": {
+    "src": "/assets/og/airports-breezenet-71b7a9cd.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "微风网络套餐怎么选？先分清付款周期与每月流量",
+    "kind": "资料评析"
+  },
+  "/airports/civet/": {
+    "src": "/assets/og/airports-civet-caf82bb6.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "灵猫套餐怎么比较？把月付、年付与不限时流量分开看",
+    "kind": "资料评析"
+  },
+  "/airports/dalaoyun/": {
+    "src": "/assets/og/airports-dalaoyun-d38721fc.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "大佬云套餐怎么选？先核对客户端，再区分月付与总量包",
+    "kind": "资料评析"
+  },
+  "/airports/edgenova/": {
+    "src": "/assets/og/airports-edgenova-d0a26ea0.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "边缘节点EdgeNova怎么选？区分体验价、常规套餐与总量包",
+    "kind": "资料评析"
+  },
+  "/airports/firefly/": {
+    "src": "/assets/og/airports-firefly-2000e74f.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "Firefly选购分析：先确认客户端，再比较套餐",
+    "kind": "资料评析"
+  },
+  "/airports/flashleap/": {
+    "src": "/assets/og/airports-flashleap-ac93bb0e.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "闪跃套餐怎么选？先分清两种年付与不限时流量包",
+    "kind": "资料评析"
+  },
+  "/airports/flycat/": {
+    "src": "/assets/og/airports-flycat-e6376efb.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "飞猫云适合什么用量？学生版、月付档与总量包分析",
+    "kind": "资料评析"
+  },
+  "/airports/flyv/": {
+    "src": "/assets/og/airports-flyv-b63508f2.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "飞V套餐分析：先核对目标服务，再决定是否升级",
+    "kind": "资料评析"
+  },
+  "/airports/globalcloud/": {
+    "src": "/assets/og/airports-globalcloud-48ca5c27.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "全球云套餐怎么看？流量档位、地区资料与定制报价",
+    "kind": "资料评析"
+  },
+  "/airports/invisible/": {
+    "src": "/assets/og/airports-invisible-4e15d6b7.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "隐形人怎么选套餐？设备限制比“不限时”更值得先看",
+    "kind": "资料评析"
+  },
+  "/airports/lingdongyun/": {
+    "src": "/assets/og/airports-lingdongyun-6bba0de3.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "灵动云怎么样？先看套餐规则，再读历史测试样本",
+    "kind": "资料评析"
+  },
+  "/airports/sogoyun/": {
+    "src": "/assets/og/airports-sogoyun-64f231a2.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "Sogo云套餐怎么选？先分清周期方案与流量包差异",
+    "kind": "资料评析"
+  },
+  "/airports/twilight/": {
+    "src": "/assets/og/airports-twilight-d4f62037.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "暮光加速怎么选？月付、年付与总量包的选择边界",
+    "kind": "资料评析"
+  },
+  "/airports/v2yun/": {
+    "src": "/assets/og/airports-v2yun-049ebcba.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "唯兔云套餐怎么选？看清付款周期、月流量和总量包",
+    "kind": "资料评析"
+  },
+  "/airports/wavenet/": {
+    "src": "/assets/og/airports-wavenet-2aa75efc.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "浪网WaveNet怎么样？月付、年付与总量包的选择边界",
+    "kind": "资料评析"
+  },
+  "/airports/worryfree/": {
+    "src": "/assets/og/airports-worryfree-4e23c16e.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "无忧MINI怎样选？先分清年付套餐与优惠码",
+    "kind": "资料评析"
+  },
+  "/compare/": {
+    "src": "/assets/og/compare-b783a41d.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "按条件比较机场",
+    "kind": "条件对比"
+  },
+  "/compare/lingdongyun-vs-flycat/": {
+    "src": "/assets/og/compare-lingdongyun-vs-flycat-2f1061f9.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "灵动云与飞猫云：入门流量、轻量年付和协议资料怎样比较",
+    "kind": "条件对比"
+  },
+  "/compare/lingdongyun-vs-twilight/": {
+    "src": "/assets/og/compare-lingdongyun-vs-twilight-47de1f28.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "灵动云和暮光加速怎么选？从相同预算与流量口径开始比较",
+    "kind": "条件对比"
+  },
+  "/disclosure/": {
+    "src": "/assets/og/disclosure-3ad3345a.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "推广与价格说明",
+    "kind": "本站说明"
+  },
+  "/editorial-policy/": {
+    "src": "/assets/og/editorial-policy-abe1977c.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场梦如何整理资料与作出分析",
+    "kind": "本站说明"
+  },
+  "/guides/": {
+    "src": "/assets/og/guides-af465f20.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场选购与使用指南",
+    "kind": "选购指南"
+  },
+  "/guides/airport-plan-checklist/": {
+    "src": "/assets/og/guides-airport-plan-checklist-492f1a3e.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "新手怎么选机场？付款前先核对这六件事",
+    "kind": "选购指南"
+  },
+  "/guides/chatgpt-jichang-jiedian/": {
+    "src": "/assets/og/guides-chatgpt-jichang-jiedian-92db1f05.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "ChatGPT 机场推荐？我们先说清地区、账号风险和测试记录",
+    "kind": "选购指南"
+  },
+  "/guides/clash-kehuduan-xiazai/": {
+    "src": "/assets/og/guides-clash-kehuduan-xiazai-3627c0e0.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "Clash 下载：我们整理的官方下载地址和选择方法",
+    "kind": "新手教程"
+  },
+  "/guides/client-subscription-troubleshooting/": {
+    "src": "/assets/og/guides-client-subscription-troubleshooting-f075cbfc.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场连接不上怎么办？我们按四层陪你排查",
+    "kind": "选购指南"
+  },
+  "/guides/dingyue-lianjie-shuoming/": {
+    "src": "/assets/og/guides-dingyue-lianjie-shuoming-708837dd.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场订阅链接是什么？我们讲清它的用途、找法和保管",
+    "kind": "新手教程"
+  },
+  "/guides/disanfang-kehuduan-daoru/": {
+    "src": "/assets/og/guides-disanfang-kehuduan-daoru-0a157770.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "第三方客户端导入机场前，我们建议先确认这三件事",
+    "kind": "新手教程"
+  },
+  "/guides/how-to-test-evening/": {
+    "src": "/assets/og/guides-how-to-test-evening-7fe8712f.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场晚高峰怎么测？一份可复用的测试记录方法",
+    "kind": "选购指南"
+  },
+  "/guides/iepl-iplc-bgp-evidence/": {
+    "src": "/assets/og/guides-iepl-iplc-bgp-evidence-af04a075.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "IEPL 和 IPLC 区别是什么？我们先分清术语和证据",
+    "kind": "选购指南"
+  },
+  "/guides/jichang-tuijian-zenme-kan/": {
+    "src": "/assets/og/guides-jichang-tuijian-zenme-kan-00e9fafc.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场推荐 2026：我们不排名，先介绍机场梦怎样帮你挑",
+    "kind": "选购指南"
+  },
+  "/guides/jichangmeng-shiyong-shuoming/": {
+    "src": "/assets/og/guides-jichangmeng-shiyong-shuoming-cd6641b8.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场梦使用说明：我们的目录、标签和资料页该怎么看",
+    "kind": "新手教程"
+  },
+  "/guides/jiedian-diqu-xuanze/": {
+    "src": "/assets/og/guides-jiedian-diqu-xuanze-2000fe5e.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场节点推荐：按用途选地区，我们讲清各地节点的区别",
+    "kind": "选购指南"
+  },
+  "/guides/kexue-shangwang-rumen/": {
+    "src": "/assets/og/guides-kexue-shangwang-rumen-dfd504f4.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "科学上网新手入门：我们从原理讲到第一次连上",
+    "kind": "新手教程"
+  },
+  "/guides/latency-speed-jitter/": {
+    "src": "/assets/og/guides-latency-speed-jitter-97041678.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场测速怎么做？延迟低不等于快，我们先把指标讲清",
+    "kind": "选购指南"
+  },
+  "/guides/monthly-annual-total-traffic/": {
+    "src": "/assets/og/guides-monthly-annual-total-traffic-39750a78.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场套餐推荐：我们按用量对照月付、年付和流量包",
+    "kind": "选购指南"
+  },
+  "/guides/pianyi-jichang-zenme-zhao/": {
+    "src": "/assets/og/guides-pianyi-jichang-zenme-zhao-c041389a.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "便宜机场推荐？我们不排名，陪你算清单价和风险",
+    "kind": "选购指南"
+  },
+  "/guides/streaming-ai-availability/": {
+    "src": "/assets/og/guides-streaming-ai-availability-e6ffe7c1.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "能打开网页不等于功能可用：流媒体与AI服务怎样核对",
+    "kind": "选购指南"
+  },
+  "/guides/tizi-shi-shenme/": {
+    "src": "/assets/og/guides-tizi-shi-shenme-c692a17b.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "梯子推荐？我们先讲清梯子、VPN 和机场的区别",
+    "kind": "新手教程"
+  },
+  "/guides/traffic-multiplier-reset/": {
+    "src": "/assets/og/guides-traffic-multiplier-reset-0a49e601.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场流量倍率与重置：100GB额度怎样才算用明白？",
+    "kind": "选购指南"
+  },
+  "/guides/wending-jichang-panduan/": {
+    "src": "/assets/og/guides-wending-jichang-panduan-f173d0b9.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "稳定机场推荐？我们先讲清“稳定”该怎么判断",
+    "kind": "选购指南"
+  },
+  "/guides/xinshou-jichang-wubu/": {
+    "src": "/assets/og/guides-xinshou-jichang-wubu-25059843.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场新手教程：机场怎么使用？我们陪你走完五步",
+    "kind": "新手教程"
+  },
+  "/privacy/": {
+    "src": "/assets/og/privacy-eecc844b.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "隐私说明",
+    "kind": "本站说明"
+  },
+  "/reviews/": {
+    "src": "/assets/og/reviews-7a044c39.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "机场评析与测试解读",
+    "kind": "评析与测试解读"
+  },
+  "/reviews/lingdongyun-historical-samples/": {
+    "src": "/assets/og/reviews-lingdongyun-historical-samples-ebde25ac.jpg",
+    "width": 1200,
+    "height": 630,
+    "title": "灵动云历史测速样本解读：吞吐量、延迟与满载延迟分别说明什么",
+    "kind": "历史样本解读"
+  }
+}

@@ -1,0 +1,65 @@
+---
+// 品牌名称与别名检索：结果链接到目录锚点或已发布详情页。无 JavaScript 时表单提交到 /search/。
+import { airports, getPublishedDetailIds, searchTerms } from '../lib/airports';
+
+interface Props {
+  label?: string;
+}
+
+const { label = '搜索机场' } = Astro.props;
+const details = await getPublishedDetailIds();
+const index = airports.map((airport) => ({
+  name: airport.name,
+  terms: searchTerms(airport),
+  href: details.has(airport.id) ? `/airports/${airport.id}/` : `/airports/#${airport.id}`,
+}));
+---
+
+<form class="search-box" action="/search/" method="get" role="search" data-brand-search>
+  <label for="brand-search">{label}</label>
+  <div class="search-box__row">
+    <input
+      class="input"
+      id="brand-search"
+      name="q"
+      type="search"
+      autocomplete="off"
+      placeholder="输入品牌名或别名，例如 灵动云、FLY V、V2云"
+    />
+    <button class="btn btn--primary" type="submit">搜索</button>
+  </div>
+  <ul class="search-results" data-results></ul>
+  <p class="search-empty" data-empty hidden aria-live="polite">目录中没有匹配的品牌，按回车可搜索全站文章和说明。</p>
+  {/* “<” 转义成 <，品牌资料里出现 “</script>” 也不会截断脚本；JSON.parse 结果不变。 */}
+  <script type="application/json" data-index set:html={JSON.stringify(index).replace(/</g, '\\u003c')} />
+</form>
+
+<script>
+  import { matchBrands, type BrandEntry } from '../scripts/brand-match';
+
+  document.querySelectorAll<HTMLFormElement>('[data-brand-search]').forEach((form) => {
+    const input = form.querySelector('input')!;
+    const list = form.querySelector<HTMLElement>('[data-results]')!;
+    const empty = form.querySelector<HTMLElement>('[data-empty]')!;
+    const index: BrandEntry[] = JSON.parse(form.querySelector('[data-index]')!.textContent!);
+
+    input.addEventListener('input', () => {
+      const query = input.value.trim();
+      const matches = query ? matchBrands(index, query) : [];
+      list.replaceChildren(
+        ...matches.slice(0, 8).map((brand) => {
+          const item = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = brand.href;
+          link.textContent = brand.name;
+          const note = document.createElement('small');
+          note.textContent = brand.href.includes('#') ? '目录条目' : '资料页';
+          link.append(note);
+          item.append(link);
+          return item;
+        }),
+      );
+      empty.hidden = !query || matches.length > 0;
+    });
+  });
+</script>

@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "siteName": "机场梦",
+  "siteOrigin": null,
+  "heroHeadline": "一个小小的机场，有个大大的梦想",
+  "visualTheme": "暗夜梦境 Dreamscape Nexus",
+  "preparedOn": "2026-11-05",
+  "timeZone": "Asia/Shanghai",
+  "providerCount": 29,
+  "fixedEditorialPositions": 14,
+  "featuredProviderIds": [
+    "lingdongyun",
+    "twilight",
+    "breezenet",
+    "flycat"
+  ],
+  "orderingPolicy": "Positions 1-14 follow the user's explicit order. Positions 15-29 preserve the remaining providers' original input order.",
+  "orderingDisclosure": "以下为本站编辑推荐展示顺序，部分入口含推广链接；不代表统一性能测评、销量或绝对排名。",
+  "sourceStatus": "user_supplied_not_live_verified",
+  "linkPolicy": "Preserve the exact affiliateUrl including its hash and code. Do not assume the code is a coupon or the URL is a verified official website.",
+  "defaultUnknownFields": {
+    "officialUrl": null,
+    "lastVerifiedAt": null,
+    "packages": [],
+    "coupons": [],
+    "regions": null,
+    "lineTypes": null,
+    "protocols": null,
+    "testResults": [],
+    "detailPublished": false
+  },
+  "unknownFieldPolicy": "Apply defaultUnknownFields to each provider until evidence is supplied. Missing facts must not become zero, false, unlimited, free, or a quality claim. The empty arrays mean no supplied records, not proof of no packages or support.",
+  "providers": [
+    {
+      "id": "lingdongyun",
+      "name": "灵动云",
+      "aliases": [],
+      "editorialOrder": 1,
+      "sourceInputOrder": 5,
+      "fixedPosition": true,
+      "affiliateUrl": "https://varnexa.lingdongaff.com/#/?code=HHoxxHGa"
+    },
+    {
+      "id": "twilight",
+      "name": "暮光加速",
+      "aliases": [],
+      "editorialOrder": 2,
+      "sourceInputOrder": 1,
+      "fixedPosition": true,
+      "affiliateUrl": "https://varnexa.twilightaff.com/#/?code=rkRvrsRc"
+    },
+    {
+      "id": "breezenet",
+      "name": "微风网络 Breezenet",
+      "aliases": [
+        "微风网络",
+        "Breezenet"
+      ],
+      "editorialOrder": 3,
+      "sourceInputOrder": 23,
+      "fixedPosition": true,
+      "affiliateUrl": "https://downloadshare.breezenetttt.sbs/#/?code=eS6rgePR"
+    },
+    {
+      "id": "flycat",
+      "name": "飞猫云",
+      "aliases": [],
+      "editorialOrder": 4,
+      "sourceInputOrder": 7,
+      "fixedPosition": true,
+      "affiliateUrl": "https://flycat1.flycatvipaff.cc/#/?code=Gja6RpJ8"
+    },
+    {
+      "id": "dalaoyun",
+      "name": "大佬云",
+      "aliases": [],
+      "editorialOrder": 5,
+      "sourceInputOrder": 29,
+      "fixedPosition": true,
+      "affiliateUrl": "https://a01vipaff.dalaoyunaff.com/#/?code=yN6HqG0d"
+    },
+    {
+      "id": "invisible",
+      "name": "隐形人",
+      "aliases": [],
+      "editorialOrder": 7,
+      "sourceInputOrder": 6,
+      "fixedPosition": true,
+      "affiliateUrl": "https://varnexa.invisibleaff.com/#/?code=PoecAA0c"
+    },
+    {
+      "id": "flyv",
+      "name": "飞V",
+      "aliases": [
+        "FLY V",
+        "FLYV",
+        "飞 V"
+      ],
+      "editorialOrder": 6,
+      "sourceInputOrder": 2,
+      "fixedPosition": true,
+      "affiliateUrl": "https://varnexa.flyvaff.com/#/?code=1mq17Z8C"
+    },
+    {
+      "id": "wavenet",
+      "name": "浪网 WaveNet",
+      "aliases": [
+        "浪网",
+        "WaveNet"
+      ],
+      "editorialOrder": 8,
+      "sourceInputOrder": 4,
+      "fixedPosition": true,
+      "affiliateUrl": "https://varnexa.wavenetaff.com/#/?code=Thua5OyI"
+    },
+    {
+      "id": "worryfree",
+      "name": "无忧",
+      "aliases": [],
+      "editorialOrder": 9,
+      "sourceInputOrder": 24,
+      "fixedPosition": true,
+      "affiliateUrl": "https://wep01.worryfreeaff.com/#/?code=HgKiCWFk"
+    },
+    {
+      "id": "firefly",
+      "name": "Firefly",
+      "aliases": [
+        "firefly"
+      ],
+      "editorialOrder": 10,
+      "sourceInputOrder": 27,
+      "fixedPosition": true,
+      "affiliateUrl": "https://vip02.fireflyaff.com/#/?code=ChuJcdvd"
+    },
+    {
+      "id": "globalcloud",
+      "name": "全球云",
+      "aliases": [],
+      "editorialOrder": 11,
+      "sourceInputOrder": 13,
+      "fixedPosition": true,
+      "affiliateUrl": "https://sswdh.gcvipaff.com/#/?code=po8R1Rnl"
+    },
+    {
+      "id": "v2yun",
+      "name": "唯兔云（V2云）",
+      "aliases": [
+        "唯兔云",
+        "V2云"
+      ],
+      "editorialOrder": 12,
+      "sourceInputOrder": 10,
+      "fixedPosition": true,
+      "affiliateUrl": "https://fast.v2yunvipaff.com/#/?code=sZt4VRYd"
+    },
+    {
+      "id": "civet",
+      "name": "灵猫",
+      "aliases": [],
+      "editorialOrder": 13,
+      "sourceInputOrder": 25,
+      "fixedPosition": true,
+      "affiliateUrl": "https://vip02.civetaff.com/#/?code=oL5LiBYi"
+    },
+    {
+      "id": "flashleap",
+      "name": "闪跃 FlashLeap",
+      "aliases": [
+        "闪跃",
+        "FlashLeap"
+      ],
+      "editorialOrder": 14,
+      "sourceInputOrder": 26,
+      "fixedPosition": true,
+      "affiliateUrl": "https://vip02.flashleapaff.com/#/?code=mS7mSSyk"
+    },
+    {
+      "id": "laddercloud",
+      "name": "梯子云 LadderCloud",
+      "aliases": [
+        "梯子云",
+        "LadderCloud"
+      ],
+      "editorialOrder": 15,
+      "sourceInputOrder": 3,
+      "fixedPosition": false,
+      "affiliateUrl": "https://varnexa.ladderaff.com/#/?code=NSTRhs22"
+    },
+    {
+      "id": "stardream",
+      "name": "星岛梦 StarDream",
+      "aliases": [
+        "星岛梦",
+        "StarDream"
+      ],
+      "editorialOrder": 16,
+      "sourceInputOrder": 8,
+      "fixedPosition": false,
+      "affiliateUrl": "https://vip05.xdmaffvip.com/#/?code=8OfXD5OF"
+    },
+    {
+      "id": "lightspeed",
+      "name": "光速云 LightSpeed",
+      "aliases": [
+        "光速云",
+        "LightSpeed"
+      ],
+      "editorialOrder": 17,
+      "sourceInputOrder": 9,
+      "fixedPosition": false,
+      "affiliateUrl": "https://mdlky.gsyaff.com/#/?code=F7n0RNQb"
+    },
+    {
+      "id": "u1s1",
+      "name": "U1S1（有一说一）",
+      "aliases": [
+        "U1S1",
+        "有一说一"
+      ],
+      "editorialOrder": 18,
+      "sourceInputOrder": 11,
+      "fixedPosition": false,
+      "affiliateUrl": "https://pkdj7.vipaff.cc/#/?code=fRPgEjR9"
+    },
+    {
+      "id": "jilianyun",
+      "name": "极连云",
+      "aliases": [],
+      "editorialOrder": 19,
+      "sourceInputOrder": 12,
+      "fixedPosition": false,
+      "affiliateUrl": "https://kdjhao.jlyvipaff.com/#/?code=CLXGwx9n"
+    },
+    {
+      "id": "guangnianti",
+      "name": "光年梯",
+      "aliases": [],
+      "editorialOrder": 20,
+      "sourceInputOrder": 14,
+      "fixedPosition": false,
+      "affiliateUrl": "https://ggmq.gntaff.com/#/?code=ntDL4Jt7"
+    },
+    {
+      "id": "sogoyun",
+      "name": "Sogo云",
+      "aliases": [
+        "Sogo"
+      ],
+      "editorialOrder": 21,
+      "sourceInputOrder": 15,
+      "fixedPosition": false,
+      "affiliateUrl": "https://wzjc.sogoyunaff.cc/#/?code=EJx2Kerr"
+    },
+    {
+      "id": "yuzhou",
+      "name": "宇宙云 YuZhou",
+      "aliases": [
+        "宇宙云",
+        "YuZhou"
+      ],
+      "editorialOrder": 22,
+      "sourceInputOrder": 16,
+      "fixedPosition": false,
+      "affiliateUrl": "https://wzjc.yuzoucloud.cc/#/?code=5LyV2wPs"
+    },
+    {
+      "id": "2mao",
+      "name": "二猫云 2mao",
+      "aliases": [
+        "二猫云",
+        "2mao"
+      ],
+      "editorialOrder": 23,
+      "sourceInputOrder": 17,
+      "fixedPosition": false,
+      "affiliateUrl": "https://waaa.2maoyunaff.cc/#/?code=eWzdVBUV"
+    },
+    {
+      "id": "1fly",
+      "name": "一翻云 1fly",
+      "aliases": [
+        "一翻云",
+        "1fly"
+      ],
+      "editorialOrder": 24,
+      "sourceInputOrder": 18,
+      "fixedPosition": false,
+      "affiliateUrl": "https://wzjc.1flyunaff.cc/#/?code=6kvuXWSh"
+    },
+    {
+      "id": "edgenova",
+      "name": "边缘节点 EdgeNova",
+      "aliases": [
+        "边缘节点",
+        "EdgeNova"
+      ],
+      "editorialOrder": 25,
+      "sourceInputOrder": 19,
+      "fixedPosition": false,
+      "affiliateUrl": "https://work.edgenovaaff.cc/#/?code=nkZgzbw6"
+    },
+    {
+      "id": "kosing",
+      "name": "可信云",
+      "aliases": [],
+      "editorialOrder": 26,
+      "sourceInputOrder": 20,
+      "fixedPosition": false,
+      "affiliateUrl": "https://work.kosingaff.com/#/?code=Ho0l8Dcm"
+    },
+    {
+      "id": "sujie",
+      "name": "速界 SuJie",
+      "aliases": [
+        "速界",
+        "SuJie"
+      ],
+      "editorialOrder": 27,
+      "sourceInputOrder": 21,
+      "fixedPosition": false,
+      "affiliateUrl": "https://work.speedworldaff.cc/#/?code=sRNgp64F"
+    },
+    {
+      "id": "kuaili",
+      "name": "快狸 KuaiLi",
+      "aliases": [
+        "快狸",
+        "KuaiLi"
+      ],
+      "editorialOrder": 28,
+      "sourceInputOrder": 22,
+      "fixedPosition": false,
+      "affiliateUrl": "https://work.kuailicloud.cc/#/?code=Tmt2KQBn"
+    },
+    {
+      "id": "kuajie",
+      "name": "跨界",
+      "aliases": [],
+      "editorialOrder": 29,
+      "sourceInputOrder": 28,
+      "fixedPosition": false,
+      "affiliateUrl": "https://vip02.kuajieaff.com/#/?code=tpRqrYXx"
+    }
+  ]
+}

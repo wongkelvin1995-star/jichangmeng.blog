@@ -1,0 +1,14 @@
+# Cloudflare Pages response headers. Keep this file ASCII-only; the reasons are explained in README.md.
+
+# Build output under /_astro/ has content hashes in its file names.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images keep their file names when replaced (guide screenshots, logos), so cache for one day only.
+/assets/*
+  Cache-Control: public, max-age=86400
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY

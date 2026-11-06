@@ -1,0 +1,449 @@
+{
+  "schemaVersion": 1,
+  "about": "「机场MD」资料批次的导入规则：品牌映射、优先级、发布方式与人工整理的待确认事项。scripts/import-md.mjs 读取本文件；改动后重新运行 npm run import:md。public:true 的说明会出现在详情页，其余只进 reports/ 内部报告。",
+  "batch": {
+    "id": "md-2026-11-06",
+    "label": "机场MD 资料批次",
+    "collectedOn": "2026-11-06",
+    "defaultSourceDir": "C:\\Users\\USERR\\Desktop\\MD AND SEO\\机场MD",
+    "snapshotDir": "materials/md-batch-2026-11-06",
+    "sourceStatement": "资料方根据多个第三方博客整理；总目录注明来源 jichangjiedian.blog（2026-11-06 核对）。差异报告列出的冲突尚待站长确认。",
+    "readerSourceLabel": "第三方博客整理的资料批次",
+    "expectedFiles": 38,
+    "expectedBrandFiles": 34,
+    "auxiliaryFiles": {
+      "00_总目录.md": "核对编号、文件与推广链接，不生成页面",
+      "00_差异报告.md": "内部核验清单，不公开、不进 sitemap",
+      "00_官网客户端说明.md": "编辑资料；不能证明任何一家服务商的正式政策",
+      "00_空白模板.md": "只用于理解字段，不生成页面"
+    }
+  },
+  "siteClientRecommendation": "本站优先建议从服务商正式渠道获取客户端；具体客户端和订阅支持情况以各品牌当前说明为准。",
+  "policy": {
+    "highlights": "卡片价格下方的优势：按每家资料逐家整理 2–3 条，只写资料明确记载的套餐类型、流量规则、设备与客户端、付款和客服等特点；不写价格、测速和稳定性说法；basis 只供内部核对。",
+    "priority": [
+      "站长明确确认的数据（推广链接、优惠码规则、飞V 站长版本）",
+      "站长提供的官网套餐截图",
+      "现有参考资料与本批资料同为第三方资料：一致时记为复核一致；不同时保留现有采用值，本批数值作为候选并标为冲突"
+    ],
+    "newQuotes": "本批资料新增、且与现有资料不冲突的报价按“资料列示，未核验”加入；使用套餐截图的品牌，本批新增的报价只作候选，不参与价格比较。",
+    "unknownValues": "“待确认”“无”“不支持”“未公开”保留原文；未知值不换成 0、false 或“不限”。",
+    "couponRule": "站长确认的 8 折规则只适用于原有 29 家；新收录品牌只显示“资料记录的优惠码，结算时确认”。"
+  },
+  "brands": [
+    {
+      "no": "01", "name": "灵动云", "id": "lingdongyun",
+      "highlights": [
+        { "text": "流量用完可买同档重置包", "basis": "MD 流量规则：月内流量用完，可购买同档重置包" },
+        { "text": "可选两年付、三年付", "basis": "套餐表：有两年付、三年付报价（资料批次）" },
+        { "text": "可申请退款与升级补差价", "basis": "MD 客服：可申请退款与升级补差价，具体条件以平台指引为准" }
+      ],
+      "notes": [
+        { "public": true, "text": "订阅链接：本批资料称已暂停第三方订阅链接，但这份公告是否由灵动云发布尚未确认，本站不把它当作灵动云的正式政策；恢复时间未知。" },
+        { "public": true, "text": "AI 支持：资料声明支持 Claude；2026-10-28 晚高峰的一次第三方测试记录显示香港、新加坡、美国三地 Claude 均无法连接。两者时间和条件不同，都不是本站测试。" },
+        { "public": true, "text": "节点地区：面板记录为 5 个地区、60 个节点；服务商另列更多地区（含马来西亚、韩国、欧洲），未并入确认范围。" },
+        { "public": true, "text": "线路类型：各资料分别写作 IEPL + BGP、IEPL / IPLC 或 IPLC，说法不一。" },
+        { "public": false, "text": "邀请码：一处资料使用 TIMwZeIR，其余资料与推广链接一致为 HHoxxHGa；本站沿用推广链接中的 HHoxxHGa。" },
+        { "public": false, "text": "优惠码 ld888 的折扣幅度只有一处资料写明 8 折。" }
+      ]
+    },
+    {
+      "no": "02", "name": "暮光加速", "id": "twilight",
+      "highlights": [
+        { "text": "四大系统都有官方客户端", "basis": "MD 客户端：Windows、macOS、iOS、Android" },
+        { "text": "另有独享私人定制节点", "basis": "套餐表：独享私人定制节点" },
+        { "text": "支付宝付款，其他方式问客服", "basis": "MD 付款：支付宝；微信、USDT 需联系客服" }
+      ],
+      "quoteFlags": [
+        { "plan": "基础版", "period": "half_year", "text": "资料列价 ¥103；其他三档半年付都是月付 × 6 × 90%，照此应为 ¥108。保留资料原标价，结算时确认。" }
+      ],
+      "notes": [
+        { "public": true, "text": "基础版半年付 ¥103 疑似写错（按其他档位的折扣应为 ¥108），本站保留原标价并标为存疑。" },
+        { "public": true, "text": "标准版每月流量有 240GB 与 300GB 两种说法；独享私人定制有 ¥680/月 与 ¥600/月 两种说法。" },
+        { "public": true, "text": "节点数有 55 与 60 两种说法；设备数有“全部不限”与“只有基础版、旗舰版不限”两种说法。" },
+        { "public": false, "text": "jichangweblog 是另一套 2026-09 旧套餐（暮光网络：基础 120GB ¥20、进阶 260GB ¥38、旗舰 600GB ¥68）。优惠码 mm88 在一处资料自相矛盾。" }
+      ]
+    },
+    {
+      "no": "03", "name": "微风网络", "id": "breezenet",
+      "highlights": [
+        { "text": "三档不限时流量，用完为止", "basis": "MD 流量规则：不限时流量永不过期，用完为止；套餐截图 3 档不限时" },
+        { "text": "不限设备，各设备共用流量", "basis": "MD 设备：不限同时在线设备数，所有设备共用同一份流量" },
+        { "text": "iOS 可用 Nextin 登录", "basis": "MD 客户端：iOS 15 及以上通过 Nextin 登录" }
+      ],
+      "notes": [
+        { "public": true, "text": "价格以站长提供的官网套餐截图为准；部分第三方资料仍是旧价格（例如清风 ¥137、100GB），本站不采用。" },
+        { "public": true, "text": "协议有 VLESS 与 Shadowsocks / VMess / Trojan 两种说法，未确认。" },
+        { "public": false, "text": "推广链接域名：总目录与品牌 MD 均为 downloadshare.breezenetttt.sbs，与现站一致；差异报告称其他博客使用 edp01.breezenetaff.com。未更改。" }
+      ]
+    },
+    {
+      "no": "04", "name": "飞猫云", "id": "flycat",
+      "highlights": [
+        { "text": "有学生版年付套餐", "basis": "套餐表：学生版（年付）" },
+        { "text": "季付以上每 30 天刷新流量", "basis": "MD 流量规则：季付及以上从购买日起每 30 天刷新流量" },
+        { "text": "另有不限时与定制套餐", "basis": "套餐表：不限时套餐、定制套餐" }
+      ],
+      "notes": [
+        { "public": true, "text": "线路类型有全 IPLC、IEPL、IPLC / BGP 中转混合三种说法。" },
+        { "public": true, "text": "长周期：有资料写两年付 7 折、三年付 6 折，但没有资料列出具体价格；本站不按折扣推算。" },
+        { "public": true, "text": "客户端：有资料列出 Clash Verge Rev、Shadowrocket 等第三方客户端，也有资料写专属客户端登录即用；本批资料写不推荐导入第三方客户端。" },
+        { "public": false, "text": "优惠码：一处资料写 fm85（85 折），其余写 flycat888（8 折）；三处资料的邀请码各不相同（Gja6RpJ8 / AuJYgbpn / 6uq0Xe9y），本站沿用推广链接中的 Gja6RpJ8。" }
+      ]
+    },
+    {
+      "no": "05", "name": "大佬云", "id": "dalaoyun",
+      "highlights": [
+        { "text": "两款总量包，流量用完为止", "basis": "套餐截图：闲云·随心包、悠云·长享包，流量不过期，用完为止" },
+        { "text": "7×24 小时真人客服", "basis": "MD 客服：7×24 小时真人客服" },
+        { "text": "周期套餐全节点 1x 倍率", "basis": "MD 倍率：周期套餐全节点 1x 倍率" }
+      ],
+      "notes": [
+        { "public": true, "text": "入门套餐有多种说法（120GB ¥19.99 福利版加 150GB ¥25 进阶版、130GB ¥23、120GB ¥23、150GB ¥19.99 起），本站按站长提供的套餐截图展示。" },
+        { "public": true, "text": "节点数有 60 与 45+ 两种说法；客服有“7×24 真人客服”与“以文档和工单为主”两种说法。" },
+        { "public": false, "text": "优惠码有 dly88 与 dly888 两种写法；多数资料写 7 折，站长确认规则为 8 折。有测评提到约 ¥5.6/月 60GB，与价格表不符。" }
+      ]
+    },
+    {
+      "no": "06", "name": "隐形人", "id": "invisible",
+      "highlights": [
+        { "text": "周期套餐不限设备数", "basis": "MD 设备：周期套餐不限设备" },
+        { "text": "流量包按 1、2、3 台设备分档", "basis": "MD 设备：一次性流量包限 1 / 2 / 3 台" },
+        { "text": "支持不满意退款（以条款为准）", "basis": "MD 客服：支持不满意退款，适用范围以条款为准" }
+      ],
+      "notes": [
+        { "public": true, "text": "一次性流量包与半年付：部分资料写没有，本批资料列出三档流量包和半年付价格。" },
+        { "public": true, "text": "线路类型有 IEPL / BGP、企业级 IPLC 和只写“专线”三种说法。" },
+        { "public": false, "text": "优惠码：多数资料写 yxr888，一处写 moon80（8 折）。" }
+      ]
+    },
+    {
+      "no": "07", "name": "梯子云", "id": "laddercloud",
+      "highlights": [
+        { "text": "三档永不限时流量包", "basis": "套餐表：永不限时轻量包、标准包、精英包" },
+        { "text": "有年度保活套餐", "basis": "套餐表：天梯随行·年度保活" },
+        { "text": "自研全平台客户端", "basis": "MD 客户端：自研全平台客户端（含 Android、iOS）" }
+      ],
+      "notes": [
+        { "public": true, "text": "私人定制专线有 ¥680 与 ¥650 两种说法；永不限时流量包的档位各资料不一致（有的写没有）。" },
+        { "public": true, "text": "节点数有 50+ 与 60+ 两种说法；协议有 Shadowsocks 与 VLESS 两种说法。" },
+        { "public": false, "text": "优惠码：多数资料写 tzy888，一处写 tiziyun（8 折）。colasaiko 的顶阶商业与年度保活流量疑似对调。" }
+      ]
+    },
+    {
+      "no": "08", "name": "飞V", "id": "flyv", "priority": "owner-version",
+      "highlights": [
+        { "text": "官方客户端内置分流规则", "basis": "MD 客户端：用飞V 账号登录即可连接，分流规则已内置" },
+        { "text": "所有设备共享同一份流量", "basis": "MD 设备：常规周期套餐不限设备，所有设备共享同一套餐流量" },
+        { "text": "另有原生 IP 独享专线", "basis": "套餐表：原生 IP · 独享黄金专线" }
+      ],
+      "notes": [
+        { "public": true, "text": "飞V 资料按站长提供的版本整理，仍未核验官网结算。" },
+        { "public": true, "text": "长周期：资料写四档周期套餐均提供季付至三年付，季付约为月付总价的 95%、半年付约 90%、年付约 85%，但未列具体价格；本站不按比例推算。" },
+        { "public": false, "text": "品牌 MD 的“推广链接”一栏为空，另写官网 https://flyv.site；总目录的推广链接与现站一致，沿用。" }
+      ]
+    },
+    {
+      "no": "09", "name": "浪网", "id": "wavenet",
+      "highlights": [
+        { "text": "商业档每月 2000GB 大流量", "basis": "套餐表：商业档每月 2000GB" },
+        { "text": "另有定制线路包", "basis": "套餐表：定制线路包" },
+        { "text": "客服 24/7 在线协助", "basis": "MD 客服：24/7 在线协助" }
+      ],
+      "notes": [
+        { "public": true, "text": "定制线路包有 ¥680、¥640、¥600 三种说法；精英流量包有 900GB 与 350GB 两种说法（本批资料为 900GB）。" },
+        { "public": false, "text": "官网地址 wavenet.my 只有一处资料提及，未核实，不展示。" }
+      ]
+    },
+    {
+      "no": "10", "name": "无忧", "id": "worryfree",
+      "highlights": [
+        { "text": "有 300G 永久不限时包", "basis": "套餐截图：300G 永久不限时" },
+        { "text": "另有 MINI 年付小包", "basis": "套餐截图：MINI链接（年付小包）" },
+        { "text": "资料称 TikTok 可跨区直连", "basis": "MD 最大优势：支持 TikTok 跨区直连（服务商说法，未核实）" }
+      ],
+      "notes": [
+        { "public": true, "text": "品牌名称：有资料写作「无忧链接」，正式名称待确认。" },
+        { "public": true, "text": "AI 支持：多数资料写只列 ChatGPT、Gemini，少数资料列入 Claude。" },
+        { "public": false, "text": "优惠码：一处资料把套餐名「79元mini」写成优惠码，不采用；本批资料写 wuyou666，站长确认收录的是 woyou666。三处资料的邀请码各不相同（HgKiCWFk / 6KQS8Ked / ydtFVWqU）。" }
+      ]
+    },
+    {
+      "no": "11", "name": "Firefly", "id": "firefly",
+      "highlights": [
+        { "text": "另有年付版与不限时套餐", "basis": "套餐截图：年付版、不限时套餐" },
+        { "text": "可用支付宝、微信或 USDT", "basis": "参考资料：支付宝、微信、USDT(TRC20)" },
+        { "text": "夜间有 AI 客服值守", "basis": "MD 客服：7×24 小时在线，夜间由 AI 客服值守" }
+      ],
+      "notes": [
+        { "public": true, "text": "中文名：有资料写作「飞为」，是否有正式中文名待确认。台湾节点只有部分资料列出。" },
+        { "public": true, "text": "客户端：有资料在同一页面既写 2026 年 10 月起只用官方客户端，又写通用订阅，前后矛盾。" }
+      ]
+    },
+    {
+      "no": "12", "name": "唯兔云", "id": "v2yun",
+      "highlights": [
+        { "text": "三档永久不限时流量包", "basis": "套餐截图：永久不限时 100GB、200GB、500GB" },
+        { "text": "另有两款年付套餐", "basis": "套餐截图：年付加强专线、年付版限量款" },
+        { "text": "资料称可找客服加开地区", "basis": "MD 最大优势：其他地区可找客服加开（服务商说法，未核实）" }
+      ],
+      "operatingStatus": { "status": "contradictory", "text": "官网首屏写「正常运营中」「节点可用率 85%」，服务公告却写「节点全部暂时无法使用」，两处都没有日期。运营状态待核验，本站不把它列为重点推荐。" },
+      "homeEligible": false,
+      "notes": [
+        { "public": true, "text": "协议有 VLESS 与 Trojan 两种说法。" }
+      ]
+    },
+    {
+      "no": "13", "name": "灵猫", "id": "civet",
+      "highlights": [
+        { "text": "年付分小包、Small、Big", "basis": "套餐截图：灵猫·年付小包、年付Small、年付Big" },
+        { "text": "按订单日每月重置流量", "basis": "MD 流量规则：按订单日每月自动重置流量" },
+        { "text": "流量用完可买加油包", "basis": "MD 流量规则：流量用完可购买加油包补充" }
+      ],
+      "notes": [
+        { "public": true, "text": "不限时流量包：有资料列出两档，同一页面又写官网没有不限时套餐；本批资料未列。本站按站长提供的套餐截图展示。" },
+        { "public": true, "text": "大流量定制 ¥999/月 只有一处资料列出；线路有全 IPLC、中转优化、IEPL 多种说法；英文名有 CivetNet 与 SpiritCat 两种说法。" }
+      ]
+    },
+    {
+      "no": "14", "name": "全球云", "id": "globalcloud",
+      "highlights": [
+        { "text": "三档不限时流量包", "basis": "套餐表：不限时轻量包、标准包、大容量包" },
+        { "text": "客户端支持路由器", "basis": "MD 客户端：Windows、macOS、iOS、Android、路由器" },
+        { "text": "另有独享私人专线节点", "basis": "套餐表：独享私人专线节点" }
+      ],
+      "notes": [
+        { "public": true, "text": "轻量版流量有 59GB 与 80GB 两种说法；TikTok 支持各资料说法相反。" },
+        { "public": false, "text": "优惠码：多数资料写 qq88（8 折），一处写暂无优惠（双节码 zq80 / zq85 已结束）。colasaiko 两个两年付价格疑似算错。邀请码有 cFVyXgfb 与 po8R1Rnl 两种。" }
+      ]
+    },
+    {
+      "no": "15", "name": "跨界", "id": "kuajie",
+      "highlights": [
+        { "text": "顶档每月 1800GB 大流量", "basis": "套餐表：无界 Infinity 每月 1800GB" },
+        { "text": "从购买日起算每月流量", "basis": "MD 流量规则：从购买日起算每月流量" },
+        { "text": "可用微信、支付宝付款", "basis": "参考资料：微信、支付宝" }
+      ],
+      "notes": [
+        { "public": true, "text": "长周期价格说法矛盾：有资料列出四档年付价、没有季付；也有资料写季付、年付只有轻云可选，其他三档只能月付。" },
+        { "public": true, "text": "有资料提到官方公告标题为「线路扩容与价格调整」，但未写调整后的价格，现有价格可能已过时。" },
+        { "public": true, "text": "品牌名称：有资料写作「跨界云」，正式名称待确认。" }
+      ]
+    },
+    {
+      "no": "16", "name": "闪跃", "id": "flashleap",
+      "highlights": [
+        { "text": "多档年付方案可选", "basis": "套餐截图：闪跃年付版，以及闪动、飞跃、瞬移、跃迁的年付档" },
+        { "text": "另有不限时版流量包", "basis": "套餐截图：闪跃不限时版" },
+        { "text": "官方客户端覆盖五个平台", "basis": "MD 客户端：Windows、macOS、iOS、Android、Linux" }
+      ],
+      "notes": [
+        { "public": true, "text": "价格以站长提供的套餐截图为准；第三方资料的季付、年付价格只有一处列出。" },
+        { "public": true, "text": "客户端有“通用订阅”与“专属客户端、无订阅”两种说法；Claude 支持说法不一。" }
+      ]
+    },
+    {
+      "no": "17", "name": "Sogo云", "id": "sogoyun",
+      "highlights": [
+        { "text": "四档不限时流量包", "basis": "套餐截图：SOGO 基础、优选、强化、至尊餐不限时版" },
+        { "text": "客户端支持主流软路由", "basis": "MD 客户端：Windows、macOS、iOS、Android、主流软路由" },
+        { "text": "另有年付小包", "basis": "套餐截图：小包-年付版" }
+      ],
+      "notes": [
+        { "public": true, "text": "有资料的年付价高于两次半年付（基础版 ¥250 对 ¥240、顶配版 ¥1750 对 ¥1740），疑似写错；以结算页为准。" }
+      ]
+    },
+    {
+      "no": "18", "name": "星岛梦", "id": "stardream",
+      "highlights": [
+        { "text": "有高校套餐", "basis": "套餐表：高校套餐（年付）" },
+        { "text": "永久不限时包有三档", "basis": "套餐表：永久不限时 100G、300、1TB" },
+        { "text": "电脑、手机、路由器可同时在线", "basis": "MD 设备：不限设备（电脑、手机、路由器可同时在线）" }
+      ],
+      "notes": [
+        { "public": true, "text": "定制套餐有 ¥700/月（美国家宽定制）与 ¥680/月 两种说法；年付小包有「高校套餐」与「贴心小包」两种叫法。" },
+        { "public": true, "text": "节点数有 50+ 与 65+ 两种说法；协议有 Trojan 与 VLESS 两种说法。" },
+        { "public": false, "text": "推广链接：总目录与品牌 MD 均为 https://kfccbb.xingdaomeng.com/#/?code=8OfXD5OF，现站为站长原始提供的 https://vip05.xdmaffvip.com/#/?code=8OfXD5OF（邀请码相同）。未替换，待站长确认。" }
+      ]
+    },
+    {
+      "no": "19", "name": "光速云", "id": "lightspeed",
+      "highlights": [
+        { "text": "可定制美国原生家宽 IP", "basis": "套餐表：定制套餐（美国原生家宽 IP）" },
+        { "text": "有永久套餐与不限时套餐", "basis": "套餐表：致敬斯诺克147永久套餐、不限时套餐" },
+        { "text": "7×24 小时运维支持", "basis": "MD 客服：7×24 小时运维支持" }
+      ],
+      "notes": [
+        { "public": true, "text": "套餐流量与价格各资料几乎每档都不同（例如极速版 168GB ¥25、138GB ¥23、148GB ¥23）；冲突的档位标为待核实，不参与价格排序。" },
+        { "public": true, "text": "不限时套餐有 247GB ¥147 与 1000GB ¥680 两种说法；台湾节点有 5 个与 10 个两种说法；支持系统是否含 Windows 说法不一。" },
+        { "public": false, "text": "优惠码：AMM / jichangcha09（9 折）/ 暂无优惠三种说法。colasaiko 的长周期价格与光年梯完全相同，疑似套用。" }
+      ]
+    },
+    {
+      "no": "20", "name": "U1S1有一说一", "mdName": "有一说一", "id": "u1s1",
+      "highlights": [
+        { "text": "每自然月重置流量", "basis": "MD 流量规则：每自然月自动重置流量" },
+        { "text": "客户端含路由器版本", "basis": "MD 客户端：Windows、macOS、iOS、Android、路由器" },
+        { "text": "另有定制包", "basis": "套餐表：定制包" }
+      ],
+      "notes": [
+        { "public": true, "text": "线路有 BGP 三网 + IEPL 出口与 IPLC 专线两种说法；一处资料提到 1000GB 一次性流量包，但套餐表未列。" }
+      ]
+    },
+    {
+      "no": "21", "name": "极连云", "id": "jilianyun",
+      "highlights": [
+        { "text": "季付起每 30 天自动更新流量", "basis": "MD 流量规则：季付以上从购买日起每 30 天自动更新流量" },
+        { "text": "另有不限时套餐", "basis": "套餐表：不限时套餐" },
+        { "text": "资料定位跨境电商与外贸", "basis": "MD 品牌定位：面向跨境电商、外贸与跨国公司" }
+      ],
+      "quoteFlags": [
+        { "plan": "进阶套餐", "period": "quarter", "text": "长周期价看起来按旧月付 ¥36 计算，与当前月付 ¥32 对不上。保留资料原标价，结算时确认。" },
+        { "plan": "进阶套餐", "period": "half_year", "text": "长周期价看起来按旧月付 ¥36 计算，与当前月付 ¥32 对不上。保留资料原标价，结算时确认。" },
+        { "plan": "进阶套餐", "period": "year", "text": "长周期价看起来按旧月付 ¥36 计算，与当前月付 ¥32 对不上。保留资料原标价，结算时确认。" },
+        { "plan": "尊享套餐", "period": "quarter", "text": "长周期价看起来按旧月付 ¥144 计算，与当前月付 ¥122 对不上。保留资料原标价，结算时确认。" },
+        { "plan": "尊享套餐", "period": "half_year", "text": "长周期价看起来按旧月付 ¥144 计算，与当前月付 ¥122 对不上。保留资料原标价，结算时确认。" },
+        { "plan": "尊享套餐", "period": "year", "text": "长周期价看起来按旧月付 ¥144 计算，与当前月付 ¥122 对不上。保留资料原标价，结算时确认。" },
+        { "plan": "旗舰套餐", "period": "quarter", "text": "长周期价等于月付原价累计、没有打折，另有资料按月付 ¥72 计算。保留资料原标价，结算时确认。" },
+        { "plan": "旗舰套餐", "period": "half_year", "text": "长周期价等于月付原价累计、没有打折，另有资料按月付 ¥72 计算。保留资料原标价，结算时确认。" },
+        { "plan": "旗舰套餐", "period": "year", "text": "长周期价等于月付原价累计、没有打折，另有资料按月付 ¥72 计算。保留资料原标价，结算时确认。" }
+      ],
+      "notes": [
+        { "public": true, "text": "长周期价格与当前月付对不上：只有基础套餐符合季付 95%、半年 90%、年付 85% 的规律，其他档位看起来是月付降价后长周期价没有跟着更新。" },
+        { "public": true, "text": "官方注明福建、新疆用户请勿下单限时年付套餐。" },
+        { "public": true, "text": "线路有「全 IPLC 专线」与「公网隧道中转加 IEPL」两种说法并存。" }
+      ]
+    },
+    {
+      "no": "22", "name": "光年梯", "id": "guangnianti",
+      "highlights": [
+        { "text": "支持路由器和 M 芯片 Mac", "basis": "MD 客户端：macOS（Intel 与 Apple Silicon）、路由器" },
+        { "text": "季付及以上按 30 天重置", "basis": "MD 流量规则：季付及以上每 30 天自动重置流量" },
+        { "text": "另有独享专线定制档", "basis": "套餐表：独享私人专线节点（IEPL）" }
+      ],
+      "notes": [
+        { "public": false, "text": "优惠码：一处资料写 GN888，另一处写暂无优惠。" }
+      ]
+    },
+    {
+      "no": "23", "name": "宇宙云", "id": "yuzhou",
+      "highlights": [
+        { "text": "长周期最长到三年付", "basis": "套餐表：有两年付、三年付报价（资料批次）" },
+        { "text": "流量用完可购买重置", "basis": "MD 流量规则：流量用完可购买重置" },
+        { "text": "可定制独享原生 IP 家宽", "basis": "套餐表：家宽定制套餐（独享原生 IP，可选地区与节点）" }
+      ],
+      "notes": [
+        { "public": true, "text": "套餐流量有 160 / 300 / 700 / 1500GB 与 120 / 240 / 500 / 1000GB 两种说法（后者资料日期较早）；恒星不限时包有 240GB 与 200GB 两种说法。" },
+        { "public": true, "text": "星云年付尊享版（100GB ¥188）只有一处资料列出；节点数有 50+ 与 70+ 两种说法。" }
+      ]
+    },
+    {
+      "no": "24", "name": "二猫云", "id": "2mao",
+      "highlights": [
+        { "text": "两档不限时套餐", "basis": "套餐表：不限时套餐、不限时套餐加大版" },
+        { "text": "可定制美国家宽静态 IP", "basis": "套餐表：美国家宽定制（原生家宽静态 IP）" },
+        { "text": "另有二猫年付小包", "basis": "套餐表：二猫年付小包" }
+      ],
+      "notes": [
+        { "public": true, "text": "美国家宽定制 ¥700 只有一处资料列出；是否有新加坡节点说法不一；协议有 VLESS 与 Shadowsocks / VMess 两种说法。" }
+      ]
+    },
+    {
+      "no": "25", "name": "一翻云", "id": "1fly",
+      "highlights": [
+        { "text": "轻享、舒享、尊享都有不限时包", "basis": "套餐表：轻享版、舒享版、尊享版各有不限时包" },
+        { "text": "两年付、三年付都可选", "basis": "套餐表：有两年付、三年付报价（资料批次）" },
+        { "text": "另有多款年付小包", "basis": "套餐表：年付小包等多款年付小包" }
+      ],
+      "notes": [
+        { "public": true, "text": "客户端：多数资料写只用官方客户端、不开放第三方通用订阅，一处资料写兼容 Clash 等通用订阅。" }
+      ]
+    },
+    {
+      "no": "26", "name": "边缘节点", "id": "edgenova",
+      "highlights": [
+        { "text": "有限时体验月付小包", "basis": "套餐截图：限时体验月付小包" },
+        { "text": "两档永久不限时流量包", "basis": "套餐截图：永久不限时 100G、450G" },
+        { "text": "客户端含 Linux 与路由器版", "basis": "MD 客户端：Windows、macOS、iOS、Android、Linux、路由器" }
+      ],
+      "notes": [
+        { "public": true, "text": "体验月付小包流量有 50GB 与 72GB 两种说法；三年付折扣有 75 折与 7 折两种说法；极界·专享套餐（200GB ¥35）只有一处资料列出。" },
+        { "public": true, "text": "线路有 IPLC 与 IEPL 两种说法。" }
+      ]
+    },
+    {
+      "no": "27", "name": "可信云", "id": "kosing",
+      "highlights": [
+        { "text": "流量用完可付费重置", "basis": "MD 流量规则：流量用完可重置" },
+        { "text": "有月付小包和年费小礼包", "basis": "套餐表：月付小包、年费小礼包" },
+        { "text": "另有轻量不限时包", "basis": "套餐表：轻量不限时" }
+      ],
+      "notes": [
+        { "public": false, "text": "优惠码：一处资料写 kxy80，另一处写暂无优惠。" }
+      ]
+    },
+    {
+      "no": "28", "name": "速界", "id": "sujie",
+      "highlights": [
+        { "text": "有单月试用套餐", "basis": "套餐表：单月试用；MD 试用：单月试用套餐" },
+        { "text": "另有限时年付档", "basis": "套餐表：限时年付" },
+        { "text": "客户端含 Linux 版", "basis": "MD 客户端：Windows、macOS、iOS、Android、Linux" }
+      ],
+      "notes": [
+        { "public": true, "text": "套餐流量与价格有两种说法：极速版 130GB / 120GB，超速版 260GB / 250GB，光速版 550GB ¥99 / 500GB ¥100，限时年付 70GB / 50GB。" },
+        { "public": true, "text": "Claude：一处资料称 2026-07 第三方测试未解锁，另一处较旧资料称针对 Claude 优化。" }
+      ]
+    },
+    {
+      "no": "29", "name": "快狸", "id": "kuaili",
+      "highlights": [
+        { "text": "有月付、年付两款小套餐", "basis": "套餐表：月狸月付小套餐、森狸年付小套餐" },
+        { "text": "每 30 天自动刷新流量", "basis": "MD 流量规则：每 30 天自动刷新流量" },
+        { "text": "电脑、手机、路由器同时可用", "basis": "MD 设备：不限设备（电脑、手机、路由器可同时在线）" }
+      ],
+      "notes": [
+        { "public": false, "text": "优惠码：一处资料写 kuaili996，另一处写暂无优惠。colasaiko 写年付 8 折，但实际年付价几乎没打折。" }
+      ]
+    },
+    {
+      "no": "30", "name": "榴莲云", "id": "liulianyun", "new": true, "listing": "drafts-only",
+      "notes": [
+        { "public": true, "text": "目前只有单一来源资料，无法交叉核对；只列月付价，季付、半年付、年付未列。" },
+        { "public": true, "text": "资料称 2026 年 9 月上线，长期稳定性未知。" }
+      ]
+    },
+    {
+      "no": "31", "name": "闪电云", "id": "shandianyun", "new": true, "listing": "drafts-only",
+      "operatingStatus": { "status": "static-demo-suspected", "text": "有资料提醒官网存档自称「静态演示站点」；资料中的价格、口碑与运营状态不能当作事实，是否真实营业待确认。" },
+      "notes": [
+        { "public": true, "text": "目前只有单一来源资料，无法交叉核对；另有按日 ¥1.9、按周 ¥9.9 的套餐，流量未写明。" }
+      ]
+    },
+    {
+      "no": "32", "name": "环球云", "id": "huanqiuyun", "new": true, "listing": "drafts-only",
+      "notes": [
+        { "public": true, "text": "流量前后不一致：2026-10-20 的资料写轻享 140GB ¥21、畅游 280GB；2026-09-22 的资料写轻享 120GB ¥23、畅游 240GB。" },
+        { "public": true, "text": "设备有上限：轻享 3 台、畅游 5 台、尊享 10 台，与多数品牌“不限设备”不同。" },
+        { "public": true, "text": "目前只有单一来源资料，无法交叉核对。" }
+      ]
+    },
+    {
+      "no": "33", "name": "神行云", "id": "shenxingyun", "new": true, "listing": "drafts-only",
+      "notes": [
+        { "public": true, "text": "品牌名称：有资料写作「神行加速」，正式名称待确认。" },
+        { "public": true, "text": "套餐流量有 150 / 300 / 666GB 与 120 / 260 / 520GB 两种说法（本批资料采用后者）；线路有 IPLC 与 IEPL 两种说法；节点数有 60 与 50+ 两种说法；Claude 支持说法不一。" }
+      ]
+    },
+    {
+      "no": "34", "name": "云界云", "id": "yunjieyun", "new": true, "listing": "drafts-only",
+      "notes": [
+        { "public": true, "text": "季付、半年付比按月付累计还贵（例如轻云季付 ¥72，月付 × 3 只要 ¥66），三档都是这样，疑似月付降价后长周期价没有更新；保留资料原标价。" },
+        { "public": true, "text": "品牌名称：官方在不同页面的写法不一致。目前只有单一来源资料。" }
+      ]
+    }
+  ],
+  "internalObservations": [
+    "注册页以 varnexa. 开头的有灵动云、暮光加速、隐形人、梯子云、飞V、浪网；以 a01vipaff. 开头的有大佬云、榴莲云、闪电云、环球云、神行云、云界云。套餐结构相似，可能同一运营方或同一套面板，未经核实，不公开。",
+    "clashlab 资料日期 2026-08-11，普遍过时；jichangyouxuan、vpntizi 多数页面标注 2026-10-20「历史参考」。"
+  ]
+}

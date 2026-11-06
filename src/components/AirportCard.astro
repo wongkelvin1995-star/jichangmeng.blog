@@ -1,0 +1,168 @@
+---
+import AffiliateLink from './AffiliateLink.astro';
+import BrandLogo from './BrandLogo.astro';
+import {
+  billingLabel,
+  clientCardNote,
+  couponTerms,
+  formatYuan,
+  isRecordedOnlyCoupon,
+  limitedQuoteCondition,
+  listedQuotes,
+  lowestMonthly,
+  lowestYearly,
+  needsAttention,
+  nodeCount,
+  pricingSourceLabel,
+  quoteCouponNote,
+  recordedCouponNote,
+  searchTerms,
+  sortedQuotes,
+  statusLabel,
+  trafficLabel,
+  usesPricingScreenshots,
+  type Airport,
+} from '../lib/airports';
+
+interface Props {
+  airport: Airport;
+  hasDetail?: boolean;
+  /** 目录页给卡片加锚点和筛选数据；首页精选不需要，避免重复 id。 */
+  filterable?: boolean;
+}
+
+const { airport, hasDetail = false, filterable = false } = Astro.props;
+
+const monthly = lowestMonthly(airport);
+const yearly = lowestYearly(airport);
+const condition = limitedQuoteCondition(airport, monthly);
+const coupon = airport.coupons[0] ?? null;
+const terms = coupon ? couponTerms(coupon) : null;
+const quotes = sortedQuotes(listedQuotes(airport));
+const billings = [...new Set(airport.packages.filter((q) => q.eligibleForReferenceComparison).map((q) => q.billingPeriod).filter(Boolean))];
+const regions = airport.regions ?? [];
+const nodes = nodeCount(airport);
+const fromScreenshots = usesPricingScreenshots(airport);
+const clientNote = clientCardNote(airport);
+
+const quotesFoot = fromScreenshots
+  ? `整理自站长提供的套餐截图（${airport.pricingEvidenceReceivedOn} 收到，拍摄时间未知），只含图中可见的方案，未核验结算。`
+  : airport.pricingPriority === 'owner-version'
+    ? `按站长提供的资料整理（${airport.referenceReviewedOn} 前后收录），未核验结算。`
+    : airport.pricingPriority === 'md-batch'
+      ? '整理自第三方博客的资料批次，只有单一或少数来源，未核验官网当前价格。'
+      : `摘录报价，不是完整套餐表。参考资料日期 ${airport.sourceUpdatedOn}，另有资料批次补充；未核验官网当前价格。`;
+
+const filterAttrs = filterable
+  ? {
+      id: airport.id,
+      'data-card': '',
+      'data-order': airport.editorialOrder ?? 999,
+      'data-terms': searchTerms(airport).join('|'),
+      'data-regions': regions.join('|'),
+      'data-billing': billings.join('|'),
+      'data-month': monthly?.amount ?? '',
+      'data-year': yearly?.amount ?? '',
+    }
+  : {};
+---
+
+<article class="card" {...filterAttrs}>
+  <BrandLogo airport={airport} instance={filterable ? 'directory' : 'featured'} />
+  <div class="card__meta">
+    <span class="card__order">
+      {airport.editorialOrder === null ? '未进入编辑顺序' : <>编辑顺序 <b>{String(airport.editorialOrder).padStart(2, '0')}</b></>}
+    </span>
+    <span class:list={['badge', { 'badge--warn': needsAttention(airport) }]}>{statusLabel(airport)}</span>
+  </div>
+  <h3 class="card__name">
+    {hasDetail ? <a href={`/airports/${airport.id}/`}>{airport.name}</a> : airport.name}
+  </h3>
+
+  <div class="price">
+    {
+      monthly ? (
+        <>
+          <span class="price__label">摘录报价中的最低月付</span>
+          <span class="price__main"><strong>{formatYuan(monthly.amount)}</strong>/ {trafficLabel(monthly)}</span>
+          {condition && <span class="price__condition">{condition}</span>}
+        </>
+      ) : (
+        <span class="price__pending">月付报价存在来源差异或尚未核实，暂不展示最低价</span>
+      )
+    }
+  </div>
+
+  {
+    airport.cardHighlights.length > 0 && (
+      <ul class="brand-highlights">
+        {airport.cardHighlights.map((text) => <li>{text}</li>)}
+      </ul>
+    )
+  }
+
+  {
+    regions.length > 0 && (
+      <div>
+        <span class="price__label">参考资料列示地区{nodes && ` · 节点 ${nodes}`}</span>
+        <ul class="tags">
+          {regions.slice(0, 6).map((region) => <li>{region}</li>)}
+          {regions.length > 6 && <li>等 {regions.length} 个</li>}
+        </ul>
+      </div>
+    )
+  }
+
+  {clientNote && <p class="card__client">{clientNote}</p>}
+
+  {
+    coupon && (
+      <div class="coupon">
+        <span>优惠码 <code>{coupon.code}</code></span>
+        <button class="coupon__copy" type="button" data-copy={coupon.code} hidden>复制</button>
+        <span class="coupon__note">
+          {isRecordedOnlyCoupon(coupon) ? recordedCouponNote(coupon) : terms ? `${terms}；具体套餐和有效期以结算页为准` : '折扣与适用范围未核验，以结算页为准'}
+        </span>
+      </div>
+    )
+  }
+
+  <details class="quotes">
+    <summary>查看 {quotes.length} 条{fromScreenshots ? '截图报价' : '摘录报价'}</summary>
+    <ul class="quotes__list">
+      {
+        quotes.map((quote) => {
+          const note = quoteCouponNote(coupon, quote);
+          return (
+            <li>
+              <div class="quotes__name">
+                {quote.name}
+                {quote.priceStatus === 'conflicting-or-pending' && <span class="badge badge--warn">冲突／待核实</span>}
+                {quote.priceStatus === 'md-doubtful' && <span class="badge badge--warn">标价存疑</span>}
+                {quote.priceStatus === 'md-demo-unverified' && <span class="badge badge--warn">示例价格</span>}
+                {quote.priceStatus === 'custom-contact-required' && <span class="badge badge--warn">定制，需联系客服</span>}
+              </div>
+              <div class="quotes__line">
+                {billingLabel(quote)} {formatYuan(quote.amount)} · {trafficLabel(quote)}{note && ` · ${note}`}
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+    <p class="quotes__foot">{quotesFoot}</p>
+  </details>
+
+  <div class="card__cta">
+    {
+      airport.affiliateUrl ? (
+        <>
+          <AffiliateLink href={airport.affiliateUrl} name={airport.name} />
+          <small>推广链接 · {pricingSourceLabel(airport)}，未独立核验<br />报价及规则以购买页为准</small>
+        </>
+      ) : (
+        <small>推广链接待确认，暂不提供购买入口</small>
+      )
+    }
+  </div>
+</article>

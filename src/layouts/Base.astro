@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+import { site } from '../config/site';
+import { ogImageOf } from '../lib/seo';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  /** 页面本身不应被索引（搜索页、404 等）。 */
+  noindex?: boolean;
+  jsonLd?: object[];
+  ogType?: 'website' | 'article';
+}
+
+const { title, description, noindex = false, jsonLd = [], ogType = 'website' } = Astro.props;
+const blockIndex = noindex || !site.isProduction;
+const canonical = site.isProduction && !noindex ? new URL(Astro.url.pathname, site.origin!).href : null;
+// 分享图要用绝对地址，所以和 canonical 一样只在有正式域名时输出；没有专属图的页面用首页那张。
+const og = ogImageOf(Astro.url.pathname);
+const ogImage = og && site.origin ? new URL(og.src, site.origin).href : null;
+const homeOg = ogImageOf('/');
+// 首页那张图上写的是站名和口号；其他页面的图上是本页 H1。
+const ogAlt = !og || og.src === homeOg?.src ? `${site.name}：${site.headline}` : og.title.replace(/\s*\n\s*/g, '');
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={blockIndex ? 'noindex,follow' : 'index,follow'} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {site.bingVerification && <meta name="msvalidate.01" content={site.bingVerification} />}
+    <meta name="theme-color" content="#060812" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {
+      ogImage && og && (
+        <>
+          <meta property="og:image" content={ogImage} />
+          <meta property="og:image:width" content={String(og.width)} />
+          <meta property="og:image:height" content={String(og.height)} />
+          <meta property="og:image:alt" content={ogAlt} />
+        </>
+      )
+    }
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {/* “<” 转成 <：资料里万一出现 “</script>” 也不会提前结束脚本标签，JSON 解析结果不变。 */}
+    {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data).replace(/</g, '\\u003c')} />)}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <SiteHeader />
+    {
+      site.previewDrafts && (
+        <p class="notice notice--draft wrap" style="margin-block:12px">
+          本地审稿版本：包含未发布草稿，所有页面均为 noindex，不要部署。
+        </p>
+      )
+    }
+    <main id="main"><slot /></main>
+    <SiteFooter />
+    <script>
+      import '../scripts/copy-coupon';
+    </script>
+  </body>
+</html>

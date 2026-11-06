@@ -1,0 +1,37 @@
+---
+import { getEntry, render } from 'astro:content';
+import Prose from '../layouts/Prose.astro';
+import { pageUpdatedOn, site } from '../config/site';
+import { airports, allQuotes, referenceBrandCount, screenshotBrandCount, sourceDate } from '../lib/airports';
+
+const entry = (await getEntry('pages', 'about'))!;
+const { Content } = await render(entry);
+---
+
+<Prose title={entry.data.seoTitle} heading={entry.data.title} description={entry.data.description} updatedOn={pageUpdatedOn.about}>
+  <Content />
+
+  <h2>目前的资料情况</h2>
+  <ul>
+    <li>目录收录 {airports.length} 家品牌、{allQuotes.length} 条价格记录。</li>
+    <li>{referenceBrandCount} 家的报价摘录自第三方参考资料（资料日期 {sourceDate}），{screenshotBrandCount} 家来自站长提供的套餐截图（拍摄时间未知），尚未逐家核验官网当前信息。</li>
+    <li>本站目前没有发布自有实测，因此不对速度和稳定性下结论。</li>
+  </ul>
+
+  {
+    site.author && (
+      <>
+        <h2>维护者</h2>
+        <p>{site.author}</p>
+      </>
+    )
+  }
+  {
+    site.contact && (
+      <>
+        <h2>纠错</h2>
+        <p>发现资料有误，欢迎通过{site.contact.label}告诉我们：<a href={site.contact.href}>{site.contact.text}</a></p>
+      </>
+    )
+  }
+</Prose>

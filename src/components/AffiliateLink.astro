@@ -1,0 +1,14 @@
+---
+// 推广入口：完整保留原始 URL（含 hash 内的 code），标记为 sponsored。
+interface Props {
+  href: string;
+  name: string;
+  class?: string;
+}
+
+const { href, name, class: className = 'btn btn--primary' } = Astro.props;
+---
+
+<a class={className} href={href} rel="sponsored noopener" target="_blank" data-affiliate={name}>
+  <slot>查看服务与套餐</slot><span class="visually-hidden">：{name}（推广链接，新窗口打开）</span>
+</a>

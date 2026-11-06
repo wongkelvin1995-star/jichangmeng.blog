@@ -1,0 +1,2572 @@
+[
+  {
+    "id": "lingdongyun",
+    "name": "灵动云",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "资料列出港日新美地区",
+      "资料标注多设备使用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "灵动·拂风",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 100
+          },
+          {
+            "name": "灵动·驭浪",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "灵动·凌霄",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1500
+          },
+          {
+            "name": "灵动·穿云（年付）",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 70
+          },
+          {
+            "name": "灵动·闲云（小流量包）",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 150
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、台湾、日本、新加坡、美国"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站转述为不限同时使用客户端数量"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/lingdongyun/"
+    ],
+    "reviewNotes": [
+      "参考页保留旧资料与2026-10-31套餐截图之间的名称及价格差异；摘录采用当前表格，不视为官网实时核验"
+    ]
+  },
+  {
+    "id": "twilight",
+    "name": "暮光加速",
+    "highlights": [
+      "月付与总量包可选",
+      "轻量与大流量档可选",
+      "资料标注多设备使用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "基础版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 120
+          },
+          {
+            "name": "标准版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 240
+          },
+          {
+            "name": "至尊版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1500
+          },
+          {
+            "name": "年付轻量版",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 70
+          },
+          {
+            "name": "一次性流量包150GB",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 150
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "基础版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 120
+          },
+          {
+            "name": "标准版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 240
+          },
+          {
+            "name": "至尊版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1500
+          },
+          {
+            "name": "年付轻量版",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 70
+          },
+          {
+            "name": "一次性流量包150GB",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 150
+          }
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站转述为不限设备"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/muguangjiasu/"
+    ],
+    "reviewNotes": []
+  },
+  {
+    "id": "breezenet",
+    "name": "微风网络 Breezenet",
+    "highlights": [
+      "多档月流量可按需选",
+      "资料列多种付款方式",
+      "资料标注多设备共享"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "乘风",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 200
+          },
+          {
+            "name": "破风",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 500
+          },
+          {
+            "name": "御风",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1200
+          },
+          {
+            "name": "清风（年付小包）",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 100
+          },
+          {
+            "name": "信风（不限时流量包）",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 270
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "claims"
+        ],
+        "evidence": [
+          "参考页转述IPLC专线及日本直连",
+          "参考页列支付宝、微信与USDT付款，尚未直接核验"
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站称不限制同时在线设备，共用流量"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/breezenet/"
+    ],
+    "reviewNotes": [
+      "破风55/57元、御风125/127元存在版本差异",
+      "清风99/137元存在版本差异",
+      "流量包一处写不限时，另一处称不延长主套餐期限",
+      "节点有53与约60等版本，德国不在站长节点清单"
+    ]
+  },
+  {
+    "id": "flycat",
+    "name": "飞猫云",
+    "highlights": [
+      "轻量与大流量档可选",
+      "资料列有多种协议",
+      "资料标注多设备使用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "星耀版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "星环版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "宇宙版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1000
+          },
+          {
+            "name": "学生版",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 50
+          },
+          {
+            "name": "不限时套餐",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 1000
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "protocols"
+        ],
+        "evidence": "Shadowsocks、Trojan、VLESS"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站转述为不限设备"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/feimaoyun/"
+    ],
+    "reviewNotes": [
+      "页面列示57节点，地区分项有不同口径，不能当作即时节点盘点"
+    ]
+  },
+  {
+    "id": "dalaoyun",
+    "name": "大佬云",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "资料列有多地区节点",
+      "流量档位可按需选择"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "初云·福利版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 120
+          },
+          {
+            "name": "凌云·基础版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "御云·高级版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 600
+          },
+          {
+            "name": "年付活动包",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "闲云·随心包",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 78
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、台湾、新加坡、日本、美国、韩国"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "初云·福利版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 120
+          },
+          {
+            "name": "凌云·基础版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "御云·高级版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 600
+          },
+          {
+            "name": "年付活动包",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "闲云·随心包",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 78
+          }
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/dalaoyun/"
+    ],
+    "reviewNotes": [
+      "IPLC与IEPL文案冲突，不能标记为已确认线路",
+      "一处列通用订阅需联系客服，另一处称仅自带客户端、Clash及Shadowrocket不可用",
+      "福利版旧流量100GB与现表120GB不同"
+    ]
+  },
+  {
+    "id": "invisible",
+    "name": "隐形人",
+    "highlights": [
+      "周期套餐可多设备用",
+      "总量包有不同设备档",
+      "资料列有亚欧地区节点"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站称周期套餐不限设备；三个总量包分别限1、2、3台"
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站称周期套餐不限设备；三个总量包分别限1、2、3台"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、台湾、日本、新加坡、美国、韩国、德国、法国、英国"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/yinxingren/"
+    ],
+    "reviewNotes": []
+  },
+  {
+    "id": "flyv",
+    "name": "飞V",
+    "highlights": [
+      "月付与总量包可选",
+      "轻量与大流量档可选",
+      "资料标注多设备使用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "入门方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "进阶方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 380
+          },
+          {
+            "name": "商业方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1800
+          },
+          {
+            "name": "年付标准轻量版",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 65
+          },
+          {
+            "name": "小流量包（永不限时）",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 130
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "入门方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "进阶方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 380
+          },
+          {
+            "name": "商业方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1800
+          },
+          {
+            "name": "年付标准轻量版",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 65
+          },
+          {
+            "name": "小流量包（永不限时）",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 130
+          }
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站转述为不限设备、不限速"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/flyv/"
+    ],
+    "reviewNotes": []
+  },
+  {
+    "id": "wavenet",
+    "name": "浪网 WaveNet",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "多档月流量可按需选",
+      "资料标注多设备使用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "入门",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "进阶",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 400
+          },
+          {
+            "name": "商业",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 2000
+          },
+          {
+            "name": "年付标准",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 80
+          },
+          {
+            "name": "小流量包",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 180
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "入门",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "进阶",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 400
+          },
+          {
+            "name": "商业",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 2000
+          },
+          {
+            "name": "年付标准",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 80
+          },
+          {
+            "name": "小流量包",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 180
+          }
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站转述不限设备，未做并发验证。"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/wavenet/"
+    ],
+    "reviewNotes": []
+  },
+  {
+    "id": "worryfree",
+    "name": "无忧",
+    "highlights": [
+      "月付与总量包可选",
+      "提供轻量周期方案",
+      "资料列出港日新美地区"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "舒心链接",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 100
+          },
+          {
+            "name": "省心链接",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 200
+          },
+          {
+            "name": "随心链接",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 500
+          },
+          {
+            "name": "MINI链接",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 40
+          },
+          {
+            "name": "不限时链接（一次性）",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "舒心链接",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 100
+          },
+          {
+            "name": "省心链接",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 200
+          },
+          {
+            "name": "随心链接",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 500
+          },
+          {
+            "name": "MINI链接",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 40
+          },
+          {
+            "name": "不限时链接（一次性）",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、台湾、新加坡、日本、美国"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/wuyou/"
+    ],
+    "reviewNotes": [
+      "参考站将79元mini列作优惠码；用户已明确更正为woyou666，保留用户值，不从参考站覆盖。"
+    ]
+  },
+  {
+    "id": "firefly",
+    "name": "Firefly",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "资料列多种付款方式",
+      "多档月流量可按需选"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "Lite",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "Plus",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "Blaze",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 600
+          },
+          {
+            "name": "年付版",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "不限时套餐（一次性）",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "claims"
+        ],
+        "evidence": [
+          "来源列支付宝、微信、USDT(TRC20)付款方式，未经机场梦核验。"
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "Lite",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "Plus",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "Blaze",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 600
+          },
+          {
+            "name": "年付版",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "不限时套餐（一次性）",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/firefly/"
+    ],
+    "reviewNotes": [
+      "客户端栏称通用订阅，公告却称2026年10月起只用官方客户端且不再提供订阅链接；需确认当前规则。"
+    ]
+  },
+  {
+    "id": "globalcloud",
+    "name": "全球云",
+    "highlights": [
+      "周期与总量方案并列",
+      "资料列有多地区节点",
+      "流量档位覆盖不同用量"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "BGP智能优化·入门方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 120
+          },
+          {
+            "name": "BGP智能优化·进阶方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "BGP智能优化·商业方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1500
+          },
+          {
+            "name": "轻量版（年付）",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 59
+          },
+          {
+            "name": "不限时轻量包",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、台湾、日本、新加坡、美国、马来西亚、德国、土耳其、巴西"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "BGP智能优化·入门方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 120
+          },
+          {
+            "name": "BGP智能优化·进阶方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "BGP智能优化·商业方案",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1500
+          },
+          {
+            "name": "轻量版（年付）",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 59
+          },
+          {
+            "name": "不限时轻量包",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/quanqiuyun/"
+    ],
+    "reviewNotes": [
+      "未选入的私人专线在价格表为680元/月，编辑说明又提到600元/500GB；定制价不作确定报价。",
+      "来源摘要称6地区，正文列出更多国家，地区总数不据此计算。"
+    ]
+  },
+  {
+    "id": "v2yun",
+    "name": "唯兔云（V2云）",
+    "highlights": [
+      "资料列有多档流量选择",
+      "周期与总量方案有记录"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "普通版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "进阶版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 200
+          },
+          {
+            "name": "专业版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 500
+          },
+          {
+            "name": "年付限量款",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 45
+          },
+          {
+            "name": "永久不限时100GB",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "普通版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "进阶版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 200
+          },
+          {
+            "name": "专业版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 500
+          },
+          {
+            "name": "年付限量款",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 45
+          },
+          {
+            "name": "永久不限时100GB",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/weituyun/"
+    ],
+    "reviewNotes": [
+      "源资料同时出现正常运营和所有节点暂不可用的说法，均无可靠日期；不能断言当前运营正常或已停运。",
+      "源站概述地区数与正文国家列表不一致，列表只作来源声明。"
+    ]
+  },
+  {
+    "id": "civet",
+    "name": "灵猫",
+    "highlights": [
+      "周期套餐可按用量选",
+      "提供不同付款周期",
+      "资料标注多客户端用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "Small",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "Big",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "年付小包",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 45
+          },
+          {
+            "name": "Big",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "不限时Small",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "Small",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "Big",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "年付小包",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 45
+          },
+          {
+            "name": "Big",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "不限时Small",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "来源称不限客户端、不限速，未验证。"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/lingmao/"
+    ],
+    "reviewNotes": [
+      "同页价格表列不限时流量包，编辑说明却称没有不限时套餐；流量包报价仅保留为冲突线索。",
+      "来源将灵猫对应SpiritCat，但说明对应关系待核验；不能因域名或名称强行确认实体。"
+    ]
+  },
+  {
+    "id": "flashleap",
+    "name": "闪跃 FlashLeap",
+    "highlights": [
+      "资料列出港日新美地区",
+      "资料列有不同流量档位"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、日本、新加坡、台湾、美国"
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "闪动（Flicker）",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "飞跃（Leap）",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "瞬移（Teleport）",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 600
+          },
+          {
+            "name": "跃迁（Warp）",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1000
+          },
+          {
+            "name": "年付版",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          }
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/flashleap/"
+    ],
+    "reviewNotes": [
+      "自称品牌站首页只有起价及流量范围；具体档名、各档价格和年付版只见于汇编，源站标为待核验。"
+    ]
+  },
+  {
+    "id": "laddercloud",
+    "name": "梯子云 LadderCloud",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "轻量与大流量档可选",
+      "资料标注多设备使用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "初阶网络·基础视界",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 125
+          },
+          {
+            "name": "中阶加速·极清多线",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 350
+          },
+          {
+            "name": "顶阶商业·全球骨干",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1600
+          },
+          {
+            "name": "天梯随行·年度保活",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "云端买断·永不限时轻量包",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 120
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "初阶网络·基础视界",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 125
+          },
+          {
+            "name": "中阶加速·极清多线",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 350
+          },
+          {
+            "name": "顶阶商业·全球骨干",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1600
+          },
+          {
+            "name": "天梯随行·年度保活",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "云端买断·永不限时轻量包",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 120
+          }
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站转述：不限设备"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/laddercloud/"
+    ],
+    "reviewNotes": []
+  },
+  {
+    "id": "stardream",
+    "name": "星岛梦 StarDream",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "资料列有多地区节点",
+      "轻量与大流量档可选"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "超量150G",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "进阶300G",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "旗舰1T版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1000
+          },
+          {
+            "name": "高校套餐",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "永久不限时100G",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、台湾、日本、新加坡、美国、英国、法国、德国、马来西亚、土耳其、泰国、巴西"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "超量150G",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "进阶300G",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "旗舰1T版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1000
+          },
+          {
+            "name": "高校套餐",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "永久不限时100G",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/xingdaomeng/"
+    ],
+    "reviewNotes": [
+      "参考站的注册目标与用户原推广域名不同；不据此替换用户提供的推广URL。"
+    ]
+  },
+  {
+    "id": "lightspeed",
+    "name": "光速云 LightSpeed",
+    "highlights": [
+      "月付与总量包可选",
+      "资料列有多地区节点",
+      "流量档位可按需选择"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "极速版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 168
+          },
+          {
+            "name": "流光版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 238
+          },
+          {
+            "name": "无界版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 900
+          },
+          {
+            "name": "轻量版（年付）",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 69
+          },
+          {
+            "name": "致敬斯诺克147永久套餐",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 247
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、韩国、日本、新加坡、台湾、英国、美国、法国、德国、马来西亚、土耳其、泰国、巴西"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "极速版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 168
+          },
+          {
+            "name": "流光版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 238
+          },
+          {
+            "name": "无界版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 900
+          },
+          {
+            "name": "轻量版（年付）",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 69
+          },
+          {
+            "name": "致敬斯诺克147永久套餐",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 247
+          }
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/guangsuyun/"
+    ],
+    "reviewNotes": []
+  },
+  {
+    "id": "u1s1",
+    "name": "U1S1（有一说一）",
+    "highlights": [
+      "多档周期流量可选择",
+      "资料标注多设备使用",
+      "资料列有亚欧地区节点"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "普通人真够了包",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 120
+          },
+          {
+            "name": "你以为用不到包",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "我全都要包",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1500
+          },
+          {
+            "name": "就是好用包（年付）",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站转述：不限设备、套餐不限速"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、日本、新加坡、美国、英国、德国、法国、台湾"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/u1s1/"
+    ],
+    "reviewNotes": []
+  },
+  {
+    "id": "jilianyun",
+    "name": "极连云",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "多档月流量可按需选",
+      "资料标注多客户端用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "基础套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 100
+          },
+          {
+            "name": "进阶套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 200
+          },
+          {
+            "name": "尊享套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1000
+          },
+          {
+            "name": "限时年付套餐体验",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "不限时套餐",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 600
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "基础套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 100
+          },
+          {
+            "name": "进阶套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 200
+          },
+          {
+            "name": "尊享套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1000
+          },
+          {
+            "name": "限时年付套餐体验",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "不限时套餐",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 600
+          }
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站转述：不限客户端"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/jilianyun/"
+    ],
+    "reviewNotes": [
+      "参考页同时保留IPLC宣传与公网中转加IEPL的其他评测说法，不能确定实际链路。",
+      "部分长期付报价口径需核实，不按月付价格推算。"
+    ]
+  },
+  {
+    "id": "guangnianti",
+    "name": "光年梯",
+    "highlights": [
+      "多档周期流量可选择",
+      "有轻量周期套餐记录",
+      "资料标注多设备使用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "入门版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 110
+          },
+          {
+            "name": "晋级版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 220
+          },
+          {
+            "name": "至尊版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 900
+          },
+          {
+            "name": "年付限时套餐",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 50
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "入门版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 110
+          },
+          {
+            "name": "晋级版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 220
+          },
+          {
+            "name": "至尊版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 900
+          },
+          {
+            "name": "年付限时套餐",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 50
+          }
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站转述：不限设备"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/guangnianti/"
+    ],
+    "reviewNotes": []
+  },
+  {
+    "id": "sogoyun",
+    "name": "Sogo云",
+    "highlights": [
+      "资料列有周期与总量包",
+      "资料标注多设备使用",
+      "资料列有多地区节点"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "基础版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "优选版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 350
+          },
+          {
+            "name": "顶配版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 1100
+          },
+          {
+            "name": "小包·年付版",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "SOGO基础餐不限时版",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 120
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考站转述：不限设备"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、台湾、新加坡、日本、美国、英国、法国、德国、马来西亚、土耳其、泰国、巴西"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/sogoyun/"
+    ],
+    "reviewNotes": [
+      "参考页编辑说明提示公开价格有不同记录，本次不将表内数值当作当日确定成交价。"
+    ]
+  },
+  {
+    "id": "yuzhou",
+    "name": "宇宙云 YuZhou",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "资料标注多设备使用",
+      "多档月流量可按需选"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "行星基础版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 160
+          },
+          {
+            "name": "恒星标准版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "星系专业版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 700
+          },
+          {
+            "name": "星云年付小包",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "行星基础版（不限时）",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 120
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考页转述：不限设备"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "行星基础版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 160
+          },
+          {
+            "name": "恒星标准版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "星系专业版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 700
+          },
+          {
+            "name": "星云年付小包",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "行星基础版（不限时）",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 120
+          }
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/yuzhouyun/"
+    ],
+    "reviewNotes": [
+      "家宽定制付款周期与流量口径不清，未选入代表报价。"
+    ]
+  },
+  {
+    "id": "2mao",
+    "name": "二猫云 2mao",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "轻量与大流量档可选",
+      "资料标注多设备使用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "白猫套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 130
+          },
+          {
+            "name": "橘猫畅玩版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 230
+          },
+          {
+            "name": "牛奶猫尊享版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 430
+          },
+          {
+            "name": "二猫年付小包",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "不限时套餐",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "白猫套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 130
+          },
+          {
+            "name": "橘猫畅玩版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 230
+          },
+          {
+            "name": "牛奶猫尊享版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 430
+          },
+          {
+            "name": "二猫年付小包",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "不限时套餐",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考页转述：不限设备"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/ermaoyun/"
+    ],
+    "reviewNotes": [
+      "套餐名出现灵猫和飞猫字样，不能据此合并成其他品牌；展示性测速缺少可核验条件。"
+    ]
+  },
+  {
+    "id": "1fly",
+    "name": "一翻云 1fly",
+    "highlights": [
+      "资料列有自研客户端",
+      "资料列有多种协议",
+      "周期套餐与总量包可选"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "claims"
+        ],
+        "evidence": [
+          "参考页称有自研客户端和通用订阅，未测试兼容性。"
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "protocols"
+        ],
+        "evidence": "Hysteria 2、VLESS-Reality、Shadowsocks"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "轻享版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "舒享版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 350
+          },
+          {
+            "name": "尊享版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 600
+          },
+          {
+            "name": "年付小包",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "轻享版 · 不限时包",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/yifanyun/"
+    ],
+    "reviewNotes": []
+  },
+  {
+    "id": "edgenova",
+    "name": "边缘节点 EdgeNova",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "资料列出港日新美地区",
+      "多档月流量可按需选"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "限时体验月付小包",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 50
+          },
+          {
+            "name": "极界·标准套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 120
+          },
+          {
+            "name": "极界·专享套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 200
+          },
+          {
+            "name": "限时年付",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 45
+          },
+          {
+            "name": "永久不限时 100G",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "香港、台湾、日本、新加坡、美国、韩国"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "限时体验月付小包",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 50
+          },
+          {
+            "name": "极界·标准套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 120
+          },
+          {
+            "name": "极界·专享套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 200
+          },
+          {
+            "name": "限时年付",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 45
+          },
+          {
+            "name": "永久不限时 100G",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 100
+          }
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/edgenova/"
+    ],
+    "reviewNotes": [
+      "首屏标最低月付22元，价格表另有15元限时体验，不能把两者当作同条件常规起价。",
+      "来源转述2026-10-07起的节点问题反馈，未经本次独立验证。"
+    ]
+  },
+  {
+    "id": "kosing",
+    "name": "可信云",
+    "highlights": [
+      "周期套餐与总量包可选",
+      "资料提及流量重置选项",
+      "资料标注多设备使用"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "月付小包",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "基础版 Basic",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 150
+          },
+          {
+            "name": "标准版 Standard",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 300
+          },
+          {
+            "name": "年费小礼包",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          },
+          {
+            "name": "轻量不限时",
+            "billingPeriod": "one_time",
+            "trafficPeriod": "total",
+            "trafficGB": 50
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "claims"
+        ],
+        "evidence": [
+          "参考页称流量可付费重置，实际条件待结算页确认。"
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考页转述：不限设备、不限速"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/kexinyun/"
+    ],
+    "reviewNotes": [
+      "来源保留2026-09超时与10月恢复记录，不能据此确认当前服务状态。"
+    ]
+  },
+  {
+    "id": "sujie",
+    "name": "速界 SuJie",
+    "highlights": [
+      "提供体验与周期方案",
+      "资料列有多种协议",
+      "资料列有亚欧地区节点"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "单月试用",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 50
+          },
+          {
+            "name": "极速版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 130
+          },
+          {
+            "name": "超速版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 260
+          },
+          {
+            "name": "限时年付",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 70
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "protocols"
+        ],
+        "evidence": "Shadowsocks、VMess、Trojan"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "regions"
+        ],
+        "evidence": "新加坡、美国、德国、香港、日本、台湾"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/sujie/"
+    ],
+    "reviewNotes": [
+      "来源保留2026-08访问故障及恢复记录；展示性实时指标不是测速证据。"
+    ]
+  },
+  {
+    "id": "kuaili",
+    "name": "快狸 KuaiLi",
+    "highlights": [
+      "多档周期流量可选择",
+      "资料标注多设备使用",
+      "资料提及周期流量刷新"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "月狸月付小套餐",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 50
+          },
+          {
+            "name": "小狸基础版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 100
+          },
+          {
+            "name": "灵狸标准版",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 250
+          },
+          {
+            "name": "森狸年付小套餐",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 30
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考页转述：不限设备"
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "claims"
+        ],
+        "evidence": [
+          "参考页称每30天刷新；未测试实际速率。"
+        ]
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/kuaili/"
+    ],
+    "reviewNotes": [
+      "来源缺少可用的实际测速图，不能据拓扑或解锁记录推断本地速度。"
+    ]
+  },
+  {
+    "id": "kuajie",
+    "name": "跨界",
+    "highlights": [
+      "多档周期流量可选择",
+      "资料提及官方客户端",
+      "资料标注多设备登录"
+    ],
+    "qualification": "参考资料说明，未独立核验",
+    "sourceBasis": [
+      {
+        "highlightIndex": 0,
+        "fields": [
+          "packages[].billingPeriod",
+          "packages[].trafficPeriod",
+          "packages[].trafficGB"
+        ],
+        "evidence": [
+          {
+            "name": "Lite",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 120
+          },
+          {
+            "name": "Leap",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 330
+          },
+          {
+            "name": "Soar",
+            "billingPeriod": "month",
+            "trafficPeriod": "month",
+            "trafficGB": 830
+          },
+          {
+            "name": "跨界年付版",
+            "billingPeriod": "year",
+            "trafficPeriod": "month",
+            "trafficGB": 60
+          }
+        ]
+      },
+      {
+        "highlightIndex": 1,
+        "fields": [
+          "claims"
+        ],
+        "evidence": [
+          "来源称官方客户端可用，第三方订阅需客服生成。"
+        ]
+      },
+      {
+        "highlightIndex": 2,
+        "fields": [
+          "deviceLimitText"
+        ],
+        "evidence": "参考页转述：不限设备登录数（页面标注）"
+      }
+    ],
+    "sourceUrls": [
+      "https://jichangjiedian.blog/airports/kuajie/"
+    ],
+    "reviewNotes": [
+      "来源沿用跨界/跨界云名称映射，身份仍待核验。",
+      "第三方客户端订阅需联系客服；扩容及调价公告没有具体范围或新价。"
+    ]
+  }
+]

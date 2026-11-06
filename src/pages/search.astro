@@ -1,0 +1,131 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { airports, getPublishedDetailIds, searchTerms } from '../lib/airports';
+
+const details = await getPublishedDetailIds();
+const index = airports.map((airport) => ({
+  name: airport.name,
+  terms: searchTerms(airport),
+  href: details.has(airport.id) ? `/airports/${airport.id}/` : `/airports/#${airport.id}`,
+}));
+const crumbs = [{ label: '首页', href: '/' }, { label: '搜索' }];
+---
+
+<Base title="站内搜索｜机场梦" description="搜索机场梦的品牌目录、已发布文章和本站说明。" noindex>
+  <div class="wrap">
+    <header class="page-head">
+      <Breadcrumbs items={crumbs} />
+      <h1>站内搜索</h1>
+      <p>可搜索品牌名称、别名，以及已发布的文章和本站说明。</p>
+    </header>
+    <section class="section" style="padding-top:26px;max-width:var(--prose)">
+      <form class="search-box" action="/search/" method="get" role="search" data-search>
+        <label for="q">搜索关键词</label>
+        <div class="search-box__row">
+          <input class="input" id="q" name="q" type="search" autocomplete="off" placeholder="例如 灵动云、V2云、推广说明" />
+          <button class="btn btn--primary" type="submit">搜索</button>
+        </div>
+      </form>
+      <noscript>
+        <p class="notice" style="margin-top:16px">搜索需要 JavaScript。你也可以直接浏览<a href="/airports/">完整机场目录</a>。</p>
+      </noscript>
+
+      <p class="search-empty" data-status aria-live="polite"></p>
+
+      <div data-brands-wrap hidden>
+        <h2 style="font-size:18px;margin-top:22px">机场目录</h2>
+        <ul class="search-results" data-brands></ul>
+      </div>
+      <div data-pages-wrap hidden>
+        <h2 style="font-size:18px;margin-top:22px">文章与说明</h2>
+        <ul class="search-results" data-pages></ul>
+      </div>
+    </section>
+  </div>
+  <script type="application/json" id="brand-index" set:html={JSON.stringify(index).replace(/</g, '\\u003c')} />
+</Base>
+
+<script>
+  import { matchBrands, type BrandEntry } from '../scripts/brand-match';
+
+  const form = document.querySelector<HTMLFormElement>('[data-search]')!;
+  const input = form.querySelector('input')!;
+  const status = document.querySelector<HTMLElement>('[data-status]')!;
+  const brandsWrap = document.querySelector<HTMLElement>('[data-brands-wrap]')!;
+  const brandsList = document.querySelector<HTMLElement>('[data-brands]')!;
+  const pagesWrap = document.querySelector<HTMLElement>('[data-pages-wrap]')!;
+  const pagesList = document.querySelector<HTMLElement>('[data-pages]')!;
+  const index: BrandEntry[] = JSON.parse(document.getElementById('brand-index')!.textContent!);
+
+  const row = (href: string, title: string, note: string) => {
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = href;
+    link.textContent = title;
+    const small = document.createElement('small');
+    small.textContent = note;
+    link.append(small);
+    item.append(link);
+    return item;
+  };
+
+  // Pagefind 索引在构建后生成，开发服务器中不存在，此时只提供品牌检索。
+  let pagefindPromise: Promise<any> | null = null;
+  const loadPagefind = () => {
+    const path = '/pagefind/pagefind.js';
+    pagefindPromise ??= import(/* @vite-ignore */ path).catch(() => null);
+    return pagefindPromise;
+  };
+
+  let ticket = 0;
+  async function run(query: string) {
+    const current = ++ticket;
+    const brands = matchBrands(index, query);
+    brandsList.replaceChildren(
+      ...brands.map((brand) => row(brand.href, brand.name, brand.href.includes('#') ? '目录条目' : '资料页')),
+    );
+    brandsWrap.hidden = brands.length === 0;
+
+    let pages: { url: string; content?: string; meta: { title?: string } }[] = [];
+    if (query) {
+      const pagefind = await loadPagefind();
+      if (pagefind) {
+        const search = await pagefind.search(query);
+        const loaded: typeof pages = await Promise.all(search.results.slice(0, 24).map((result: any) => result.data()));
+        // 中文分词会让只含个别字的页面也命中，这里要求每个关键词都真实出现在标题或正文里。
+        const squeeze = (text: string) => text.toLowerCase().replace(/\s+/g, '');
+        const terms = query.split(/\s+/).filter(Boolean).map(squeeze);
+        pages = loaded
+          .filter((page) => {
+            const text = squeeze(`${page.meta.title ?? ''}${page.content ?? ''}`);
+            return terms.every((term) => text.includes(term));
+          })
+          .slice(0, 8);
+      }
+    }
+    if (current !== ticket) return;
+
+    pagesList.replaceChildren(...pages.map((page) => row(page.url, page.meta.title ?? page.url, '站内页面')));
+    pagesWrap.hidden = pages.length === 0;
+    status.textContent = !query
+      ? ''
+      : brands.length + pages.length === 0
+        ? `没有找到“${query}”的结果，换个名称试试，或浏览完整机场目录。`
+        : `“${query}”：${brands.length} 个品牌，${pages.length} 个页面。`;
+  }
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const query = input.value.trim();
+    history.replaceState(null, '', query ? `?q=${encodeURIComponent(query)}` : location.pathname);
+    run(query);
+  });
+  input.addEventListener('input', () => run(input.value.trim()));
+
+  const initial = new URLSearchParams(location.search).get('q');
+  if (initial) {
+    input.value = initial;
+    run(initial.trim());
+  }
+</script>

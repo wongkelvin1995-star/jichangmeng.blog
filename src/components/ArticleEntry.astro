@@ -1,0 +1,51 @@
+---
+// 指南、对比和历史样本共用的文章页。
+import { render } from 'astro:content';
+import Article from '../layouts/Article.astro';
+import { day } from '../lib/content';
+import { articleJsonLd, faqJsonLd, howToJsonLd } from '../lib/seo';
+
+interface Props {
+  entry: any;
+  section: { label: string; href: string };
+  kindLabel: string;
+}
+
+const { entry, section, kindLabel } = Astro.props;
+const { Content, headings } = await render(entry);
+const { data } = entry;
+const crumbs = [{ label: '首页', href: '/' }, section, { label: data.title }];
+const toc = headings.filter((heading) => heading.depth === 2).map((heading) => ({ id: heading.slug, text: heading.text }));
+// 问答和分步教程的结构化数据都从正文生成，与页面上看到的内容一致。
+const faq = faqJsonLd(entry.body ?? '');
+const howTo = data.howTo ? howToJsonLd({ name: data.title, description: data.description, path: Astro.url.pathname, markdown: entry.body ?? '' }) : null;
+---
+
+<Article
+  title={data.seoTitle ?? `${data.title}｜机场梦`}
+  heading={data.title}
+  description={data.description}
+  kindLabel={kindLabel}
+  crumbs={crumbs}
+  toc={toc}
+  relatedPaths={data.relatedPaths}
+  publishedAt={data.publishedAt}
+  updatedAt={data.updatedAt}
+  draft={data.draft}
+  jsonLd={[
+    articleJsonLd({
+      type: 'BlogPosting',
+      headline: data.title,
+      description: data.description,
+      path: Astro.url.pathname,
+      publishedAt: data.publishedAt,
+      updatedAt: data.updatedAt,
+      author: data.author,
+    }),
+    ...(faq ? [faq] : []),
+    ...(howTo ? [howTo] : []),
+  ]}
+>
+  {data.sampleDates && <p class="notice">样本资料标注日期：{data.sampleDates.map((date: Date) => day(date)).join('、')}，与本文发布日期不同。这些是历史记录，不是机场梦的新测试；本页只列读数，不展示原始截图。</p>}
+  <Content />
+</Article>

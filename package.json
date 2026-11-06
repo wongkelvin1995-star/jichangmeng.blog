@@ -1,0 +1,33 @@
+{
+  "name": "jichangmeng-blog",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "机场梦：机场服务资料与选购博客（Astro 静态站）",
+  "scripts": {
+    "dev": "astro dev",
+    "import:package": "node scripts/import-package.mjs",
+    "import:content": "node scripts/import-content.mjs",
+    "import:md": "node scripts/import-md.mjs",
+    "logos": "node scripts/build-logos.mjs",
+    "og": "node scripts/build-og-images.mjs",
+    "check:data": "node scripts/check-data.mjs && node scripts/check-brands.mjs",
+    "build": "npm run check:data && astro build && pagefind --site dist && node scripts/verify-dist.mjs",
+    "build:production": "node scripts/build-production.mjs",
+    "build:drafts": "node scripts/with-drafts.mjs",
+    "preview": "astro preview",
+    "indexnow": "node scripts/indexnow.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/markdown-remark": "^7.3.5",
+    "astro": "^7.4.5",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "pagefind": "^1.6.0",
+    "sharp": "^0.35.5",
+    "yaml": "^2.9.1"
+  }
+}

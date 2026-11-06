@@ -1,0 +1,32 @@
+node_modules/
+dist/
+dist-drafts/
+.astro/
+.env
+.env.*
+!.env.example
+*.log
+logs/
+.DS_Store
+
+# 只推网站相关文件（站长 2026-11-06）。下面是内部资料、过程文件和决定不公开的内容，只留在本机。
+# 内部报告、资料包交接的过程文件、审计报告、本机工具配置：
+reports/
+qa/
+.claude/
+WEBSITE_AUDIT_REPORT.md
+# materials/ 只保留构建检查要读的清单和 Logo 原图（见 scripts/check-data.mjs）。
+# 不进仓库的有：灵动云历史测速截图（决定不公开）、套餐截图原图（含决定不展示的微风网络）、
+# 资料包文案与来源、第三方资料批次原文（check-brands 找不到时会跳过逐字核对）、教程截图原图。
+materials/*
+!materials/providers.source.json
+!materials/logo-overrides/
+!materials/package/
+materials/package/*
+!materials/package/manifest.json
+!materials/package/logo-manifest.json
+!materials/package/logo-overrides.json
+!materials/package/card-highlights.json
+!materials/package/assets/
+materials/package/assets/*
+!materials/package/assets/logos/

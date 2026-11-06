@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleEntry from '../../components/ArticleEntry.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { KIND_LABEL, getPublishedCompare } from '../../lib/content';
+import { breadcrumbJsonLd, collectionJsonLd } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const items = await getPublishedCompare();
+  if (items.length === 0) return [];
+  return [
+    { params: { slug: undefined }, props: { entry: null, items } },
+    ...items.map((entry) => ({ params: { slug: entry.id }, props: { entry, items } })),
+  ];
+}
+
+const { entry, items } = Astro.props;
+const crumbs = [{ label: '首页', href: '/' }, { label: '条件对比' }];
+const description = '在相同预算和流量口径下比较机场的付款周期与额度，说明各自更合适的需求边界，不作无依据的质量排名。';
+---
+
+{
+  entry ? (
+    <ArticleEntry entry={entry} section={{ label: '条件对比', href: '/compare/' }} kindLabel={KIND_LABEL.compare} />
+  ) : (
+    <Base
+      title="机场套餐条件对比｜预算、流量与付款周期｜机场梦"
+      description={description}
+      jsonLd={[
+        breadcrumbJsonLd(crumbs),
+        collectionJsonLd({ name: '按条件比较机场', description, path: '/compare/', items: items.map((item) => ({ name: item.data.title, path: `/compare/${item.id}/` })) }),
+      ]}
+    >
+      <div class="wrap">
+        <header class="page-head">
+          <Breadcrumbs items={crumbs} />
+          <h1>按条件比较机场</h1>
+          <p>在相同口径下比较付款与流量，查看各自更合适的需求边界。这里只发布双方资料足够、确实有比较问题的组合。</p>
+        </header>
+        <section class="section section--tight choose-grid">
+          {items.map((item) => (
+            <article class="choose">
+              <h2 class="choose__title"><a href={`/compare/${item.id}/`}>{item.data.title}</a></h2>
+              <p>{item.data.description}</p>
+            </article>
+          ))}
+        </section>
+      </div>
+    </Base>
+  )
+}

@@ -1,0 +1,84 @@
+---
+import { site } from '../config/site';
+
+// 邮箱在“@”后允许换行，手机上两栏并排时不会把地址从中间截断。
+const [mailUser, ...mailDomain] = site.contact?.text.split('@') ?? [];
+
+// “核心内容”（站长 2026-11-06 要求）：新手教程和 SEO 计划里的支柱页，每页页脚都链接到这里。
+// 页面改了网址，verify-dist 的站内链接检查会报错。
+const coreLinks = [
+  { href: '/guides/xinshou-jichang-wubu/', label: '机场新手教程' },
+  { href: '/guides/kexue-shangwang-rumen/', label: '科学上网入门' },
+  { href: '/guides/jichang-tuijian-zenme-kan/', label: '机场推荐怎么看' },
+  { href: '/guides/tizi-shi-shenme/', label: '梯子推荐' },
+  { href: '/guides/dingyue-lianjie-shuoming/', label: '机场订阅链接' },
+  { href: '/guides/clash-kehuduan-xiazai/', label: 'Clash 下载' },
+];
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div class="site-footer__about">
+        <h2>{site.name}</h2>
+        {/* 两段式品牌介绍（资料包 00/03 文件，2026-11-06）：完整显示，窄屏自然换行，不截断。 */}
+        <p>{site.headline}。机场梦独立整理机场与代理订阅服务的套餐、流量口径、付款周期、优惠规则与选购资料，帮助读者在购买前看清资料日期、适用场景与仍待核对的条件。</p>
+        <p>本站不虚构价格，也不把最低价直接等同于最佳选择。机场梦不会因读者通过本站入口而另行加价或收取推荐服务费；部分链接含推广参数，实际价格、优惠资格与服务规则请以购买页面为准。</p>
+        <p class="site-footer__links">
+          <a href="/airports/">机场资料</a><span aria-hidden="true">｜</span><a href="/guides/">选购指南</a><span aria-hidden="true">｜</span><a href="/editorial-policy/">编辑方法</a><span aria-hidden="true">｜</span><a href="/disclosure/">推广与价格说明</a>
+        </p>
+      </div>
+      <nav aria-label="站内导航">
+        <h2>浏览</h2>
+        <ul>
+          <li><a href="/airports/">机场资料</a></li>
+          <li><a href="/guides/">选购指南</a></li>
+          <li><a href="/reviews/">评析与测试解读</a></li>
+          <li><a href="/compare/">条件对比</a></li>
+          <li><a href="/search/">站内搜索</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="核心内容">
+        <h2>核心内容</h2>
+        <ul>
+          {coreLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+        </ul>
+      </nav>
+      <nav aria-label="本站说明">
+        <div class="site-footer__head">
+          <h2>本站说明</h2>
+          <a class="tg-link" href={site.telegram} target="_blank" rel="noopener" aria-label="机场梦 Telegram（新窗口打开）" title="Telegram">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="tg-link-fill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#2AABEE" />
+                  <stop offset="1" stop-color="#229ED9" />
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="12" r="12" fill="url(#tg-link-fill)" />
+              <path fill="#fff" d="M16.906 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+            </svg>
+          </a>
+        </div>
+        <ul>
+          <li><a href="/about/">关于本站</a></li>
+          <li><a href="/editorial-policy/">编辑方法</a></li>
+          <li><a href="/disclosure/">推广说明</a></li>
+          <li><a href="/privacy/">隐私说明</a></li>
+          {/* “隐私说明”下面的 Telegram 文字链接和站长邮箱（站长 2026-11-06 要求）。 */}
+          <li><a href={site.telegram} target="_blank" rel="noopener">Telegram（TG）</a></li>
+          {
+            site.contact && (
+              <li class="site-footer__contact">
+                {site.contact.label}：<a href={site.contact.href}>{mailDomain.length ? <>{mailUser}@<wbr />{mailDomain.join('@')}</> : site.contact.text}</a>
+              </li>
+            )
+          }
+        </ul>
+      </nav>
+    </div>
+    <p class="site-footer__legal">
+      部分入口含推广链接。价格与规则以购买页面实时显示为准；本站展示的报价为注明日期的参考资料。
+    </p>
+  </div>
+</footer>

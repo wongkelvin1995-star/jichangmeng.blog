@@ -1,0 +1,34 @@
+---
+// 模块 06「梦境实验室」：只展示本站真实测试。没有记录时不输出任何内容，也不放模拟数据。
+interface Props {
+  tests?: { id: string; airportName: string; testedOn: string; conditions: string; result: string }[];
+}
+
+const { tests = [] } = Astro.props;
+---
+
+{
+  tests.length > 0 && (
+    <section class="section wrap" aria-labelledby="lab-title">
+      <div class="section__head">
+        <div>
+          <p class="section__kicker">梦境实验室</p>
+          <h2 id="lab-title">本站实测记录</h2>
+          <p class="section__sub">单次测试不代表长期稳定性，结果只适用于标注的时间和环境。</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>品牌</th><th>日期</th><th>测试条件</th><th>结果</th></tr>
+          </thead>
+          <tbody>
+            {tests.map((test) => (
+              <tr><td>{test.airportName}</td><td>{test.testedOn}</td><td>{test.conditions}</td><td>{test.result}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )
+}

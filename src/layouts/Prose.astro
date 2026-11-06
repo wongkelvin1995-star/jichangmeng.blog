@@ -1,0 +1,33 @@
+---
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { breadcrumbJsonLd, webPageJsonLd } from '../lib/seo';
+
+interface Props {
+  title: string;
+  heading: string;
+  description: string;
+  updatedOn: string;
+}
+
+const { title, heading, description, updatedOn } = Astro.props;
+const crumbs = [{ label: '首页', href: '/' }, { label: heading }];
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[breadcrumbJsonLd(crumbs), webPageJsonLd({ name: heading, description, path: Astro.url.pathname, updatedOn })]}
+>
+  <div class="wrap" data-pagefind-body>
+    <header class="page-head">
+      <Breadcrumbs items={crumbs} />
+      <h1>{heading}</h1>
+      <p>{description}</p>
+    </header>
+    <article class="prose">
+      <slot />
+      <p class="updated" data-pagefind-ignore>本页更新于 {updatedOn}</p>
+    </article>
+  </div>
+</Base>

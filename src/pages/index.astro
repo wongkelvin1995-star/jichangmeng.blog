@@ -1,0 +1,297 @@
+---
+import Base from '../layouts/Base.astro';
+import AffiliateLink from '../components/AffiliateLink.astro';
+import AirportCard from '../components/AirportCard.astro';
+import BrandSpotlight from '../components/BrandSpotlight.astro';
+import LabPanel from '../components/LabPanel.astro';
+import Portal from '../components/Portal.astro';
+import RegionStarMap from '../components/RegionStarMap.astro';
+import SearchBox from '../components/SearchBox.astro';
+import { site } from '../config/site';
+import {
+  airports,
+  allQuotes,
+  featuredIds,
+  formatYuan,
+  getPublishedDetailIds,
+  getPublishedGuides,
+  limitedQuoteCondition,
+  lowestMonthly,
+  materialsDate,
+  trafficLabel,
+} from '../lib/airports';
+import { GUIDE_GROUPS, KIND_LABEL, day, getContentIndex, getPublishedCompare } from '../lib/content';
+import { websiteJsonLd } from '../lib/seo';
+
+const details = await getPublishedDetailIds();
+const guides = await getPublishedGuides();
+const comparisons = await getPublishedCompare();
+const featured = featuredIds.map((id) => airports.find((airport) => airport.id === id)!);
+// 运营状态待核的品牌（例如唯兔云）留在目录，但不进首页推荐区。
+const preview = airports.filter((airport) => !featuredIds.includes(airport.id) && airport.homeEligible).slice(0, 10);
+
+const guideGroups = GUIDE_GROUPS.map((name) => ({ name, items: guides.filter((guide) => guide.data.category === name) })).filter((group) => group.items.length > 0);
+
+const index = await getContentIndex();
+
+// 站长主推（site.spotlight）：只在品牌公开且有推广链接时显示；相关文章存在才给链接。
+const spotlight = airports.find((airport) => airport.id === site.spotlight.brandId && airport.affiliateUrl) ?? null;
+const spotlightLinks = spotlight
+  ? [
+      { href: `/reviews/${spotlight.id}-historical-samples/`, label: `${spotlight.name}历史测速样本解读` },
+      ...index.filter((page) => page.kind === 'compare' && page.path.includes(spotlight.id)).map((page) => ({ href: page.path, label: page.title })),
+    ].filter((link) => index.some((page) => page.path === link.href))
+  : [];
+// 只展示真实发布或实质修改过的内容；同日内容按栏目穿插，不伪造先后。
+const recent = index
+  .filter((page) => page.updatedAt && ['brand', 'guide', 'compare', 'review'].includes(page.kind))
+  .sort((a, b) => b.updatedAt!.getTime() - a.updatedAt!.getTime() || (a.kind === 'review' ? -1 : b.kind === 'review' ? 1 : a.kind === 'compare' ? -1 : b.kind === 'compare' ? 1 : a.kind === 'guide' ? -1 : b.kind === 'guide' ? 1 : 0))
+  .slice(0, 6);
+
+const entries = [
+  { href: '/guides/xinshou-jichang-wubu/', title: '完全没用过机场', text: '机场新手教程：从了解服务商到确认连上，五步走。' },
+  { href: '/guides/jichangmeng-shiyong-shuoming/', title: '第一次来机场梦', text: '目录、标签、优惠码和资料页分别怎么看。' },
+  { href: '/guides/airport-plan-checklist/', title: '第一次选机场', text: '选购检查表：付款前先核对六件事。' },
+  { href: '/guides/monthly-annual-total-traffic/', title: '不确定怎么付款', text: '月付、年付与总量包分别适合什么用量。' },
+  { href: '/guides/latency-speed-jitter/', title: '看不懂测速数字', text: '延迟、速度和抖动各自说明什么。' },
+  { href: '/guides/client-subscription-troubleshooting/', title: '已经买了但连不上', text: '订阅更新失败、节点超时，分四层排查。' },
+];
+
+// 资料包 00/03 文件（2026-11-06）：在品牌卡片之前说明比较的前提，每张卡链接到真实说明页。
+const basics = [
+  { href: '/guides/airport-plan-checklist/', title: '报价不是唯一答案', text: '同样的月费，流量额度、重置方式、设备限制和一次付款金额可能完全不同。先按付款周期和实际用量比较，再判断是否值得。' },
+  { href: '/editorial-policy/', title: '资料需要看日期', text: '套餐、优惠和库存会变化。本站保留整理口径与已知差异，但结算页显示的当前条件优先于历史资料。' },
+  { href: '/reviews/', title: '测试必须有边界', text: '服务商资料、历史样本与机场梦实际测试分别标注。没有日期、环境、方法和原始记录的内容，不写成本站亲测。' },
+  { href: '/disclosure/', title: '推广关系透明披露', text: '部分入口含推广参数；本站不会因为读者经由本站入口而另加费用，也不会把编辑顺序写成绝对性能排名。' },
+];
+
+const faqs = [
+  {
+    q: '这里的推荐顺序代表性能排名吗？',
+    a: '是本站编辑展示顺序。实际选择要结合套餐条件、用量和有证据的使用表现，不能据位置推断速度或稳定性。',
+  },
+  {
+    q: '为什么有些内容写“资料评析”，有些写“历史样本”？',
+    a: '它们的证据不同。资料评析基于已取得的价格和规则；历史样本只解释特定记录。没有机场梦独立测试时，不写成本站亲测。',
+  },
+  {
+    q: '通过这里购买会多付一笔推广费吗？',
+    a: '本站不另向读者收取推广服务费。服务商套餐、渠道优惠和最终金额请在结算页核对；具体同价说明以有依据的条件为准。',
+  },
+  {
+    q: '这些价格和优惠一定仍然有效吗？',
+    a: '不把历史资料当作实时结算结果。目录报价来自注明日期的参考资料和站长提供的套餐截图，存在冲突或活动条件不明时会说明。',
+  },
+  {
+    q: '没有完整资料的品牌会怎样展示？',
+    a: '先放在目录中，明确已知与未知范围；不靠虚构测试或相同模板生成独立“亲测”文章。',
+  },
+];
+---
+
+<Base title={site.homeTitle} description={site.homeDescription} jsonLd={[websiteJsonLd()]}>
+  <section class="hero">
+    <div class="hero__stars" aria-hidden="true"></div>
+    <div class="hero__aurora" aria-hidden="true"></div>
+    <div class="wrap hero__grid">
+      <div>
+        <p class="hero__slogan">{site.headline}</p>
+        <h1>机场梦：<br />按预算和使用场景选机场</h1>
+        <p class="hero__lead">{site.tagline}</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="/airports/">浏览机场资料</a>
+          <a class="btn" href="/guides/xinshou-jichang-wubu/">新手先看这里</a>
+        </div>
+        <p class="hero__hint">部分入口含推广链接，付款金额与条件请在购买页面核对。</p>
+        <ul class="hero__facts">
+          <li><strong>{airports.length}</strong>家品牌</li>
+          <li><strong>{allQuotes.length}</strong>条价格记录</li>
+          <li><strong>{materialsDate}</strong>资料整理</li>
+        </ul>
+      </div>
+      <div class="hero__portal"><Portal /></div>
+    </div>
+  </section>
+
+  <section class="search-band" aria-label="搜索">
+    <div class="wrap"><SearchBox /></div>
+  </section>
+
+  <hr class="flow" />
+
+  {spotlight && <BrandSpotlight airport={spotlight} detailPath={details.has(spotlight.id) ? `/airports/${spotlight.id}/` : null} extraLinks={spotlightLinks} />}
+
+  <section class="section wrap" id="start" aria-labelledby="start-title">
+    <div class="section__head">
+      <div>
+        <p class="section__kicker">需求入口</p>
+        <h2 id="start-title">先从你要解决的问题开始</h2>
+        <p class="section__sub">不是每个人都需要同一种套餐。偶尔使用的人可能更在意流量期限；持续使用的人要核对每月重置规则；准备长期付款的人，需要同时比较一次支出和后续条件。先确定自己的用量、客户端和付款周期，再看品牌名称。</p>
+      </div>
+    </div>
+    <div class="choose-grid">
+      {entries.map((item) => (
+        <a class="choose choose--link" href={item.href}>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap section--flush" id="basics" aria-labelledby="basics-title">
+    <div class="section__head">
+      <div>
+        <p class="section__kicker">比较之前</p>
+        <h2 id="basics-title">先理解条件，再开始比较</h2>
+      </div>
+    </div>
+    <div class="choose-grid">
+      {basics.map((item) => (
+        <a class="choose choose--link" href={item.href}>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap section--flush" aria-labelledby="featured-title">
+    <div class="section__head">
+      <div>
+        <p class="section__kicker">星光精选</p>
+        <h2 id="featured-title">编辑顺序与选择条件</h2>
+      </div>
+      <a class="btn btn--small" href="/airports/">查看全部 {airports.length} 家</a>
+    </div>
+    <p class="notice" style="margin-bottom:22px">{site.orderingDisclosure}</p>
+    <div class="card-grid card-grid--featured">
+      {featured.map((airport) => <AirportCard airport={airport} hasDetail={details.has(airport.id)} />)}
+    </div>
+  </section>
+
+  <section class="section wrap section--flush" aria-labelledby="preview-title">
+    <div class="section__head">
+      <div>
+        <p class="section__kicker">机场目录</p>
+        <h2 id="preview-title">继续浏览</h2>
+        <p class="section__sub">价格为已整理报价中可比较的最低月付，未代入优惠码，请以购买页面为准。</p>
+      </div>
+    </div>
+    <ol class="rows">
+      {
+        preview.map((airport) => {
+          const monthly = lowestMonthly(airport);
+          return (
+            <li class="row">
+              <span class="row__order">{String(airport.editorialOrder).padStart(2, '0')}</span>
+              <a class="row__name" href={details.has(airport.id) ? `/airports/${airport.id}/` : `/airports/#${airport.id}`}>{airport.name}</a>
+              <span class="row__price">
+                {monthly ? <><strong>{formatYuan(monthly.amount)}</strong> / {trafficLabel(monthly)}{limitedQuoteCondition(airport, monthly) && <span class="badge badge--warn row__badge">限时档</span>}</> : '月付报价待核实'}
+              </span>
+              {airport.affiliateUrl ? <AffiliateLink href={airport.affiliateUrl} name={airport.name} class="btn btn--small">前往注册</AffiliateLink> : <span>链接待确认</span>}
+            </li>
+          );
+        })
+      }
+    </ol>
+    <p style="margin-top:18px"><a class="btn" href="/airports/">查看完整目录与筛选</a></p>
+  </section>
+
+  <RegionStarMap />
+  <LabPanel />
+
+  <hr class="flow" />
+
+  <section class="section wrap" aria-labelledby="reviews-title">
+    <div class="section__head">
+      <div>
+        <p class="section__kicker">评析与测试</p>
+        <h2 id="reviews-title">读懂测评，再判断是否适合</h2>
+        <p class="section__sub">我们把内容分为三类：资料评析解释套餐和规则；历史样本解读说明截图能支持什么结论；实际测试需要明确的日期、环境、方法和原始结果。没有实际记录的品牌，不补写体验或星级。</p>
+      </div>
+    </div>
+    <div class="hero__actions" style="margin-top:0">
+      <a class="btn" href="/reviews/">机场资料评析</a>
+      <a class="btn" href="/reviews/lingdongyun-historical-samples/">灵动云历史样本解读</a>
+    </div>
+  </section>
+
+  <section class="section wrap section--flush" id="guides" aria-labelledby="guides-title">
+    <div class="section__head">
+      <div>
+        <p class="section__kicker">选购指南</p>
+        <h2 id="guides-title">把规则讲明白</h2>
+        <p class="section__sub">价格相近，流量发放、设备限制与客户端要求也可能不同。指南从具体问题展开，用透明的计算示例和排查步骤帮助你比较条件。</p>
+      </div>
+      <a class="btn btn--small" href="/guides/">全部指南</a>
+    </div>
+    <div class="guide-groups">
+      {guideGroups.map((group) => (
+        <div class="choose">
+          <h3>{group.name}</h3>
+          <ul class="plain-links">
+            {group.items.map((guide) => <li><a href={`/guides/${guide.id}/`}>{guide.data.title}</a></li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap section--flush" aria-labelledby="compare-title">
+    <div class="section__head">
+      <div>
+        <p class="section__kicker">条件对比</p>
+        <h2 id="compare-title">两家之间怎么取舍</h2>
+        <p class="section__sub">同一预算、同一流量口径下的比较，比脱离场景的总榜更有用。</p>
+      </div>
+      <a class="btn btn--small" href="/compare/">全部对比</a>
+    </div>
+    <div class="choose-grid">
+      {comparisons.map((item) => (
+        <a class="choose choose--link" href={`/compare/${item.id}/`}>
+          <h3>{item.data.title}</h3>
+          <p>{item.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap section--flush" aria-labelledby="recent-title">
+    <div class="section__head">
+      <div>
+        <p class="section__kicker">最近更新</p>
+        <h2 id="recent-title">最近发布和修改的内容</h2>
+      </div>
+    </div>
+    <ul class="link-list">
+      {recent.map((page) => (
+        <li>
+          <a href={page.path}>{page.title}</a>
+          <span>{KIND_LABEL[page.kind as keyof typeof KIND_LABEL]} · 更新于 {day(page.updatedAt)}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <hr class="flow" />
+
+  <section class="section wrap" id="faq" aria-labelledby="faq-title" style="scroll-margin-top:72px">
+    <div class="section__head">
+      <div>
+        <p class="section__kicker">常见问题</p>
+        <h2 id="faq-title">关于本站</h2>
+      </div>
+    </div>
+    <div class="faq">
+      {
+        faqs.map((item) => (
+          <details>
+            <summary>{item.q}</summary>
+            <div>{item.a}</div>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,1101 @@
+{
+  "siteName": "机场梦",
+  "recordedOn": "2026-11-05",
+  "mappedProviderCount": 29,
+  "missingProviderCount": 0,
+  "policy": "Render all logo frames at 3:1. The same crop is used for the blurred background and intact foreground. New independent replacements use full-image crop. No unverified official status is implied.",
+  "assets": [
+    {
+      "id": "twilight",
+      "file": "assets/logos/twilight-source.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "dcff253010ab250d3e40c273f9757ea3021e8da1711835e8806a14b00b5f95c5",
+      "source": "user-upload",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "flyv",
+      "file": "assets/logos/flyv-source.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "ec20fda16fe9bef56e197bdadb86f7bbd69787aa22409cb1b6aa08b3df247e23",
+      "source": "user-upload",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "four",
+      "file": "assets/logos/four-brand-source.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "e592c4b1a295ff14de1c928ac5ed9b2cc2298bf3e1b28a1d6a437ef4686e4f2f",
+      "source": "user-upload",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "eight",
+      "file": "assets/logos/eight-brand-source.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "a7be483629220f6010aa95a42a3ad1a7a47f1fa327478f76a8ad01649a30e6cf",
+      "source": "user-upload",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "three",
+      "file": "assets/logos/dalao-v2-global-source.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "d91cbe54edce689db9cd8043030dc0eaec598208f6bd9c2e17655bda99fce05a",
+      "source": "user-upload",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "twilight-v2",
+      "file": "assets/logos/replacements/twilight-v2.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "df1ad4ae6f1b40249f66fa2c9a9a977763f7ec75b42f261586a03f04352fc7d0",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "flycat-v2",
+      "file": "assets/logos/replacements/flycat-v2.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "cf0faf51cef07f32a17b87eb173d1a903c0dac402cd4475134c8575b23c9ad73",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "invisible-v2",
+      "file": "assets/logos/replacements/invisible-v2.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "778cef8e3abb6cae1a3397e83a9caefdd7454665e6bf91b37379512ce7bde9f6",
+      "source": "user-upload-replacement",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "firefly-v2",
+      "file": "assets/logos/replacements/firefly-v2.png",
+      "width": 1280,
+      "height": 426,
+      "sha256": "91626540403f99eab0bec5b83d8890fcb84b9cb831f0c2e0bba9b01a2f4fb705",
+      "source": "user-upload-replacement",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "worryfree-v2",
+      "file": "assets/logos/replacements/worryfree-v2.png",
+      "width": 1280,
+      "height": 426,
+      "sha256": "92dad3378c82d9151aa126dab55c3852eb3de3fa2f1b76d0cff5b37634b61a68",
+      "source": "user-upload-replacement",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "flyv-v2",
+      "file": "assets/logos/replacements/flyv-v2.png",
+      "width": 1280,
+      "height": 427,
+      "sha256": "9bfbc611fb144e14c976c6c727462ef61f55b7295feabcc768d351903dff8a4a",
+      "source": "user-upload-replacement",
+      "receivedOn": "2026-11-05"
+    },
+    {
+      "id": "stardream-blog-v1",
+      "file": "assets/logos/generated/stardream-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "14dffdd2876f4dd8c569b3f0e100dbf242e6cc15c02cc4851a873240bde9dcd2",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "lightspeed-blog-v1",
+      "file": "assets/logos/generated/lightspeed-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "a2ca07b6eff5b95a298ce8e6c59635456461a84d9bc8efecae32378b67e6b9c7",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "u1s1-blog-v1",
+      "file": "assets/logos/generated/u1s1-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "ec780b06376f90065932d3ba34e05ad05d188a8df21c39b4a44176b3b80abab0",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "jilianyun-blog-v1",
+      "file": "assets/logos/generated/jilianyun-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "6838309d979dca31dc849d61958205f6acf9cdc1cf86f7e4564a312e8d9bfea8",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "guangnianti-blog-v1",
+      "file": "assets/logos/generated/guangnianti-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "b9118e03cd77dc8dbd6ca35aba8d148a8a34c83870d4610050dffc9887f27826",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "sogoyun-blog-v1",
+      "file": "assets/logos/generated/sogoyun-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "bef3d6824693d1e21c944cd60fe9ae45cf53693bb5d4ee25d891ada6d1d51c1a",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "yuzhou-blog-v1",
+      "file": "assets/logos/generated/yuzhou-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "88071c00952c8b23bf295a90a517a877647e73534cc782cae9c25e897dd3a3fd",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "2mao-blog-v1",
+      "file": "assets/logos/generated/2mao-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "e14eb6e862dfaa4e2848a49c193ede050c64fb9e71f62f5b1be06616624cb2cd",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "1fly-blog-v1",
+      "file": "assets/logos/generated/1fly-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "b9d39e93f2963bccd2ef9ae2c0b6e1c900ec22b499c6dbdc02591692f4a1a054",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "edgenova-blog-v1",
+      "file": "assets/logos/generated/edgenova-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "106cbafc9e7503846b91eb89798ecffd0301b8367fd951c45b8c90cba03b7200",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "kosing-blog-v1",
+      "file": "assets/logos/generated/kosing-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "e095d399924bdb6b33ec7de23e41bd214289612a3fe16310bf401d089dd2bdfa",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "sujie-blog-v1",
+      "file": "assets/logos/generated/sujie-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "6586187d40369aac4b150d45c27ba6b0b07e3546562100213403f12c5853a153",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    },
+    {
+      "id": "kuaili-blog-v1",
+      "file": "assets/logos/generated/kuaili-blog-v1.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "515a9aee5ef449dd8f4726327b7535957e4d3b47deca1add96869a490b966a94",
+      "source": "generated-for-blog",
+      "receivedOn": "2026-11-06"
+    }
+  ],
+  "files": [
+    {
+      "id": "lingdongyun",
+      "name": "灵动云",
+      "editorialOrder": 1,
+      "logoPath": "assets/logos/four-brand-source.png",
+      "status": "user-supplied-mapped",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1774,
+        "height": 887
+      },
+      "crop": {
+        "x": 0,
+        "y": 443,
+        "width": 887,
+        "height": 444
+      },
+      "visibleText": "灵动云 LINGDONGYUN",
+      "position": "四宫格左下",
+      "note": null,
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "e592c4b1a295ff14de1c928ac5ed9b2cc2298bf3e1b28a1d6a437ef4686e4f2f"
+    },
+    {
+      "id": "twilight",
+      "name": "暮光加速",
+      "editorialOrder": 2,
+      "logoPath": "assets/logos/replacements/twilight-v2.png",
+      "status": "blog-redesign-selected",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "visibleText": "暮光加速",
+      "position": "独立替换图整图",
+      "note": "夕光星月构图，替换旧舵轮标识。",
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "df1ad4ae6f1b40249f66fa2c9a9a977763f7ec75b42f261586a03f04352fc7d0",
+      "assetOrigin": "generated-for-blog",
+      "previous": {
+        "logoPath": "assets/logos/twilight-source.png",
+        "crop": {
+          "x": 125,
+          "y": 420,
+          "width": 1005,
+          "height": 420
+        },
+        "sourceImageSize": {
+          "width": 1254,
+          "height": 1254
+        }
+      }
+    },
+    {
+      "id": "breezenet",
+      "name": "微风网络 Breezenet",
+      "editorialOrder": 3,
+      "logoPath": "assets/logos/eight-brand-source.png",
+      "status": "user-supplied-mapped",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1448,
+        "height": 1086
+      },
+      "crop": {
+        "x": 383,
+        "y": 274,
+        "width": 337,
+        "height": 205
+      },
+      "visibleText": "微枫网络",
+      "position": "八卡片第一行第2张",
+      "note": "图中文字为微枫网络，站内名称为微风网络 Breezenet。用户明确确认关联，并要求保留文字差异备注；原图没有修改。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": true,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "a7be483629220f6010aa95a42a3ad1a7a47f1fa327478f76a8ad01649a30e6cf"
+    },
+    {
+      "id": "flycat",
+      "name": "飞猫云",
+      "editorialOrder": 4,
+      "logoPath": "assets/logos/replacements/flycat-v2.png",
+      "status": "blog-redesign-selected",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "visibleText": "飞猫云",
+      "position": "独立替换图整图",
+      "note": "飞行猫构图，与暮光采用不同图形。",
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "cf0faf51cef07f32a17b87eb173d1a903c0dac402cd4475134c8575b23c9ad73",
+      "assetOrigin": "generated-for-blog",
+      "previous": {
+        "logoPath": "assets/logos/eight-brand-source.png",
+        "crop": {
+          "x": 34,
+          "y": 274,
+          "width": 338,
+          "height": 205
+        },
+        "sourceImageSize": {
+          "width": 1448,
+          "height": 1086
+        }
+      }
+    },
+    {
+      "id": "dalaoyun",
+      "name": "大佬云",
+      "editorialOrder": 5,
+      "logoPath": "assets/logos/dalao-v2-global-source.png",
+      "status": "user-supplied-mapped",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1774,
+        "height": 887
+      },
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 887,
+        "height": 443
+      },
+      "visibleText": "大佬云 DALAOYUN",
+      "position": "三品牌拼图左上",
+      "note": null,
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "d91cbe54edce689db9cd8043030dc0eaec598208f6bd9c2e17655bda99fce05a"
+    },
+    {
+      "id": "invisible",
+      "name": "隐形人",
+      "editorialOrder": 6,
+      "logoPath": "assets/logos/replacements/invisible-v2.png",
+      "status": "user-replacement-selected",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 512,
+        "height": 512
+      },
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 512
+      },
+      "visibleText": "隐形人",
+      "position": "独立替换图整图",
+      "note": "使用用户提供的方形插画，完整显示。",
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "778cef8e3abb6cae1a3397e83a9caefdd7454665e6bf91b37379512ce7bde9f6",
+      "assetOrigin": "user-upload-replacement",
+      "previous": {
+        "logoPath": "assets/logos/four-brand-source.png",
+        "crop": {
+          "x": 887,
+          "y": 443,
+          "width": 887,
+          "height": 444
+        },
+        "sourceImageSize": {
+          "width": 1774,
+          "height": 887
+        }
+      }
+    },
+    {
+      "id": "flyv",
+      "name": "飞V",
+      "editorialOrder": 7,
+      "logoPath": "assets/logos/replacements/flyv-v2.png",
+      "status": "user-replacement-selected",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1280,
+        "height": 427
+      },
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 427
+      },
+      "visibleText": "飞V",
+      "position": "独立替换图整图",
+      "note": "使用用户提供的飞V/FlyV横幅；宣传口号不自动作为事实文案。",
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "9bfbc611fb144e14c976c6c727462ef61f55b7295feabcc768d351903dff8a4a",
+      "assetOrigin": "user-upload-replacement",
+      "previous": {
+        "logoPath": "assets/logos/flyv-source.png",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 2172,
+          "height": 724
+        },
+        "sourceImageSize": {
+          "width": 2172,
+          "height": 724
+        }
+      }
+    },
+    {
+      "id": "wavenet",
+      "name": "浪网 WaveNet",
+      "editorialOrder": 8,
+      "logoPath": "assets/logos/four-brand-source.png",
+      "status": "user-supplied-mapped",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1774,
+        "height": 887
+      },
+      "crop": {
+        "x": 887,
+        "y": 0,
+        "width": 887,
+        "height": 443
+      },
+      "visibleText": "浪网 LANGWANG",
+      "position": "四宫格右上",
+      "note": null,
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "e592c4b1a295ff14de1c928ac5ed9b2cc2298bf3e1b28a1d6a437ef4686e4f2f"
+    },
+    {
+      "id": "worryfree",
+      "name": "无忧",
+      "editorialOrder": 9,
+      "logoPath": "assets/logos/replacements/worryfree-v2.png",
+      "status": "user-replacement-selected",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1280,
+        "height": 426
+      },
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 426
+      },
+      "visibleText": "无忧",
+      "position": "独立替换图整图",
+      "note": "使用用户提供的无忧金色链环横幅；不把图中EST年份作为已核实事实。",
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": true,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "92dad3378c82d9151aa126dab55c3852eb3de3fa2f1b76d0cff5b37634b61a68",
+      "assetOrigin": "user-upload-replacement",
+      "previous": {
+        "logoPath": "assets/logos/eight-brand-source.png",
+        "crop": {
+          "x": 731,
+          "y": 274,
+          "width": 337,
+          "height": 205
+        },
+        "sourceImageSize": {
+          "width": 1448,
+          "height": 1086
+        }
+      }
+    },
+    {
+      "id": "firefly",
+      "name": "Firefly",
+      "editorialOrder": 10,
+      "logoPath": "assets/logos/replacements/firefly-v2.png",
+      "status": "user-replacement-selected",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1280,
+        "height": 426
+      },
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 426
+      },
+      "visibleText": "Firefly",
+      "position": "独立替换图整图",
+      "note": "使用用户提供的橙色Firefly横幅。",
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "91626540403f99eab0bec5b83d8890fcb84b9cb831f0c2e0bba9b01a2f4fb705",
+      "assetOrigin": "user-upload-replacement",
+      "previous": {
+        "logoPath": "assets/logos/eight-brand-source.png",
+        "crop": {
+          "x": 1079,
+          "y": 274,
+          "width": 337,
+          "height": 205
+        },
+        "sourceImageSize": {
+          "width": 1448,
+          "height": 1086
+        }
+      }
+    },
+    {
+      "id": "globalcloud",
+      "name": "全球云",
+      "editorialOrder": 11,
+      "logoPath": "assets/logos/dalao-v2-global-source.png",
+      "status": "user-supplied-mapped",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1774,
+        "height": 887
+      },
+      "crop": {
+        "x": 0,
+        "y": 443,
+        "width": 1100,
+        "height": 444
+      },
+      "visibleText": "全球云 QUANQIYUN",
+      "position": "三品牌拼图下方区域",
+      "note": "优先使用本次新版标识，旧版仍保留在八卡片原图内。",
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "d91cbe54edce689db9cd8043030dc0eaec598208f6bd9c2e17655bda99fce05a"
+    },
+    {
+      "id": "v2yun",
+      "name": "唯兔云（V2云）",
+      "editorialOrder": 12,
+      "logoPath": "assets/logos/dalao-v2-global-source.png",
+      "status": "user-supplied-mapped",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1774,
+        "height": 887
+      },
+      "crop": {
+        "x": 887,
+        "y": 0,
+        "width": 887,
+        "height": 443
+      },
+      "visibleText": "唯兔云 WEITUYUN",
+      "position": "三品牌拼图右上",
+      "note": null,
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "d91cbe54edce689db9cd8043030dc0eaec598208f6bd9c2e17655bda99fce05a"
+    },
+    {
+      "id": "civet",
+      "name": "灵猫",
+      "editorialOrder": 13,
+      "logoPath": "assets/logos/eight-brand-source.png",
+      "status": "user-supplied-mapped",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1448,
+        "height": 1086
+      },
+      "crop": {
+        "x": 34,
+        "y": 514,
+        "width": 338,
+        "height": 212
+      },
+      "visibleText": "灵猫",
+      "position": "八卡片第二行第1张",
+      "note": null,
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "a7be483629220f6010aa95a42a3ad1a7a47f1fa327478f76a8ad01649a30e6cf"
+    },
+    {
+      "id": "flashleap",
+      "name": "闪跃 FlashLeap",
+      "editorialOrder": 14,
+      "logoPath": "assets/logos/eight-brand-source.png",
+      "status": "user-supplied-mapped",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1448,
+        "height": 1086
+      },
+      "crop": {
+        "x": 383,
+        "y": 514,
+        "width": 337,
+        "height": 212
+      },
+      "visibleText": "闪跃 FlashLeap",
+      "position": "八卡片第二行第2张",
+      "note": null,
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "a7be483629220f6010aa95a42a3ad1a7a47f1fa327478f76a8ad01649a30e6cf"
+    },
+    {
+      "id": "laddercloud",
+      "name": "梯子云 LadderCloud",
+      "editorialOrder": 15,
+      "logoPath": "assets/logos/four-brand-source.png",
+      "status": "user-supplied-mapped",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1774,
+        "height": 887
+      },
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 887,
+        "height": 443
+      },
+      "visibleText": "梯子云 TIZIYUN",
+      "position": "四宫格左上",
+      "note": null,
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": false,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "e592c4b1a295ff14de1c928ac5ed9b2cc2298bf3e1b28a1d6a437ef4686e4f2f"
+    },
+    {
+      "id": "stardream",
+      "name": "星岛梦 StarDream",
+      "editorialOrder": 16,
+      "logoPath": "assets/logos/generated/stardream-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "星岛梦 StarDream",
+      "sha256": "14dffdd2876f4dd8c569b3f0e100dbf242e6cc15c02cc4851a873240bde9dcd2",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "lightspeed",
+      "name": "光速云 LightSpeed",
+      "editorialOrder": 17,
+      "logoPath": "assets/logos/generated/lightspeed-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "光速云",
+      "sha256": "a2ca07b6eff5b95a298ce8e6c59635456461a84d9bc8efecae32378b67e6b9c7",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "u1s1",
+      "name": "U1S1（有一说一）",
+      "editorialOrder": 18,
+      "logoPath": "assets/logos/generated/u1s1-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "有一说一 U1S1",
+      "sha256": "ec780b06376f90065932d3ba34e05ad05d188a8df21c39b4a44176b3b80abab0",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "jilianyun",
+      "name": "极连云",
+      "editorialOrder": 19,
+      "logoPath": "assets/logos/generated/jilianyun-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "极连云",
+      "sha256": "6838309d979dca31dc849d61958205f6acf9cdc1cf86f7e4564a312e8d9bfea8",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "guangnianti",
+      "name": "光年梯",
+      "editorialOrder": 20,
+      "logoPath": "assets/logos/generated/guangnianti-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "光年梯",
+      "sha256": "b9118e03cd77dc8dbd6ca35aba8d148a8a34c83870d4610050dffc9887f27826",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "sogoyun",
+      "name": "Sogo云",
+      "editorialOrder": 21,
+      "logoPath": "assets/logos/generated/sogoyun-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "Sogo云",
+      "sha256": "bef3d6824693d1e21c944cd60fe9ae45cf53693bb5d4ee25d891ada6d1d51c1a",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "yuzhou",
+      "name": "宇宙云 YuZhou",
+      "editorialOrder": 22,
+      "logoPath": "assets/logos/generated/yuzhou-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "宇宙云",
+      "sha256": "88071c00952c8b23bf295a90a517a877647e73534cc782cae9c25e897dd3a3fd",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "2mao",
+      "name": "二猫云 2mao",
+      "editorialOrder": 23,
+      "logoPath": "assets/logos/generated/2mao-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "二猫云",
+      "sha256": "e14eb6e862dfaa4e2848a49c193ede050c64fb9e71f62f5b1be06616624cb2cd",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "1fly",
+      "name": "一翻云 1fly",
+      "editorialOrder": 24,
+      "logoPath": "assets/logos/generated/1fly-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "一翻云",
+      "sha256": "b9d39e93f2963bccd2ef9ae2c0b6e1c900ec22b499c6dbdc02591692f4a1a054",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "edgenova",
+      "name": "边缘节点 EdgeNova",
+      "editorialOrder": 25,
+      "logoPath": "assets/logos/generated/edgenova-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "边缘节点 EdgeNova",
+      "sha256": "106cbafc9e7503846b91eb89798ecffd0301b8367fd951c45b8c90cba03b7200",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "kosing",
+      "name": "可信云",
+      "editorialOrder": 26,
+      "logoPath": "assets/logos/generated/kosing-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "可信云",
+      "sha256": "e095d399924bdb6b33ec7de23e41bd214289612a3fe16310bf401d089dd2bdfa",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "sujie",
+      "name": "速界 SuJie",
+      "editorialOrder": 27,
+      "logoPath": "assets/logos/generated/sujie-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "速界 SuJie",
+      "sha256": "6586187d40369aac4b150d45c27ba6b0b07e3546562100213403f12c5853a153",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "kuaili",
+      "name": "快狸 KuaiLi",
+      "editorialOrder": 28,
+      "logoPath": "assets/logos/generated/kuaili-blog-v1.png",
+      "status": "blog-designed-not-official",
+      "fallback": "brand-text",
+      "width": 2172,
+      "height": 724,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 2172,
+        "height": 724
+      },
+      "sourceImageSize": {
+        "width": 2172,
+        "height": 724
+      },
+      "origin": "generated-for-blog",
+      "renderMode": "crop-background-contain-foreground",
+      "visibleText": "快狸 KuaiLi",
+      "sha256": "515a9aee5ef449dd8f4726327b7535957e4d3b47deca1add96869a490b966a94",
+      "createdOn": "2026-11-06",
+      "note": "机场梦博客新设计的展示标识，不作为服务商官方Logo或官方认证的依据。",
+      "associationConfirmedByUser": true,
+      "textDiffersFromSiteName": false
+    },
+    {
+      "id": "kuajie",
+      "name": "跨界",
+      "editorialOrder": 29,
+      "logoPath": "assets/logos/eight-brand-source.png",
+      "status": "user-supplied-mapped",
+      "renderMode": "crop-background-contain-foreground",
+      "sourceImageSize": {
+        "width": 1448,
+        "height": 1086
+      },
+      "crop": {
+        "x": 731,
+        "y": 514,
+        "width": 337,
+        "height": 212
+      },
+      "visibleText": "跨界云",
+      "position": "八卡片第二行第3张",
+      "note": "图中文字为跨界云，站内名称为跨界；按用户提供的这一批素材记录名称变体，不改变推广链接。",
+      "associationConfirmedByUser": false,
+      "textDiffersFromSiteName": true,
+      "fallback": "brand-text",
+      "receivedOn": "2026-11-05",
+      "sourceAssetSha256": "a7be483629220f6010aa95a42a3ad1a7a47f1fa327478f76a8ad01649a30e6cf"
+    }
+  ],
+  "frame": {
+    "aspectRatio": 3,
+    "width": 1200,
+    "height": 400,
+    "foreground": "contain",
+    "background": "same-crop-cover-blur",
+    "missing": "brand-text"
+  },
+  "updatedOn": "2026-11-06",
+  "generatedAddonProviderCount": 13
+}

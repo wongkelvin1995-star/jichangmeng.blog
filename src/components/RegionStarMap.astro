@@ -1,0 +1,29 @@
+---
+// 模块 05「全球节点星图」：只接收已核实的地区记录。没有记录时不输出任何内容。
+interface Props {
+  regions?: { name: string; href?: string; note: string; verifiedOn: string }[];
+}
+
+const { regions = [] } = Astro.props;
+---
+
+{
+  regions.length > 0 && (
+    <section class="section wrap" aria-labelledby="regions-title">
+      <div class="section__head">
+        <div>
+          <p class="section__kicker">全球节点星图</p>
+          <h2 id="regions-title">按地区查看</h2>
+        </div>
+      </div>
+      <div class="choose-grid">
+        {regions.map((region) => (
+          <div class="choose">
+            <h3>{region.href ? <a href={region.href}>{region.name}</a> : region.name}</h3>
+            <p>{region.note}（核实于 {region.verifiedOn}）</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
