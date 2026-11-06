@@ -1,0 +1,13 @@
+# 文本文件一律用 LF：数据层用文件内容的哈希判断是否过期（scripts/check-brands.mjs），
+# Windows 上把 LF 换成 CRLF 会让哈希对不上。
+* text=auto eol=lf
+
+# 图片和字体按二进制处理
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
