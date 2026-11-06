@@ -1,4 +1,4 @@
-# Cloudflare Pages response headers. Keep this file ASCII-only; the reasons are explained in README.md.
+# Cloudflare Pages response headers. Keep this file ASCII-only; the reasons are explained in docs/DEVELOPMENT.md.
 
 # Build output under /_astro/ has content hashes in its file names.
 /_astro/*

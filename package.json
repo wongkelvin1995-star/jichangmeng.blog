@@ -11,6 +11,7 @@
     "import:md": "node scripts/import-md.mjs",
     "logos": "node scripts/build-logos.mjs",
     "og": "node scripts/build-og-images.mjs",
+    "readme": "node scripts/build-readme.mjs",
     "check:data": "node scripts/check-data.mjs && node scripts/check-brands.mjs",
     "build": "npm run check:data && astro build && pagefind --site dist && node scripts/verify-dist.mjs",
     "build:production": "node scripts/build-production.mjs",

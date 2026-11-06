@@ -563,6 +563,13 @@ for (const file of pages) {
   if (entry.title !== h1) warnings.push(`${path} 的标题改了，分享图上还是旧标题，运行 npm run og`);
 }
 for (const path of Object.keys(ogList)) if (!pages.some((file) => relative(file).replace(/index\.html$/, '') === path)) warnings.push(`分享图清单里的 ${path} 已经没有对应页面，运行 npm run og 清理`);
+// 仓库首页 README.md 由 scripts/build-readme.mjs 根据网站资料生成：资料或文章改了却没重新生成时提醒（不影响构建）。
+try {
+  const { renderReadme } = await import('./build-readme.mjs');
+  if (readFileSync(join(root, 'README.md'), 'utf8') !== renderReadme()) warnings.push('README.md 与网站资料不一致，运行 npm run readme 重新生成');
+} catch (error) {
+  warnings.push(`无法检查 README.md：${error.message}`);
+}
 if (warnings.length) console.warn(`提醒（${warnings.length} 项，不影响构建）：\n- ${warnings.join('\n- ')}`);
 
 if (errors.length) {
