@@ -9,10 +9,12 @@ export const day = (date?: Date) => date?.toISOString().slice(0, 10);
  * 资料批次会改动页面上的客户端、客服、声明和待确认事项，只看正文日期会把页面写旧（2026-11-06 审计发现）。
  * 页面、结构化数据和 sitemap 都用这里，保持一致。
  */
-export const brandPageUpdatedAt = (airport: Pick<Airport, 'mdSource'>, bodyUpdatedAt?: Date) => {
-  const batchDay = airport.mdSource?.collectedOn ? new Date(airport.mdSource.collectedOn) : undefined;
-  if (!bodyUpdatedAt) return batchDay;
-  return batchDay && batchDay > bodyUpdatedAt ? batchDay : bodyUpdatedAt;
+export const brandPageUpdatedAt = (airport: Pick<Airport, 'mdSource' | 'ownerVerified'>, bodyUpdatedAt?: Date) => {
+  // 站长核实（ownerVerified.verifiedOn）也会改动页面上的线路和价格说明，一并算进去。
+  const candidates = [bodyUpdatedAt, airport.mdSource?.collectedOn, airport.ownerVerified?.verifiedOn]
+    .filter(Boolean)
+    .map((value) => (value instanceof Date ? value : new Date(value as string)));
+  return candidates.length ? candidates.reduce((latest, value) => (value > latest ? value : latest)) : undefined;
 };
 
 const visible = <T extends { data: { draft: boolean } }>(entries: T[]) =>

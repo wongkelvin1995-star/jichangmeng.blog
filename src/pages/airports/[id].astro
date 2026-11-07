@@ -17,6 +17,8 @@ import {
   monthlyEquivalent,
   nodeCount,
   planTypeLabel,
+  ownerVerifiedLines,
+  ownerVerifiedPricing,
   pricingImagesOf,
   pricingScreenshotsHidden,
   publicConflicts,
@@ -52,8 +54,12 @@ const dataDate = airport.sourceUpdatedOn ?? batch.collectedOn;
 const summary =
   entry.data.summary ??
   `${airport.name}的套餐、付款周期、地区线路、客户端说明与已知限制，资料日期 ${dataDate}，未核验官网。`;
-const lineNote =
-  airport.lineTypesStatus === 'conflicting-reference' ? '（来源说法不一致，未确认）' : '（资料列示，未实测验证）';
+// 站长核实过的线路和价格（规则文件 ownerVerified）写明“站长核实/核对”和日期，不写成独立核验或官网核验。
+const verifiedOn = airport.ownerVerified?.verifiedOn ?? null;
+const lineNote = ownerVerifiedLines(airport)
+  ? `（站长 ${verifiedOn} 核实）`
+  : airport.lineTypesStatus === 'conflicting-reference' ? '（来源说法不一致，未确认）' : '（资料列示，未实测验证）';
+const pricingVerifiedNote = ownerVerifiedPricing(airport) ? `价格已由站长 ${verifiedOn} 核对，最终金额以结算页为准。` : '';
 const fromScreenshots = usesPricingScreenshots(airport);
 const shots = pricingImagesOf(airport.id);
 // 价格按截图整理、但站长决定不展示截图的品牌（微风网络，2026-11-06）：说明一句，读者不必在页面上找图。
@@ -78,13 +84,13 @@ const operating = airport.operatingStatus?.text ? airport.operatingStatus : null
 // 页面“最后更新”和结构化数据的修改日期：正文日期与资料批次日期取较晚的一个（来源列表里仍分别写正文和批次日期）。
 const pageUpdatedAt = brandPageUpdatedAt(airport, entry.data.updatedAt);
 
-const planIntro = fromScreenshots
+const planIntro = (fromScreenshots
   ? `以下按站长提供的套餐截图整理${shotsHidden ? '（截图不在本站展示）' : ''}，只含图中可见的方案，不一定是全部套餐${candidateCount ? `；另有 ${candidateCount} 条资料批次另列、截图中未见的报价，只作候选列在最后，不参与价格比较` : ''}。`
   : airport.pricingPriority === 'owner-version'
     ? '以下按站长提供的资料整理，仍未核验官网结算。'
     : airport.pricingPriority === 'md-batch'
       ? '以下整理自第三方博客的资料批次，只有单一或少数来源，未核验官网。'
-      : '以下合并了参考资料的代表报价和资料批次补充的付款周期，不一定是完整套餐表；两者说法不同的档位标为冲突。';
+      : '以下合并了参考资料的代表报价和资料批次补充的付款周期，不一定是完整套餐表；两者说法不同的档位标为冲突。') + pricingVerifiedNote;
 
 const toc = [
   ...(operating ? [{ id: 'status', text: '运营状态' }] : []),
@@ -155,7 +161,7 @@ const toc = [
   <h2 id="plan-details">套餐价格与付款周期</h2>
   <p>
     {planIntro}
-    金额是一次付款的标价，未代入优惠码，也未核验结算；季付、半年付和年付的每月额度不是整段时间的总量，一次性流量包是总量；资料缺少的付款周期保持空缺，不按折扣推算。
+    金额是一次付款的标价，未代入优惠码{!ownerVerifiedPricing(airport) && '，也未核验结算'}；季付、半年付和年付的每月额度不是整段时间的总量，一次性流量包是总量；资料缺少的付款周期保持空缺，不按折扣推算。
   </p>
   <div class="table-wrap">
     <table class="plan-table">
@@ -418,6 +424,13 @@ const toc = [
       )
     }
     <li>资料批次：{batch.readerSourceLabel}，整理于 {batch.collectedOn}；补充了付款周期、客户端、客服和声明等记录。未核验官网，也没有服务商的原始公告。</li>
+    {
+      airport.ownerVerified && (
+        <li>
+          站长核实：{verifiedOn}{ownerVerifiedLines(airport) && ` 核实线路（${airport.network?.lineText}）`}{ownerVerifiedLines(airport) && ownerVerifiedPricing(airport) && '，'}{ownerVerifiedPricing(airport) && '核对价格'}；不是第三方的独立核验。本站实测待更新。
+        </li>
+      )
+    }
     {airport.logoStatus === 'blog-designed-not-official' && <li>页首标识：机场梦设计的展示图，只用来区分品牌，不是服务商的官方标志；图形和颜色不代表线路、速度或稳定性。</li>}
     <li>本页是资料评析，没有本站实测，不据此判断速度或长期稳定性。</li>
     {entry.data.publishedAt && <li>发布于 {day(entry.data.publishedAt)}</li>}

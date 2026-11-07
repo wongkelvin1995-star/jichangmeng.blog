@@ -151,6 +151,8 @@ export interface Airport {
   reviewNotes?: { text: string; public: boolean }[];
   fieldConflicts?: FieldConflict[];
   importResult?: string;
+  /** 站长核实过的信息（规则文件 ownerVerified）：lines = 线路已核实，pricing = 价格已由站长核对。 */
+  ownerVerified?: { verifiedOn: string; lines: boolean; pricing: boolean } | null;
   /** 这家资料在「机场MD」批次里的来源文件；collectedOn 是批次整理日期。 */
   mdSource?: { batchId: string; file: string; no: string; collectedOn: string; sha256: string } | null;
 }
@@ -356,15 +358,21 @@ export const hasSourceConflict = (airport: Airport) =>
   (airport.fieldConflicts ?? []).some((item) => item.public) ||
   (airport.reviewNotes ?? []).some((item) => item.public);
 
+/** 站长核实：线路已核实 / 价格已由站长核对（2026-11-07 起，规则文件 ownerVerified）。不是独立核验，也不是官网核验。 */
+export const ownerVerifiedLines = (airport: Airport) => airport.ownerVerified?.lines === true;
+export const ownerVerifiedPricing = (airport: Airport) => airport.ownerVerified?.pricing === true;
+const ownerVerifiedAll = (airport: Airport) => ownerVerifiedLines(airport) && ownerVerifiedPricing(airport);
+
 export const statusLabel = (airport: Airport) => {
   // 运营状态互相矛盾或疑似演示站的品牌，有价格也不能当作可正常购买。
   if (airport.operatingStatus?.status === 'contradictory') return '运营状态待核';
   if (airport.operatingStatus?.status === 'static-demo-suspected') return '疑似演示站，待核';
   if (airport.isNew) return '新收录，待核验';
+  if (ownerVerifiedAll(airport)) return '站长已核实';
   return hasSourceConflict(airport) ? '有来源差异' : '官网待核验';
 };
 export const needsAttention = (airport: Airport) =>
-  hasSourceConflict(airport) || airport.isNew || ['contradictory', 'static-demo-suspected'].includes(airport.operatingStatus?.status);
+  (hasSourceConflict(airport) && !ownerVerifiedAll(airport)) || airport.isNew || ['contradictory', 'static-demo-suspected'].includes(airport.operatingStatus?.status);
 
 /** 卡片底部的资料说明。 */
 export const pricingSourceLabel = (airport: Airport) => {

@@ -38,11 +38,18 @@
         { "text": "可选两年付、三年付", "basis": "套餐表：有两年付、三年付报价（资料批次）" },
         { "text": "可申请退款与升级补差价", "basis": "MD 客服：可申请退款与升级补差价，具体条件以平台指引为准" }
       ],
+      "ownerVerified": {
+        "verifiedOn": "2026-11-07",
+        "lineText": "全线 IEPL / IPLC 专线",
+        "lineTypes": ["IEPL", "IPLC"],
+        "pricing": true,
+        "basis": "站长 2026-11-07 在对话中确认：线路已核实为全线 IEPL / IPLC 专线；价格已由站长核对（写作“站长已核对”，不写“独立核验”）；AI 工具和高清视频的本站实测待更新。"
+      },
       "notes": [
         { "public": true, "text": "订阅链接：本批资料称已暂停第三方订阅链接，但这份公告是否由灵动云发布尚未确认，本站不把它当作灵动云的正式政策；恢复时间未知。" },
-        { "public": true, "text": "AI 支持：资料声明支持 Claude；2026-10-28 晚高峰的一次第三方测试记录显示香港、新加坡、美国三地 Claude 均无法连接。两者时间和条件不同，都不是本站测试。" },
+        { "public": true, "text": "AI 支持：资料声明支持 Claude；2026-10-28 晚高峰的一次第三方测试记录显示香港、新加坡、美国三地 Claude 均无法连接。两者时间和条件不同，都不是本站测试；本站实测待更新。" },
         { "public": true, "text": "节点地区：面板记录为 5 个地区、60 个节点；服务商另列更多地区（含马来西亚、韩国、欧洲），未并入确认范围。" },
-        { "public": true, "text": "线路类型：各资料分别写作 IEPL + BGP、IEPL / IPLC 或 IPLC，说法不一。" },
+        { "public": true, "text": "线路类型：各资料原先分别写作 IEPL + BGP、IEPL / IPLC 或 IPLC；站长 2026-11-07 核实为全线 IEPL / IPLC 专线。" },
         { "public": false, "text": "邀请码：一处资料使用 TIMwZeIR，其余资料与推广链接一致为 HHoxxHGa；本站沿用推广链接中的 HHoxxHGa。" },
         { "public": false, "text": "优惠码 ld888 的折扣幅度只有一处资料写明 8 折。" }
       ]

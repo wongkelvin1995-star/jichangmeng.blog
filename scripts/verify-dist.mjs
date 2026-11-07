@@ -417,7 +417,10 @@ if (spotlightAt > -1) {
   if (brand) {
     check(block.includes(`href="${brand.affiliateUrl}" rel="sponsored noopener"`), '首页主推模块的推广链接缺少 sponsored');
     check(!brand.coupons?.[0] || block.includes(`data-copy="${brand.coupons[0].code}"`), '首页主推模块缺少优惠码复制');
-    check(block.includes('含推广链接') && block.includes('未独立核验'), '首页主推模块缺少推广披露或未核验说明');
+    // 价格由站长核对过（ownerVerified.pricing）时写“已由站长核对”，否则必须写“未独立核验”；不能写成“独立核验”。
+    const pricingNote = brand.ownerVerified?.pricing ? `已由站长核对（${brand.ownerVerified.verifiedOn}）` : '未独立核验';
+    check(block.includes('含推广链接') && block.includes(pricingNote), `首页主推模块缺少推广披露或价格核验说明（应写“${pricingNote}”）`);
+    check(!/已独立核验|经独立核验/.test(block), '首页主推模块不能写“独立核验”：站长核对不是第三方的独立核验');
     const eligibleMonthly = brand.packages.filter((q) => q.billingPeriod === 'month' && q.eligibleForReferenceComparison).map((q) => q.amount);
     const shown = block.match(/class="price__main"><strong>¥([\d.]+)<\/strong>/)?.[1];
     if (shown) check(Number(shown) === Math.min(...eligibleMonthly), `首页主推模块的价格 ¥${shown} 不是可比较报价中的最低月付`);

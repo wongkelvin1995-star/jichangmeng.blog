@@ -9,7 +9,7 @@
   "siteClientRecommendation": "本站优先建议从服务商正式渠道获取客户端；具体客户端和订阅支持情况以各品牌当前说明为准。",
   "inputs": {
     "baseSha256": "9a97c81d634757df27c3241eb1e1bf2ff0fb4867b40f7fa7b93007476056cb64",
-    "rulesSha256": "5891cd11c881073a83870ba60151b892e90f5922dac949ce945310a1ed1607d3",
+    "rulesSha256": "15647ba8c3b48b4bc91e1b2219a45e838435213221d7d6b778b041a3e543e2ee",
     "files": [
       {
         "file": "00_官网客户端说明.md",
@@ -284,14 +284,13 @@
         "美国"
       ],
       "lineTypes": [
-        "IPLC",
         "IEPL",
-        "BGP"
+        "IPLC"
       ],
       "protocols": [
         "Shadowsocks"
       ],
-      "lineTypesStatus": "reference-reported",
+      "lineTypesStatus": "owner-verified",
       "clientSupportStatus": "not-directly-verified",
       "operatingStatus": {
         "status": "unverified",
@@ -1342,7 +1341,7 @@
           "value": 60,
           "plus": false
         },
-        "lineText": "IEPL 专线 + BGP 智能调度，穿云套餐为 IPLC 专线",
+        "lineText": "全线 IEPL / IPLC 专线",
         "multiplierText": "全节点统一 1x 倍率",
         "notes": [],
         "doubts": []
@@ -1442,7 +1441,7 @@
           "public": true
         },
         {
-          "text": "AI 支持：资料声明支持 Claude；2026-10-28 晚高峰的一次第三方测试记录显示香港、新加坡、美国三地 Claude 均无法连接。两者时间和条件不同，都不是本站测试。",
+          "text": "AI 支持：资料声明支持 Claude；2026-10-28 晚高峰的一次第三方测试记录显示香港、新加坡、美国三地 Claude 均无法连接。两者时间和条件不同，都不是本站测试；本站实测待更新。",
           "public": true
         },
         {
@@ -1450,7 +1449,7 @@
           "public": true
         },
         {
-          "text": "线路类型：各资料分别写作 IEPL + BGP、IEPL / IPLC 或 IPLC，说法不一。",
+          "text": "线路类型：各资料原先分别写作 IEPL + BGP、IEPL / IPLC 或 IPLC；站长 2026-11-07 核实为全线 IEPL / IPLC 专线。",
           "public": true
         },
         {
@@ -1470,6 +1469,11 @@
         "no": "01",
         "collectedOn": "2026-11-06",
         "sha256": "86bfe6139218624420f8622c9665bdc9923dfd64356974ca93536c8d082046be"
+      },
+      "ownerVerified": {
+        "verifiedOn": "2026-11-07",
+        "lines": true,
+        "pricing": true
       },
       "importResult": "更新",
       "quoteStats": {

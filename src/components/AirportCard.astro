@@ -21,6 +21,7 @@ import {
   statusLabel,
   trafficLabel,
   usesPricingScreenshots,
+  ownerVerifiedPricing,
   type Airport,
 } from '../lib/airports';
 
@@ -45,7 +46,11 @@ const nodes = nodeCount(airport);
 const fromScreenshots = usesPricingScreenshots(airport);
 const clientNote = clientCardNote(airport);
 
-const quotesFoot = fromScreenshots
+// 价格由站长核对过的品牌（规则文件 ownerVerified）写“站长已核对”和日期，不写“未核验”。
+const pricingVerifiedOn = ownerVerifiedPricing(airport) ? airport.ownerVerified!.verifiedOn : null;
+const quotesFoot = pricingVerifiedOn
+  ? `摘录报价，不是完整套餐表；价格已由站长 ${pricingVerifiedOn} 核对，最终以结算页为准。`
+  : fromScreenshots
   ? `整理自站长提供的套餐截图（${airport.pricingEvidenceReceivedOn} 收到，拍摄时间未知），只含图中可见的方案，未核验结算。`
   : airport.pricingPriority === 'owner-version'
     ? `按站长提供的资料整理（${airport.referenceReviewedOn} 前后收录），未核验结算。`
@@ -158,7 +163,7 @@ const filterAttrs = filterable
       airport.affiliateUrl ? (
         <>
           <AffiliateLink href={airport.affiliateUrl} name={airport.name} />
-          <small>推广链接 · {pricingSourceLabel(airport)}，未独立核验<br />报价及规则以购买页为准</small>
+          <small>推广链接 · {pricingSourceLabel(airport)}，{pricingVerifiedOn ? `站长 ${pricingVerifiedOn} 已核对` : '未独立核验'}<br />报价及规则以购买页为准</small>
         </>
       ) : (
         <small>推广链接待确认，暂不提供购买入口</small>

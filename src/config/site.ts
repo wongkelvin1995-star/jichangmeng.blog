@@ -7,8 +7,11 @@ export interface SpotlightWhyItem {
   title?: string;
   /** 可用的占位符见 BrandSpotlight.astro 的 tokens；{testedOn}、{testNetwork} 要配合 test。 */
   text: string;
-  /** 条件成立才显示：subscriptionPaused 资料记录暂停第三方订阅；linesUnverified 线路类型未核实。恢复或核实后，这条自动消失。 */
-  when?: 'subscriptionPaused' | 'linesUnverified';
+  /**
+   * 条件成立才显示：subscriptionPaused 资料记录暂停第三方订阅；linesUnverified / linesVerified 线路未核实 / 站长已核实；
+   * pricingUnverified / pricingVerified 价格未核对 / 站长已核对。状态变了，对应的条目自动切换。
+   */
+  when?: 'subscriptionPaused' | 'linesUnverified' | 'linesVerified' | 'pricingUnverified' | 'pricingVerified';
   /** 这条依据的第三方测试 id；数据层里没有这条测试时构建报错，提醒按新资料重写。 */
   test?: string;
 }
@@ -66,12 +69,15 @@ export const site = {
      */
     why: {
       brandId: 'lingdongyun',
-      reviewedOn: '2026-11-06',
+      reviewedOn: '2026-11-07',
       eyebrow: 'AI 旁观视角',
       title: '为什么主推{name}？',
       lead: '这一段换个角度，由 AI 只根据本站收录的资料来回答。先说清楚：这是站长主推的品牌，入口含推广链接，通过本站注册或购买，本站可能获得佣金。抛开这层关系、只看资料，它被放在这里有几条站得住的理由，也有几处需要你自己核对。',
+      // 2026-11-07 站长核实线路（全线 IEPL / IPLC 专线）、核对价格；AI 与高清视频的本站实测待更新。
       reasons: [
-        { title: '试用成本低', text: '月付 {monthly} 就有 {monthlyGB} 流量，先买一个月试试合不合用，花费不大。' },
+        { when: 'linesVerified', title: '线路已核实', text: '{lineText}，站长 {verifiedOn} 核实。' },
+        { when: 'pricingVerified', title: '试用成本低', text: '月付 {monthly} 就有 {monthlyGB} 流量（价格经站长 {verifiedOn} 核对），先买一个月试试合不合用，花费不大。' },
+        { when: 'pricingUnverified', title: '试用成本低', text: '月付 {monthly} 就有 {monthlyGB} 流量，先买一个月试试合不合用，花费不大。' },
         { title: '套餐跨度大', text: '从 {annualSmall} 一年、每月 {annualSmallGB} 的年付小包，到 {monthlyTiers} 档月付（最高每月 {maxMonthlyGB}），还有 {oneTimeCount} 款一次性流量包和私人定制，轻度和重度用户都能找到对应档位。' },
         { title: '长期用更省', text: '按资料列示的标价折算，年付约为月付的 {yearZhe}，三年付约 {threeYearZhe}；先用月付确认合适，再换长周期也不迟。' },
         { title: '规则对新手友好', text: '资料写明全节点 1x 倍率、不限同时在线设备数；月内流量用完可以买同档重置包，也可申请退款和升级补差价。' },
@@ -80,10 +86,10 @@ export const site = {
       checks: [
         { when: 'subscriptionPaused', title: '第三方订阅暂停', text: '资料称暂不支持导入 Clash、小火箭等，只能用官方客户端；这份公告是否出自{name}尚未确认，恢复时间未知。' },
         { when: 'linesUnverified', title: '线路说法不一', text: '各资料分别写作 IEPL + BGP、IEPL / IPLC 或 IPLC，本站没有实测。' },
-        { test: 'lingdongyun-md-test-1', title: 'AI 工具和高清视频要先试', text: '资料称支持 ChatGPT、Claude 等 AI 工具；但一次转述的第三方晚高峰测试（{testedOn}，{testNetwork}）里，香港、新加坡的 ChatGPT 可用，香港、新加坡、美国三地的 Claude 都没连上，测试结论也写明不适合 1080p 以上视频或大文件下载。这次测试没有原始截图或日志。' },
-        { title: '价格未独立核验', text: '报价摘自{pricingSource}，最终金额与规则以购买页为准。' },
+        { title: 'AI 工具和高清视频', text: '关于实测部分，待更新中。' },
+        { when: 'pricingUnverified', title: '价格未独立核验', text: '报价摘自{pricingSource}，最终金额与规则以购买页为准。' },
       ],
-      verdict: { test: 'lingdongyun-md-test-1', text: '更适合想低成本先试、看重套餐弹性和售后规则的人；如果你主要用 Claude，或常看 1080p 以上的视频，先买一个月实际用用，再决定要不要换长周期。' },
+      verdict: { text: '更适合想低成本先试、看重套餐弹性和售后规则的人；AI 工具和高清视频的实测结果出来之前，建议先买一个月实际用用，再决定要不要换长周期。' },
     } as SpotlightWhy,
   },
 
@@ -103,8 +109,9 @@ export const site = {
 export const pageUpdatedOn = {
   // 2026-11-06：导入「机场MD」资料批次，首页计数、目录和编辑方法的资料范围随之变化；
   // 同日按 SEO_KEYWORD_PLAN 第 1 批更新口号、首页入口、关于页，推广说明补了免责声明。
-  home: '2026-11-06',
-  airports: '2026-11-06',
+  // 2026-11-07：灵动云线路经站长核实、价格经站长核对，首页主推简介和目录卡片的说法随之更新。
+  home: '2026-11-07',
+  airports: '2026-11-07',
   about: '2026-11-06',
   editorialPolicy: '2026-11-06',
   disclosure: '2026-11-06',

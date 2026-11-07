@@ -718,6 +718,18 @@ for (const rb of rules.brands) {
     mdSource: { batchId: batch.id, file, no: rb.no, collectedOn: batch.collectedOn, sha256: fileRecords.find((item) => item.file === file).sha256 },
   };
 
+  // 站长核实过的信息（规则文件里的 ownerVerified，2026-11-07 起）：线路改用核实后的写法并标为站长核实；
+  // 价格记为站长已核对。页面据此显示“站长核实/站长已核对”和日期，不写成独立核验或官网核验。
+  if (rb.ownerVerified) {
+    const ov = rb.ownerVerified;
+    record.ownerVerified = { verifiedOn: ov.verifiedOn, lines: Boolean(ov.lineText), pricing: ov.pricing === true };
+    if (ov.lineText) {
+      record.network = { ...record.network, lineText: ov.lineText };
+      record.lineTypes = ov.lineTypes ?? lineTokens(ov.lineText);
+      record.lineTypesStatus = 'owner-verified';
+    }
+  }
+
   // “更新”= 采用值或参与比较的报价有变化；截图品牌的差异只记成候选和冲突，采用值不变，算“保留”。
   const coreChanged = (quoteStats.conflict > 0 && !screenshotPricing) || quoteStats.addedEligible > 0 || quoteStats.statusChanged > 0 || (existing && nodeCountDisplay !== existing.nodeCountDisplay);
   record.importResult = rb.new

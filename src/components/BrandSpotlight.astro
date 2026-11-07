@@ -12,6 +12,8 @@ import {
   formatYuan,
   listedQuotes,
   lowestMonthly,
+  ownerVerifiedLines,
+  ownerVerifiedPricing,
   pricingSourceLabel,
   statusLabel,
   trafficLabel,
@@ -85,10 +87,15 @@ const tokens: Record<string, string | null> = {
   coupon: coupon?.code ?? null,
   couponDiscount: coupon?.discountLabel ? coupon.discountLabel.replace(/(\d)\s*折/, '$1 折') : null,
   pricingSource: pricingSourceLabel(airport),
+  lineText: airport.network?.lineText ?? null,
+  verifiedOn: airport.ownerVerified?.verifiedOn ?? null,
 };
 const conditions: Record<NonNullable<SpotlightWhyItem['when']>, boolean> = {
   subscriptionPaused: airport.client?.subscription.status === 'paused',
-  linesUnverified: airport.lineTypesStatus !== 'verified',
+  linesUnverified: !['verified', 'owner-verified'].includes(airport.lineTypesStatus ?? ''),
+  linesVerified: ownerVerifiedLines(airport),
+  pricingVerified: ownerVerifiedPricing(airport),
+  pricingUnverified: !ownerVerifiedPricing(airport),
 };
 const whyError = (message: string) => new Error(`首页主推简介：${message}，请按新资料更新 src/config/site.ts 的 spotlight.why`);
 const fill = (item: Pick<SpotlightWhyItem, 'text' | 'test'>) => {
@@ -180,7 +187,14 @@ const visible = (items: SpotlightWhyItem[]) => items.filter((item) => !item.when
       <div class="fact">
         <h3>线路与节点</h3>
         <ul>
-          {airport.network?.lineText && <li>资料列示：{airport.network.lineText}（各资料说法不一，未实测）</li>}
+          {
+            airport.network?.lineText &&
+              (ownerVerifiedLines(airport) ? (
+                <li>线路：{airport.network.lineText}（站长 {airport.ownerVerified!.verifiedOn} 核实）</li>
+              ) : (
+                <li>资料列示：{airport.network.lineText}（各资料说法不一，未实测）</li>
+              ))
+          }
           {airport.network?.multiplierText && <li>{airport.network.multiplierText}</li>}
           {regions.length > 0 && <li>{regions.join('、')}{airport.nodeCountDisplay && ` · 节点 ${airport.nodeCountDisplay}`}</li>}
         </ul>
@@ -215,7 +229,7 @@ const visible = (items: SpotlightWhyItem[]) => items.filter((item) => !item.when
   </div>
 
   <p class="spotlight__note">
-    站长主推，含推广链接，不是统一测评或排名；注册或购买可能使本站获得佣金，本站不另收费用。价格来自{pricingSourceLabel(airport)}，未独立核验，最终金额与规则以购买页为准。
+    站长主推，含推广链接，不是统一测评或排名；注册或购买可能使本站获得佣金，本站不另收费用。价格来自{pricingSourceLabel(airport)}，{ownerVerifiedPricing(airport) ? `已由站长核对（${airport.ownerVerified!.verifiedOn}）` : '未独立核验'}，最终金额与规则以购买页为准。
     {extraLinks.map((link) => <><a href={link.href}>{link.label}</a>　</>)}
   </p>
 </section>

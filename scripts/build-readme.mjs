@@ -123,15 +123,17 @@ export function renderReadme() {
       ...compares.filter((entry) => entry.slug.includes(spotlight.id)).map((entry) => link(entry.data.title, `/compare/${entry.slug}/`)),
     ];
     const coupon = spotlight.coupons?.[0];
+    const verified = spotlight.ownerVerified ?? null;
     push(
       `### 站长主推：${spotlight.name}`,
       '',
-      `- 月付起：${priceText(spotlight)}（资料摘录的最低月付）`,
+      ...(verified?.lines && spotlight.network?.lineText ? [`- 线路：${spotlight.network.lineText}（站长 ${verified.verifiedOn} 核实）`] : []),
+      `- 月付起：${priceText(spotlight)}（${verified?.pricing ? `价格经站长 ${verified.verifiedOn} 核对` : '资料摘录的最低月付'}）`,
       ...(spotlight.cardHighlights?.length ? [`- 亮点：${spotlight.cardHighlights.join('；')}`] : []),
       ...(coupon && couponText(coupon) ? [`- 优惠码：\`${coupon.code}\`（${couponText(coupon)}；具体套餐和有效期以结算页为准）`] : []),
       `- 资料：${spotlightLinks.join(' · ')}`,
       '',
-      '站长主推含推广链接，不是统一测评或排名；价格来自资料摘录，未独立核验，最终金额与规则以购买页为准。',
+      `站长主推含推广链接，不是统一测评或排名；${verified?.pricing ? `价格已由站长核对（${verified.verifiedOn}），不是第三方的独立核验` : '价格来自资料摘录，未独立核验'}，最终金额与规则以购买页为准。AI 工具和高清视频的本站实测待更新。`,
       '',
     );
   }
